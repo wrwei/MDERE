@@ -1,0 +1,63 @@
+\documentclass[runningheads,a4paper]{llncs}
+\usepackage{cite}
+\usepackage{graphicx}
+\usepackage{listings}
+ 
+%-------------------------------------------------
+% Comments/Collaboration
+%-------------------------------------------------
+\usepackage[dvipsnames]{xcolor}
+\usepackage{todonotes}
+\newcommand\will[1]{\todo[author=Will,color=Orchid]{#1}}
+\newcommand\tim[1]{\todo[author=Tim,color=Apricot]{#1}}
+\newcommand\richard[1]{\todo[author=Richard,color=JungleGreen]{#1}}
+
+\authorrunning{Ran Wei, Tim P. Kelly, Richard Hawkins}
+
+\makeatletter
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+	{-18\p@ \@plus -4\p@ \@minus -4\p@}%
+	{4\p@ \@plus 2\p@ \@minus 2\p@}%
+	{\normalfont\normalsize\bfseries\boldmath
+		\rightskip=\z@ \@plus 8em\pretolerance=10000 }}
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+	{-12\p@ \@plus -4\p@ \@minus -4\p@}%
+	{2\p@ \@plus 1\p@ \@minus 1\p@}%
+	{\normalfont\normalsize\itshape
+		\rightskip=\z@ \@plus 8em\pretolerance=10000 }}
+\makeatother
+
+
+
+
+\begin{document}
+ 
+\title{\textbf{A Systematic Approach For Model Based System Assurance}}
+\author{Ran Wei \and Tim P. Kelly \and Richard Hawkins
+}
+
+\institute{University of York, United Kingdom \email{\{ran.wei,tim.kelly,richard.hawkins\}@york.ac.uk}
+}
+\maketitle
+
+\input{abstract}
+
+\input{section1}
+
+\input{section2}
+
+\input{section3}
+
+\input{section4}
+
+\input{section5}
+
+\input{section6}
+
+\noindent\textbf{Acknowledgements}
+This project has received funding from the European Union'’s Horizon 2020 research and innovation programme under grant agreement No 732242. 
+
+\bibliographystyle{unsrt} 
+\bibliography{bibliography}  
+
+\end{document}
