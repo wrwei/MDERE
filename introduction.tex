@@ -1,0 +1,32 @@
+\section{Introduction}
+Systems/services used to perform critical functions require justifications that they exhibit necessary properties (in terms of safety and/or security). \textit{Assurance case}s provide an explicit means for justifying and assessing confidence in these critical properties. In certain industries, typically in the safety-critical domain (e.g. defence, avaiation, automotive and nuclear), it is a regulatory requirement that an assurance case (or a safety case) is developed and reviewed as part of the certification process \cite{healthFound}.
+An assurance case is a document that facilitates information exchange between various system stakeholders (e.g. between operator and regulator), where the knowledge related to the safety and security of the system is communicated in a clear and defendable way \cite{}. 
+
+%System Assurance is the process of building clear, comprehensive and defensible arguments regarding the properties of systems (i.e. safety and/or security. 
+Assurance cases are typically represented textually, using natural languages; or graphically, using structured notations such as the Goal Structuring Notation (GSN) \cite{} or Claims, Arguments and Evidence (CAE) \cite{}. 
+%The creation of assurance cases is often a manual process, there have been some approaches and tools to apply principals of Model Driven Engineering (MDE) in order to benefit from automation provided by MDE. 
+To improve standardisation and interoperability, the Object Management Group (OMG) specified and issued a Structured Assurance Case Metamodel (SACM) for the representation of assurance cases. 
+Although SACM defines how an assurance case (machine-readable) model can be constructed, there has been little tool support for it. Existing tools that support the construction of assurance cases are mostly drawing tools that produce diagrams rather than machine-readable models. 
+Hence, system assurance remains a manual, lengthy and informal process.
+
+We speculate the reason behind this is that there is a cognitive gap between the intended usage of SACM and the practitioner's understanding of it. 
+In addition, with the advancement of Internet of Things (IoT) and Cyber-Physical Systems (CPS), model-based assurance cases seem particularly important as systems (in particular, safety-critical systems) form system of systems which requires a certain degree of automation to ensure the safety/security of the entire system. 
+
+
+
+%Broadly speaking, the development and acceptance of assurance cases poses significant challenges for engineers and assessors. This is due to the size and complexity of assurance cases, where explicit and implicit dependencies exist between the argumentation for safety/security in the assurance case and its supporting evidence/artefacts, which may include system test data, system failure and hazard analysis, system architecture, etc. In particular, the lack of integration with, and the limited traceability to these evidence/artefacts undermine confidence in the argumentation presented in the assurance case. 
+
+%A number of model based system assurance have been proposed, which makes use of MDE to promote automation and the traceability between the assurance case and its supporting artefacts. However, such approaches are ad-hoc approaches which do not fully use the potentials of SACM. Therefore, we speculate that there is a cognitive gap between the intended usage of SACM facilities and the practitioner's understanding of SACM. 
+
+In this paper, we provide a definitive guide to SACM. We first discuss the motivation of our work, then we discuss the relationship between the Goal Structuring Notation (GSN) and SACM. We then provide detailed discussions about the facilities provided by SACM\footnote{Version 2.0 as of April, 2019}. We demonstrate how SACM can be used to construct an assurance case using examples, and how to maintain the traceability between the argumentation of assurance cases and their supporting evidence/artefacts.
+
+Specifically, the contributions of this paper are as follows:
+\begin{itemize}
+	\item A definitive guide to SACM version 2.0;
+	\item An official mapping between SACM and GSN;
+	\item A GSN metamodel that is compliant with SACM;
+	\item A detailed discussion on how to use SACM to create a complete system assurance case.
+\end{itemize}
+
+This paper is organised as follows. In Section~\ref{}, we provide the background and the motivation of our work. In Section~\ref{} we provide detailed discussions about SACM. We also provide examples on how to use SACM to construct an assurance case. In Section~\ref{}, we discuss the relationship between GSN and SACM. We provide an official GSN metamodel that is compliant with SACM and we provide a model transformation to interoperate between GSN and SACM. In Section~\ref{}, we provide a case study to show how SACM can be used in the context of system assurance in Cyber-Physical Systems (and potentially networks of Cyber-Physical Systems). In Section~\ref{}, we discuss future works with regard to tool support. We finally conclude the paper in Section~\ref{}.
+
