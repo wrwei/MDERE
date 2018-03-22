@@ -2,6 +2,9 @@
 \usepackage{cite}
 \usepackage{graphicx}
 \usepackage{listings}
+\usepackage{caption}
+
+
  
 %-------------------------------------------------
 % Comments/Collaboration
@@ -11,6 +14,22 @@
 \newcommand\will[1]{\todo[author=Will,color=Orchid]{#1}}
 \newcommand\tim[1]{\todo[author=Tim,color=Apricot]{#1}}
 \newcommand\richard[1]{\todo[author=Richard,color=JungleGreen]{#1}}
+
+\lstset{escapeinside={/*@}{@*/}}
+\definecolor{codebackground}{rgb}{0.95,0.95,0.95}
+\lstset{backgroundcolor=\color{codebackground}}
+
+
+\lstset{
+	xleftmargin=0em,
+	captionpos=b,
+	basicstyle=\ttfamily\color[rgb]{0.4,0.4,0.4},
+	columns=flexible,
+	tabsize=2,
+	numbers=none,
+	keywordstyle=\bfseries\color[rgb]{0,0,0},
+	nolol=true
+}
 
 \authorrunning{Ran Wei, Tim P. Kelly, Richard Hawkins}
 
@@ -42,7 +61,9 @@
 
 \input{background}
 
-\input{section2}
+\input{gsn}
+
+\input{sacm}
 
 \input{section3}
 

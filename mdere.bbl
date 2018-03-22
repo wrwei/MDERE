@@ -5,4 +5,37 @@ Health Foundation.
 \newblock {\em Using safety cases in industry and healthcare}.
 \newblock December 2012.
 
+\bibitem{hse}
+Health and Safety~Executive (HSE).
+\newblock {\em Safety Assessment Principles for Nuclear Facilities}.
+\newblock 2006.
+
+\bibitem{mod2007}
+UK~Ministry of~Defence~(MoD).
+\newblock {\em Defence Standard 00-56 Issue 4: Safety Management Requirements
+  for Defence Systems}.
+\newblock 2007.
+
+\bibitem{caa2007}
+Safety Regulation~Group Civil Aviation Authority~(CAA).
+\newblock {\em CAP 670 - Air Traffic Services Safety Requirements}.
+\newblock 2007.
+
+\bibitem{yellowBook2007}
+Rail Safety and Standards Board.
+\newblock {\em Engineering Safety Management (The Yellow Book)}.
+\newblock 2007.
+
+\bibitem{kelly2004goal}
+Tim Kelly and Rob Weaver.
+\newblock The goal structuring notation--a safety argument notation.
+\newblock In {\em Proceedings of the dependable systems and networks 2004
+  workshop on assurance cases}, page~6. Citeseer, 2004.
+
+\bibitem{chinneck2004turning}
+Paul Chinneck, David Pumfrey, and Tim Kelly.
+\newblock Turning up the heat on safety case construction.
+\newblock In {\em Practical Elements of Safety}, pages 223--240. Springer,
+  2004.
+
 \end{thebibliography}

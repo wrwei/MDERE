@@ -3,4 +3,8 @@ The style file: unsrt.bst
 Database file #1: references.bib
 Warning--I didn't find a database entry for ""
 Warning--empty publisher in healthFound
-(There were 2 warnings)
+Warning--empty publisher in hse
+Warning--empty publisher in mod2007
+Warning--empty publisher in caa2007
+Warning--empty publisher in yellowBook2007
+(There were 6 warnings)

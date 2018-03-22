@@ -3,22 +3,19 @@ Systems/services used to perform critical functions require justifications that 
 An assurance case is a document that facilitates information exchange between various system stakeholders (e.g. between operator and regulator), where the knowledge related to the safety and security of the system is communicated in a clear and defendable way \cite{}. 
 
 %System Assurance is the process of building clear, comprehensive and defensible arguments regarding the properties of systems (i.e. safety and/or security. 
-Assurance cases are typically represented textually, using natural languages; or graphically, using structured notations such as the Goal Structuring Notation (GSN) \cite{} or Claims, Arguments and Evidence (CAE) \cite{}. 
+Assurance cases are typically represented textually - using natural languages; or graphically - using structured graphical notations such as the Goal Structuring Notation (GSN) \cite{} or Claims, Arguments and Evidence (CAE) \cite{}. A number of tools exist which implement GSN anc CAE to produce argumentation diagrams. Some tools adopt model-based approach to produce models that conform to their own versions of GSN and CAE metamodels. 
+
+
+%A number of tools have been implemented to create GSN and CAE diagrams to ease the creation of graphical safety and/or security argumentations. Amongst the tools, only a few tools provide a model-based solution. In addition, model-based tools often lack the integration with and the traceability to, design artefacts, which pose a significant challenge to the development and acceptance of assurance cases.
 %The creation of assurance cases is often a manual process, there have been some approaches and tools to apply principals of Model Driven Engineering (MDE) in order to benefit from automation provided by MDE. 
-To improve standardisation and interoperability, the Object Management Group (OMG) specified and issued a Structured Assurance Case Metamodel (SACM) for the representation of assurance cases. 
-Although SACM defines how an assurance case (machine-readable) model can be constructed, there has been little tool support for it. Existing tools that support the construction of assurance cases are mostly drawing tools that produce diagrams rather than machine-readable models. 
-Hence, system assurance remains a manual, lengthy and informal process.
+To improve standardisation and interoperability, the Object Management Group (OMG) specified and issued a Structured Assurance Case Metamodel (SACM), which can be used to construct model-based assurance cases. 
+Whilst SACM aims to provide a complete solution (which captures not only the argumentation regarding system properties, but also the inter-relationship between the argumentation and its supporting artefacts), no descriptive information has been provided in the OMG specification to demonstrate how to use SACM. Therefore, we speculate that there will be a cognitive gap between the intended usage of SACM and the practitioner's understanding of it. 
 
-We speculate the reason behind this is that there is a cognitive gap between the intended usage of SACM and the practitioner's understanding of it. 
-In addition, with the advancement of Internet of Things (IoT) and Cyber-Physical Systems (CPS), model-based assurance cases seem particularly important as systems (in particular, safety-critical systems) form system of systems which requires a certain degree of automation to ensure the safety/security of the entire system. 
-
-
+\textit{Model-based system assurance} attracts significant amount ot interests in recent years due to the benefits provided by Model-Driven Engineering (MDE) such as automation and consistency. With the development of Cyber-Physical Systems (CPS) and Internet of Things (IoT), model based system assurance seems particularly important where where CPSs collaborate with each other by forming temporary system of systems at runtime.
 
 %Broadly speaking, the development and acceptance of assurance cases poses significant challenges for engineers and assessors. This is due to the size and complexity of assurance cases, where explicit and implicit dependencies exist between the argumentation for safety/security in the assurance case and its supporting evidence/artefacts, which may include system test data, system failure and hazard analysis, system architecture, etc. In particular, the lack of integration with, and the limited traceability to these evidence/artefacts undermine confidence in the argumentation presented in the assurance case. 
 
-%A number of model based system assurance have been proposed, which makes use of MDE to promote automation and the traceability between the assurance case and its supporting artefacts. However, such approaches are ad-hoc approaches which do not fully use the potentials of SACM. Therefore, we speculate that there is a cognitive gap between the intended usage of SACM facilities and the practitioner's understanding of SACM. 
-
-In this paper, we provide a definitive guide to SACM. We first discuss the motivation of our work, then we discuss the relationship between the Goal Structuring Notation (GSN) and SACM. We then provide detailed discussions about the facilities provided by SACM\footnote{Version 2.0 as of April, 2019}. We demonstrate how SACM can be used to construct an assurance case using examples, and how to maintain the traceability between the argumentation of assurance cases and their supporting evidence/artefacts.
+Thus, this paper provides a definitive guide to SACM and discuss the applications of SACM. We first discuss the motivation of our work, then we discuss the relationship between the Goal Structuring Notation (GSN) and SACM. We then provide detailed discussions about the facilities provided by SACM\footnote{Version 2.0 as of April, 2019}. We demonstrate how SACM can be used to construct an assurance case using examples, and how to maintain the traceability between the argumentation of assurance cases and their supporting evidence/artefacts.
 
 Specifically, the contributions of this paper are as follows:
 \begin{itemize}
