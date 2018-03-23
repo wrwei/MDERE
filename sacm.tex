@@ -183,11 +183,12 @@ All elements in the \textit{Artifact} package extend \textit{ArtifactElement} in
 \end{figure}
 
 One open question regarding the \textit{Artifact} package is how to refer to external materials (such as system requirement, system design model, system failure logic model, etc.). To achieve automation, it is necessary to have a means to refer to external materials (especially models) so that all information can be gathered together to form an assurance case. 
-There are two ways to refer to external materials, depending on how fine-grained the reference is. If the user simply wants to refer to an external location (e.g. local file or a resource on the internet), one may make use of the \textit{Property} element, as shown in Figure~\ref{fig:artifact1} (consider elements filled in \textit{white} first).
+The user may make use of the \textit{Property} element, as shown in Figure~\ref{fig:artifact1} (consider elements filled in \textit{white} first).
 
-In the lower part of Figure~\ref{fig:artifact1}, a \textit{Property} is associated to an \textit{Artifact}\footnote{The \textit{Artifact} should have its own features such as name and description, which is omitted here.}, which has a \textit{name} (of type \textit{LangString}): 'URI' and a \textit{Description}, which in turn specifies a file on local disk (systemdesign.model). In this way, the \textit{Property} element is used as a reference to a local file. 
+In Figure~\ref{fig:artifact1} where elements are filled in \textit{white}, a \textit{Property} is associated to an \textit{Artifact}\footnote{The \textit{Artifact} should have its own features such as name and description, which is omitted here.}, which has a \textit{name} (of type \textit{LangString}): 'URI' and a \textit{Description}, which in turn specifies a file on local folder (systemdesign.model). In this way, the \textit{Property} element is used as a reference to a local file. 
 
-There are often cases that the user may want to refer to a single element (or a collection of elements) in a model. If this is the case, the \textit{ImplementationConstraint} (from the \textit{Base} package) can be used, as shown in Figure~\ref{fig:artifact1} (elements filled in \textit{cyan}). An \textit{ImplementationConstraint} can be associated to \textit{Property}, where the Object Constraint Language (OCL) is used as language. In this example, the OCL code specifies that the \textit{Artifact} should refer to the first element of type \textit{System} in the \textit{systemdesign.model} file stored on local disk. 
+There are often cases that the user may want to refer to a single element (or a collection of elements) in a model. If this is the case, an additional \textit{Property} can be used, as shown in Figure~\ref{fig:artifact1} (elements filled in \textit{white}). 
+For the \textit{Property}, its name is \textit{Constraint} and \textit{OCL} is used in its description. In this example, two \textit{Properties} should be used together (first using \textit{URI} to locate the model, then using \textit{Constraint} to query the model).
 
 SACM does not restrict how external materials should be referenced, the description provided above is one way of achieving it. It also depends on tool implementations on how external references should be handled. 
 \begin{figure}[ht!]
@@ -220,9 +221,14 @@ As \textit{TerminologyPackage} can also get large in size, \textit{TerminologyGr
 	\label{fig:termExample}
 \end{figure}
 
-The \textit{Term} element is used to capture a terminology used in the process of system assurance. For example, in Figure~\ref{fig:termExample} (first consider elements filled in white), a statement is made: \textbf{Hazard \textit{H1} is sufficiently mitigated.} Within the sentence, \textit{H1} in fact may cross-references to an identified hazard in a hazard log. Thus, \textit{H1} can be captured using a \textit{Term}, also the location of the hazard log model is stored in the +externalRefernce feature. In order to point to a specific model element (in this case, model element H1 in the hazardLog.model), one may also associate an \textit{ImplementationConstraint} with the \textit{Term}, where OCL is used to point to the specific element H1 in the model. This is illustrated in Figure~\ref{fig:termExample} with the elements in cyan. 
+The \textit{Term} element is used to capture a terminology used in the process of system assurance. For example, in Figure~\ref{fig:termExample} (first consider elements filled in white), a statement is made: \textbf{Hazard \textit{H1} is sufficiently mitigated.} Within the sentence, \textit{H1} in fact may cross-references to an identified hazard in a hazard log. Thus, \textit{H1} can be captured using a \textit{Term}. 
+The location of the hazard log can be captured using a \textit{Resource}\footnote{The details of the \textit{Resource} is omitted.} in the \textit{Artifact} package, where the location of the \textit{Resource} is captured using \textit{Property}. 
+In order to point to a specific model element (in this case, model element H1 in the hazardLog.model), the user may use OCL in the +externalReference feature of the \textit{Term}. This is illustrated in Figure~\ref{fig:termExample}.
+Again, SACM does not restrict how external references should be handled, the description provided above is one way of achieving it. It also depends on tool implementations on how external references are handled. 
 
-The users of SACM may also organise \textit{ExpressionElement} into \textit{Categories}. For example, the users may create an \textit{Category} of Hazard, and associate the \textit{Term} H1 to it. \will{may need to talk about what origin means}
+Sometimes, a term may refer to a \textit{ModelElement} within the assurance case (via the +origin feature), we will discuss this in Section~\ref{}.\will{example}
+
+The users of SACM may also organise \textit{ExpressionElement} into \textit{Categories}. For example, the users may create an \textit{Category} of Hazard, and associate the \textit{Term} H1 to it. 
 \subsection{SACM Argumentation Package}
 \label{sec:argPack}
 \begin{figure}
@@ -236,7 +242,7 @@ The root element of the \textit{Argumentation} package is the \textit{Argumentat
 
 To promote modularity, argumentations are organised in \textit{ArgumentPackage}s. \textit{ArgumentationPackage} can contain a number of \textit{ArgumentationElement}, which can either be \textit{ArgumentPackage}s (and their children) or \textit{ArgumentAsset}s. \textit{ArgumentAsset} can store a \textit{content}, as discussed in Section~\ref{sec:basePack}, the content can be in any language\footnote{Via the usage of \textit{MultiLangString}}.
 
-\textit{ArgumentAsset} and its children are the elements that form the structured argumentation in the \textit{Argumentation} package. An \textit{Assertion} has an \textit{AssertionDeclaration} to distinguish different kinds of \textit{Assertion}s. The \textit{AssertionDeclaration}s are as follows: \will{I probably need to demonstrate these in examples}
+\textit{ArgumentAsset} and its children are the elements that form the structured argumentation in the \textit{Argumentation} package. An \textit{Assertion} has an \textit{AssertionDeclaration} to distinguish different kinds of \textit{Assertion}s. The \textit{AssertionDeclaration}s are as follows: 
 
 \begin{itemize}
 	\item \textbf{asserted} - the default declaration, means that the \textit{Assertion} is given and is supported by evidence;
@@ -246,6 +252,9 @@ To promote modularity, argumentations are organised in \textit{ArgumentPackage}s
 	\item \textbf{defeated} - a flag indicating that the truth of the \textit{Assertion} is invalidated by a counter-evidence and/or argumentation;
 	\item \textbf{asCited} - when an \textit{Assertion} 'cite's another \textit{Assertion} (via the +citedElement property in \textit{SACMElement}), the truth of the \textit{Assertion} is transitively derived from the value of the cited \textit{Assertion}.
 \end{itemize}
+
+The use of \textit{AssertionDeclaration} will be illustrated in Section~\ref{sec:claims}.
+Sometimes it is necessary to argue the confidence in the arguments provided in the assurance case. This can be achieved using the \textit{+metaClaim} feature of the \textit{Assertion} element. \textit{+metaClaim} is discussed in Section~\ref{}. \will{example}
 
 \textit{Claim} and \textit{AssertedRelationship} are the core elements of the \textit{Argumentation} package. \textit{AssertedRelationship} are used to connect \textit{ArgumentAsset}s to form structured argumentation (\textit{AssertedRelationship}s can also be \textit{counter} relationships, indicated by the \textit{+isCounter} feature):
 
@@ -259,49 +268,24 @@ To promote modularity, argumentations are organised in \textit{ArgumentPackage}s
 
 \textit{ArtifactReference} is a type of \textit{ArgumentAsset}, which is able to refer to an \textit{ArtifactElement}. \textit{ArtifactReference} is typically used to refer to evidence stored in an \textit{Artifact} package. In addition, it can refer to any element that extend \textit{ArtifactElement} (all elements in the \textit{AssuranceCase}, \textit{Argumentation}, \textit{Artifact} and \textit{Terminology} packages are \textit{ArtifactElement}s).
 
-\textit{ArgumentReasoning} is also a type of \textit{ArgumentAsset}, it is used to provide a explanatory description for an \textit{AssertedRelationship}. 
+\textit{ArgumentReasoning} is also a type of \textit{ArgumentAsset}, it is used to provide a explanatory description for an \textit{AssertedRelationship}. An detailed discussion of \textit{ArgumentReasoning} is in Section~\ref{}. \will{example}
 
-\textit{Claim}s, \textit{AssertedRelationship}s, \textit{ArtifactReference} and \textit{ArgumentReasoning} form a structured argumentation network. 
+\textit{Claim}s, \textit{AssertedRelationship}s, \textit{ArtifactReference} and \textit{ArgumentReasoning} form a structured argumentation network, which are stored in \textit{ArgumentPackage}s. 
 
-\subsection{Example: structured argumentation}
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=1\linewidth]{fig/assertedClaim.eps}
-%	\caption{Packages of SACM}
-%	\label{fig:assertedClaim}
-%\end{figure}
+\subsection{Summary}
+In this section, we discussed the packages defined in SACM. We explain the intended semantics of the elements in the packages and we used some in-place examples to illustrate how SACM can be used to construct a system assurance case with argumentations regarding system properties (i.e. safety and/or security) and its supporting evidence/artefact (using the \textit{Artifact} and \textit{Terminology} packages of SACM). In the next section, we will illustrate how SACM can be used with more concrete examples.
 
-Figure~\ref{fig:assertedClaim} provides an example on how to construct a \textit{Claim}. A \textit{Claim} can have a name and a description, captured by \textit{LangString} and \textit{Description} respectively. A \textit{Claim} is \textbf{asserted} if it supported by other \textit{Claim}s. In this example, it is connected by an \textit{AssertedInference} with another \textit{Claim} (details ommitted). The equivalence of \textit{Claim} C1 in Figure~\ref{fig:assertedClaim} in GSN is provided in Figure~\ref{fig:goalingsn}, where the \textit{Goal} G1 bears the same semantics with C1.
+\section{SACM: Examples}
+In this section, we provide concrete examples on how SACM is used to construct structured argumentation, and how SACM can be used to form argumentation patterns (similar to GSN argument patterns). 
 
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=0.3\linewidth]{fig/goal_asserted.pdf}
-%	\caption{Packages of SACM}
-%	\label{fig:arg}
-%\end{figure}
-%\begin{figure}
-%	\centering
-%	\begin{subfigure}{.7\textwidth}
-%		\centering
-%		\includegraphics[width=1\linewidth]{fig/assertedClaim.eps}
-%		\caption{A \textit{Claim} in SACM.}
-%		\label{fig:assertedClaim}
-%	\end{subfigure}%
-%	\begin{subfigure}{.3\textwidth}
-%		\centering
-%		\includegraphics[width=1\linewidth]{fig/goal_asserted.png}
-%		\caption{A \textit{Goal} in GSN.}
-%		\label{fig:goalingsn}
-%	\end{subfigure}
-%	\caption{A \textit{Claim} in SACM and a \textit{Goal} in GSN.}
-%	\label{fig:claimandgoal}
-%\end{figure}
+\subsection{Example: Assertion Declarations}
+\label{sec:claims}
 
 \begin{figure}
 	\centering
 	\begin{minipage}[b]{0.7\textwidth}
 		\includegraphics[width=\textwidth]{assertedClaim.eps}
-		\caption{A \textit{Claim} in SACM.}
+		\caption{An \textbf{asserted} \textit{Claim} in SACM.}
 		\label{fig:assertedClaim}
 	\end{minipage}
 	\hfill
@@ -312,8 +296,8 @@ Figure~\ref{fig:assertedClaim} provides an example on how to construct a \textit
 	\end{minipage}
 \end{figure}
 
+Figure~\ref{fig:assertedClaim} provides an example on how to construct a \textit{Claim}. A \textit{Claim} can have a name and a description, captured by \textit{LangString} and \textit{Description} respectively. A \textit{Claim} is \textbf{asserted} if it is supported by other \textit{Claim}s. In this example, it is connected by an \textit{AssertedInference} with another \textit{Claim} (details ommitted). The equivalence of \textit{Claim} C1 in Figure~\ref{fig:assertedClaim} in GSN is provided in Figure~\ref{fig:goalingsn}, where the \textit{Goal} G1 bears the same semantics with C1 (and how \textit{Goal} G1 is supported by subsequent \textit{Goal}s\footnote{Details of \textit{Goal}s are omitted.}).
 
-Like previously mentioned, a \textit{Claim} can be marked as \textbf{needsSupport}. Figure~\ref{fig:needsSupportClaim} illustrates the use of this declaration. A \textit{Claim} that is not supported by any argument/evidence should be marked as \textbf{needsSupport}. The equivalence of this \textit{Claim} is shown in Figure~\ref{fig:undevGoal}. When a \textit{Goal} is not supported by argument/evidence, it is be marked as \textit{undeveloped}. 
 \begin{figure}
 	\centering
 	\begin{minipage}[b]{0.7\textwidth}
@@ -329,7 +313,7 @@ Like previously mentioned, a \textit{Claim} can be marked as \textbf{needsSuppor
 	\end{minipage}
 \end{figure}
 
-A \textit{Claim} marked as \textbf{assumed} is used to state an assumption in the argumentation. Figure~\ref{fig:assumedClaim} illustrates an \textbf{assumed} \textit{Claim} in SACM (where the user assumes that \textit{all hazards have been identified}). The users are responsible to declare that a \textit{Claim} is \textbf{assumed} when they make assumptions about the system. The equivalence for \textbf{assumed} \textit{Claim} is an \textit{Assumption} in GSN, as shown in Figure~\ref{fig:example_assumption}.
+Like previously mentioned, a \textit{Claim} can be marked as \textbf{needsSupport}. Figure~\ref{fig:needsSupportClaim} illustrates the use of this declaration. A \textit{Claim} that is not supported by any argument/evidence should be marked as \textbf{needsSupport}. The equivalence of this \textit{Claim} is shown in Figure~\ref{fig:undevGoal}, where \textit{Goal} G1 bears the same semantics of \textit{Claim} C1. When a \textit{Goal} is not supported by argument/evidence, it is be marked as \textit{undeveloped}. 
 
 \begin{figure}
 	\centering
@@ -346,19 +330,45 @@ A \textit{Claim} marked as \textbf{assumed} is used to state an assumption in th
 	\end{minipage}
 \end{figure}
 
-A \textit{Claim} marked as \textbf{axiomatic} is used to state a well agreed fact (presumably among stakeholders), which does not need any further support by arguments/evidence.  
+A \textit{Claim} marked as \textbf{assumed} is used to state an assumption in the argumentation. Figure~\ref{fig:assumedClaim} illustrates an \textbf{assumed} \textit{Claim} in SACM (where the user assumes that \textit{all hazards have been identified}). The users are responsible to declare that a \textit{Claim} is \textbf{assumed} when they make assumptions about the system. The equivalence for \textbf{assumed} \textit{Claim} is an \textit{Assumption} in GSN, as shown in Figure~\ref{fig:example_assumption}.
 
 \begin{figure}
 	\centering
 	\begin{minipage}[b]{0.7\textwidth}
 		\includegraphics[width=\textwidth]{axiomaticClaim.eps}
 		\caption{A \textbf{axiomatic} \textit{Claim} in SACM.}
-		\label{fig:assumedClaim}
+		\label{fig:axiomaticClaim}
 	\end{minipage}
 	\hfill
 	\begin{minipage}[b]{0.28\textwidth}
-		\includegraphics[width=\textwidth]{example_assumption.png}
-		\caption{An \textit{Assumption} in GSN.}
-		\label{fig:example_assumption}
+		\includegraphics[width=\textwidth]{example_justification.png}
+		\caption{A \textit{Justification} in GSN.}
+		\label{fig:example_justification}
 	\end{minipage}
 \end{figure}
+
+A \textit{Claim} marked as \textbf{axiomatic} is used to state a well agreed fact (presumably among stakeholders), which does not need any further support by arguments/evidence. The equivalent of an \textbf{axiomatic} \textit{Claim} in GSN is a \textit{Justification}, which does not need further supporting argument/evidence to support its content. Figure~\ref{fig:axiomaticClaim} and Figure~\ref{fig:example_justification} illustrates the use of \textbf{axiomatic} \textit{Claim} and \textit{Justification} respectively.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\linewidth]{defeatedClaim.eps}
+	\caption{A \textbf{defeated} \textit{Claim}.}
+	\label{fig:defeatedClaim}
+\end{figure}
+A \textit{Claim} is marked as \textit{defeated} if the truth of the claim is proven to be false by supporting argument/evidence. Figure~\ref{fig:defeatedClaim} provides an example of a \textbf{defeated} \textit{Claim}, the \textit{Claim} C1 is connected with another \textit{Claim} (we do not consider the detail of this \textit{Claim} for this example) by an \textit{AssertedInference}, but with its +isCounter feature to be \textit{true}. This means that the \textit{AssertedInference} is a counter-argument, which negates the truth of \textit{Claim} C1 to be \textit{false}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{asCitedClaim.eps}
+	\caption{An \textbf{asCited} \textit{Claim}.}
+	\label{fig:asCitedClaim}
+\end{figure}
+
+As previously discussed, the users of SACM are able to selectively disclose the content of an \textit{ArgumentPackage} via the use of \textit{ArgumentInterface}. Figure~\ref{fig:asCitedClaim} illustrates how an \textit{ArgumentPackageInterface} can be used. In this example, a \textit{Claim} C1 is held within an \textit{ArgumentPackage}, which contains an \textit{ArgumentPackageInterface} that in turn contains another \textit{Claim}, which is a citation. The \textit{Claim} 'cites' C1 in the \textit{ArgumentPackage} via the \textit{citedElement} feature (which is defined in the \textit{SACMElement} element in the \textit{Base} package). Hence, the \textbf{asCited} declaration on the \textit{Claim} should be used, which means that the truth of the \textit{Claim} as a citation, depends on the \textit{Claim} that it cites (in this case, \textit{Claim} C1).
+
+\subsection{Example: Asserted Relationships}
+The intent of \textit{Claim}s are declared using \textit{AssertionDeclaration}s, as previously demonstrated. Different types of \textit{Claim}s are then connected using different \textit{AssertedRelationship}s to form a structured argumentation. 
+
+\subsection{Example: Argumentation Patterns}
+
+\subsection{Example: A case study on the European Train Control Systems (ETCS)}
