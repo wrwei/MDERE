@@ -1,4 +1,6 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: mdere.aux
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: mdere.aux
 The style file: unsrt.bst
 Database file #1: references.bib
 Warning--I didn't find a database entry for ""
@@ -7,4 +9,45 @@ Warning--empty publisher in hse
 Warning--empty publisher in mod2007
 Warning--empty publisher in caa2007
 Warning--empty publisher in yellowBook2007
+You've used 12 entries,
+            1791 wiz_defined-function locations,
+            499 strings with 4992 characters,
+and the built_in function-call counts, 2091 in all, are:
+= -- 181
+> -- 65
+< -- 2
++ -- 28
+- -- 16
+* -- 81
+:= -- 296
+add.period$ -- 38
+call.type$ -- 12
+change.case$ -- 7
+chr.to.int$ -- 0
+cite$ -- 17
+duplicate$ -- 116
+empty$ -- 254
+format.name$ -- 16
+if$ -- 503
+int.to.chr$ -- 0
+int.to.str$ -- 12
+missing$ -- 13
+newline$ -- 63
+num.names$ -- 8
+pop$ -- 86
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 45
+stack$ -- 0
+substring$ -- 53
+swap$ -- 25
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 5
+while$ -- 14
+width$ -- 14
+write$ -- 118
 (There were 6 warnings)

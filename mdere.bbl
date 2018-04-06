@@ -1,9 +1,26 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{healthFound}
 Health Foundation.
 \newblock {\em Using safety cases in industry and healthcare}.
 \newblock December 2012.
+
+\bibitem{hawkins2013assurance}
+Richard Hawkins, Ibrahim Habli, Tim Kelly, and John McDermid.
+\newblock Assurance cases and prescriptive software safety certification: A
+  comparative study.
+\newblock {\em Safety science}, 59:55--71, 2013.
+
+\bibitem{kelly2004goal}
+Tim Kelly and Rob Weaver.
+\newblock The goal structuring notation--a safety argument notation.
+\newblock In {\em Proceedings of the dependable systems and networks 2004
+  workshop on assurance cases}, page~6. Citeseer, 2004.
+
+\bibitem{cae}
+{Claims, Arguments and Evidence (CAE)}.
+\newblock \url{https://www.adelard.com/asce/choosing-asce/cae.html}.
+\newblock Accessed: 06-04-2018.
 
 \bibitem{hse}
 Health and Safety~Executive (HSE).
@@ -26,16 +43,25 @@ Rail Safety and Standards Board.
 \newblock {\em Engineering Safety Management (The Yellow Book)}.
 \newblock 2007.
 
-\bibitem{kelly2004goal}
-Tim Kelly and Rob Weaver.
-\newblock The goal structuring notation--a safety argument notation.
-\newblock In {\em Proceedings of the dependable systems and networks 2004
-  workshop on assurance cases}, page~6. Citeseer, 2004.
-
 \bibitem{chinneck2004turning}
 Paul Chinneck, David Pumfrey, and Tim Kelly.
 \newblock Turning up the heat on safety case construction.
 \newblock In {\em Practical Elements of Safety}, pages 223--240. Springer,
   2004.
+
+\bibitem{asce}
+{Adelard Safety Case Editor (ASCE)}.
+\newblock \url{https://www.adelard.co.uk}.
+\newblock Accessed: 06-04-2018.
+
+\bibitem{iscade}
+{Integrated Safety Case Development Environment (ISCaDE)}.
+\newblock \url{http://www.iscade.co.uk/}.
+\newblock Accessed: 06-04-2018.
+
+\bibitem{yorkgsn}
+{University of York Freeware Visio Add-on}.
+\newblock \url{http://www.cs.york.ac.uk/~tpk/gsn/gsnaddoninstaller.zip}.
+\newblock Accessed: 06-04-2018.
 
 \end{thebibliography}
