@@ -1,6 +1,6 @@
 \section{Structured Assurance Case Metamodel}
 \label{sec:sacm}
-The \textit{Structured Assurance Case Metamodel} (SACM) is standardised by the Object Management Group (OMG). The intention of the metamodel is to promote model-based approach in the process of \textit{System Assurance}, which is currently a manual approach that produces artefacts (i.e. Assurance Cases) that are not consumable by computers. SACM is created to support structural argumentation approaches such as the \textit{Goal Structuring Notation} (GSN) and \textit{Claims, Arguments and Evidence} (CAE). 
+The \textit{Structured Assurance Case Metamodel} (SACM) is standardised by the Object Management Group (OMG). The intention of the metamodel is to promote model-based approach in the process of \textit{System Assurance}, which is currently a manual approach that produces artefacts (i.e. Assurance Cases) that are (mostly) not consumable by computers. SACM is created to support structural argumentation approaches such as the \textit{Goal Structuring Notation} (GSN) and \textit{Claims, Arguments and Evidence} (CAE). 
 
 SACM captures not only fundamental concepts in the process of \textit{System Assurance} such as \textit{Claim}s and the relationships between \textit{Claim}s, it also captures concepts such as \textit{Artifact}s and \textit{Terminologi}es, in the sense that supporting evidence and information involved in the argument can be modelled in greater precision. In addition, SACM promotes \textit{modularity}, in the sense that assurance cases are organised in packages, which in turn organise argumentations, evidence and terminologies in corresponding packages. SACM also promotes \textit{openness} in the sense that external information (such as external models and/or documents) can be linked via the facilities provided. 
 
@@ -8,106 +8,15 @@ In this section, we provide a definitive guide to SACM. We discuss the packages 
 We will provide two types of examples to demonstrate how SACM can be used: for simple concepts to explain without further context we will use in-place examples; and for complex concepts which requires the context of understanding the entirety of SACM we will use dedicated examples, provided at the end of this section.
 Since OMG has not standardised the concrete syntax of SACM, we will use object diagrams in the examples. 
 
-\subsection{SACM Overview}
-In overview, SACM is organised in five packages, as illustrated in Figure \ref{fig:overview}. The \textit{Base} package provides the foundation of SACM, which will be discussed in Section \ref{sec:basePack}. The \textit{Argumentation} package captures the concepts used in arguing system properties (such as safety and/or security)\footnote{System properties refer to the safety and/or security in the context of this paper, hereafter.}, which will be discussed in Section \ref{sec:argPack}. The \textit{Terminology} package captures the concepts used in expressing the arguments regarding system properties, which will be discussed in Section \ref{sec:termPack}. The \textit{Artifact} package captures the concepts used in providing evidence for the arguments made for system properties. The \textit{Artifact} package will be discussed in Section \ref{sec:artiPack}. Finally, the \textit{AssuranceCase} package captures the concepts in \textit{System Assurance}, which combines all the elements in other SACM packages to form a \textit{System Assurance Case}. The \textit{AssuranceCase} package will be discussed in Section \ref{sec:acPack}.
-
 \begin{figure}
 	\centering
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	\includegraphics[width=0.6\linewidth]{Overview.eps}
 	\caption{Packages of SACM}
 	\label{fig:overview}
 \end{figure}
+
+\subsection{SACM Overview}
+In overview, SACM is organised in five packages, as illustrated in Figure \ref{fig:overview}. The \textit{Base} package provides the foundation of SACM, which will be discussed in Section \ref{sec:basePack}. The \textit{Argumentation} package captures the concepts used in arguing system properties (such as safety and/or security)\footnote{System properties refer to the safety and/or security in the context of this paper, hereafter.}, which will be discussed in Section \ref{sec:argPack}. The \textit{Terminology} package captures the concepts used in expressing the arguments regarding system properties, which will be discussed in Section \ref{sec:termPack}. The \textit{Artifact} package captures the concepts used in providing evidence for the arguments made for system properties. The \textit{Artifact} package will be discussed in Section \ref{sec:artiPack}. Finally, the \textit{AssuranceCase} package captures the concepts in \textit{System Assurance}, which combines all the elements in other SACM packages to form a \textit{System Assurance Case}. The \textit{AssuranceCase} package will be discussed in Section \ref{sec:acPack}.
 
 \subsection{SACM AssuranceCase Package}
 \label{sec:acPack}
@@ -122,23 +31,21 @@ Although the \textit{Base} package provides the foundation of SACM, it is necess
 
 The core element in the \textit{AssuranceCase} package is the \textit{AssuranceCasePackage} element, which extends the \textit{ArtifactElement} in the \textit{Base} package. The implication is that an \textit{AssuranceCasePackage} can be considered to be an artefact. An \textit{AssuranceCasePackage} can hold a number of \textit{ArgumentPackage}s, \textit{TerminologyPackage}s and \textit{ArtifactPackage}s, which are modeled in the \textit{Argumentation}, \textit{Terminology} and \textit{Artifact} packages respectively.
 
-Sometimes, the developer of an \textit{AssuranceCasePackage} may want to make part of the \textit{AssuranceCasePackage} public so that they can be re-used. Consider the scenario where a system is composed of components A and B and \textit{AsssuranceCasePackage}s ACPA and ACPB are created respectively for A and B (which contain structured argumentations with regard to safety and/or security properties for A and B). The developer may want to make parts of the argumentations public so that during system integration, where A and B are integrated to form a system, their assurance cases ACPA and ACPB can also be integrated to form a new \textit{AssuranceCasePackage}. To disclose only necessary contents externally, one may make use of the \textit{AssuranceCasePackageInterface} to do so. 
+Sometimes, the developer of an \textit{AssuranceCasePackage} may want to make part of the \textit{AssuranceCasePackage} available externally so that they can be re-used. Consider the scenario where a system is composed of components A and B and \textit{AsssuranceCasePackage}s ACPA and ACPB are created respectively for A and B (which contain structured argumentations with regard to safety and/or security properties for A and B). The developer may want to make parts of the argumentations public so that during system integration, where A and B are integrated to form a system, their assurance cases ACPA and ACPB can also be integrated to form a new \textit{AssuranceCasePackage}. To disclose only necessary contents externally, one may make use of the \textit{AssuranceCasePackageInterface} to do so. 
 
 It is an usual activity, in the system integration process to integrate assurance cases of systems to form an overall assurance case. SACM handles this scenario with the \textit{AssuranceCasePackageBinding}, which binds two or more \textit{AssuranceCasePackageInterface}s together to form an overall \textit{AssuranceCasePackage}. This particular scenario is discussed in Section~\ref{} \will{example}.
 
+\subsection{SACM Base Package}
+\label{sec:basePack}
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{Base.eps}
 	\caption{Packages of SACM}
 	\label{fig:base}
 \end{figure}
-
-
-\subsection{SACM Base Package}
-\label{sec:basePack}
 The \textit{Base} package captures the foundational concepts of SACM, the structure of the \textit{Base} package is shown in Figure~\ref{fig:base}. The base element of all SACM elements is \textit{Element}. Its direct children are \textit{LangString}, \textit{MultiLangString} and \textit{SACMElement}.
 
-\textit{LangString} is used as an equivalence to \textit{String} (the value of which is held in the \textit{+content} feature), except it captures an additional feature \textit{+lang} which allows the users to define what language is used in the \textit{LangString}. \textit{ExpressionLangString} is used to not only record a \textit{String} in SACM, but also refer to its corresponding \textit{Expression} organised in a \textit{TerminologyPackage}. The usage of \textit{ExpressionLangString} is discussed in Section~\ref{sec:termPack} \textit{MultiLangString}, as its name suggests, is used to express the same semantics using different languages. For example, to express 'hazard' in both English and German, the user can create a \textit{MultiLangString} with two \textit{LangString}, like shown in Figure~\ref{fig:mulitiLang}.
+\textit{LangString} is used as an equivalence to \textit{String} (the value of which is held in the \textit{+content} feature), except it captures an additional feature \textit{+lang} which allows the users to define what language is used in the \textit{LangString}. \textit{ExpressionLangString} is used to not only record a \textit{String} in SACM, but also refer to its corresponding \textit{Expression} organised in a \textit{TerminologyPackage}. The usage of \textit{ExpressionLangString} is discussed in Section~\ref{sec:termPack} \textit{MultiLangString}, as its name suggests, is used to express the same semantics using different languages. For example, to express 'hazard' in both English and German, the user can create a \textit{MultiLangString} with two \textit{LangString}, as shown in Figure~\ref{fig:mulitiLang}.
 
 The \textit{MultiLangString} can then be associated to other SACM elements to denote the same meaning. What is more important than multiple natural language support is the support for computer languages. We envision that in the future, system assurance can benefit from automation, so that system assurance can be partially automated. In this case, \textit{MultiLangString} can be used to hold both natural languages and computer languages (e.g. formal languages) to support automated reasoning of argumentations. 
 
@@ -151,11 +58,12 @@ The \textit{MultiLangString} can then be associated to other SACM elements to de
 
 \textit{SACMElement} is an abstract element which lays the foundation of all SACM elements. \textit{SACMElement} can record a \textit{+gid} (\textit{global identification}). 
 This means that within the same \textit{AssuranceCasePackage}, each \textit{SACMElement} should have an unique ID. 
-\textit{SACMElement} is also able to refer to (or 'cite') other \textit{SACMElement}s, which is useful for implicit references discussed in Section \ref{}\will{example}. The \textit{citedElement} and \textit{isCitation} properties are used for this purpose. A \textit{SACMElement} can also be abstract, denoted by the \textit{isAbstract} property. A \textit{SACMElement} can also be an \textit{abstractForm} of another, which is discussed in Section \ref{}\will{example}. 
+\textit{SACMElement} is also able to refer to (or 'cite') other \textit{SACMElement}s, which is useful for implicit references discussed in Section \ref{sec:claims}. The \textit{citedElement} and \textit{isCitation} properties are used for this purpose. A \textit{SACMElement} can also be abstract, denoted by the \textit{isAbstract} property. A \textit{SACMElement} can also be an \textit{abstractForm} of another, which is discussed in Section \ref{sec:patterns}. 
 
-\textit{ModelElement} further refines \textit{SACMElement} which contains a \textit{name} (of type \textit{LangString}) and a set of \textit{UtilityElement}s. A \textit{ModelElement} can contain a \textit{Description} which describes its contents. Like previously mentioned, a \textit{Description} can be expressed in any language via its usage of \textit{MultiLangString}. A \textit{ModelElement} can also contain an \textit{ImplementationConstraint}, in some cases, validation rules and/or queries to models are needed for specific \textit{ModelElement}s, \textit{ImplementationConstraint} can be used to specify such constraints in computer languages (e.g. Object Constraint Language~\cite{})\footnote{See Section~\ref{sec:artiPack} for an example.}. A \textit{ModelElement} can also contain a number of \textit{Note}s, to hold additional information rather than descriptions. Finally, a \textit{ModelElement} can also contain a number of \textit{TaggedValue}s, which are essentially \{key, value\} pairs. \textit{TaggedValue} can be considered as an extension mechanism to allow the users to associate additional features to a \textit{ModelElement} (other than the features modelled in the current version of SACM).
+\textit{ModelElement} further refines \textit{SACMElement} which contains a \textit{name} (of type \textit{LangString}) and a set of \textit{UtilityElement}s. A \textit{ModelElement} can contain a \textit{Description} which describes its contents. Like previously mentioned, a \textit{Description} can be expressed in any language via its usage of \textit{MultiLangString}. A \textit{ModelElement} can also contain an \textit{ImplementationConstraint}, which is used to specify the instantiation rules for assurance case templates (that of similar to safety case patterns).
+A \textit{ModelElement} can also contain a number of \textit{Note}s, to hold additional information rather than descriptions. Finally, a \textit{ModelElement} can also contain a number of \textit{TaggedValue}s, which are essentially \{key, value\} pairs. \textit{TaggedValue} can be considered as an extension mechanism to allow the users to associate additional features to a \textit{ModelElement} (other than the features modelled in the current version of SACM).
 
-The \textit{Base} package also defines the \textit{ArtifactElement}, in the sense that all elements that extend \textit{ArtifactElement} are considered to be \textit{Artifact}s. The reason for this is discussed in Section~\ref{}\will{example}. 
+The \textit{Base} package also defines the \textit{ArtifactElement}, in the sense that all elements that extend \textit{ArtifactElement} are considered to be \textit{Artifact}s. The reason for this is discussed in Section~\ref{sec:relationships}. 
 
 In summary, the \textit{Base} package lays the foundation for SACM, it provides facilities not to only express assurance cases (to be precise, assurance case models) in natural language, but also in computer languages. The \textit{Base} package also provides a number of \textit{UtilityElement}s so that the user can use them to describe \textit{ModelElement}s as precisely as possible.
 
@@ -169,11 +77,14 @@ In summary, the \textit{Base} package lays the foundation for SACM, it provides 
 \subsection{SACM Artifact Package}
 \label{sec:artiPack}
 Before delving into the \textit{Argumentation} package, it is necessary to discuss the \textit{Artifact} package. The structure of the \textit{Artifact} package is shown in Figure~\ref{fig:arti}. 
-All elements in the \textit{Artifact} package extend \textit{ArtifactElement} in the \textit{Base} package. \textit{ArtifactElement}s are organised in \textit{ArtifactPackage}s to promote modularity. SACM considers integration of assurance cases at the level of \textit{ArtifactPackage}, \textit{ArtifactPackageInterface} and \textit{ArtifactPackageBinding} are used for this purpose.
-
+All elements in the \textit{Artifact} package extend \textit{ArtifactElement} in the \textit{Base} package. \textit{ArtifactElement}s are organised in \textit{ArtifactPackage}s to promote modularity. System assurance case integration at the level of \textit{ArtifactPackage}. Thus, \textit{ArtifactPackageInterface} and \textit{ArtifactPackageBinding} are used for this purpose.
 \textit{ArtifactGroup} is a new concept introduced in SACM 2.0. As \textit{ArtifactPackage} can contain rather a large number of \textit{ArtifactElement}s, the \textit{ArtifactGroup} provides the user with a means to selectively group \textit{ArtifactElement}s, so that the user can group/view \textit{ArtifactElement}s with their defined criteria.
 
-\textit{ArtifactAsset} allows the users to create corresponding artefact elements in SACM, it can contain a number of \textit{Property}-ies to hold user-defined properties. \textit{Artifact} is used to record a piece of information (such as hazard log, failure logic models, etc). \textit{Activity} is used to record an activity (e.g. specification of requirements). \textit{Event} is used to record an event (e.g. creation/modification of \textit{Artifact}s). \textit{Participant} is used to record participants involved in \textit{ArtifactAsset}s. \textit{Technique} is used to record the techniques used in \textit{Activities}. \textit{Resource} is used to record a piece of resource, usually in the form of some electronic file. And finally, \textit{ArtifactAssetRelationship} is used to link \textit{ArtifactAsset}s (e.g. connecting \textit{Activity} to \textit{Participant}s). Note that the \textit{ArtifactAssetRelationship} is a generic relationship, however, the user can choose to use \textit{Property} to specify the purpose of an \textit{ArtifactAssetRelationship}. 
+\textit{ArtifactAsset} allows the users to create corresponding artefact elements in SACM, it can contain a number of \textit{Property}-ies to hold user-defined properties. \textit{Artifact} is used to record a piece of information (e.g. hazard log, failure logic models, etc). 
+\textit{Activity} is used to record an activity (e.g. specification of requirements). 
+\textit{Event} is used to record an event (e.g. creation/modification of \textit{Artifact}s). 
+\textit{Participant} is used to record participants involved in \textit{ArtifactAsset}s. 
+\textit{Technique} is used to record the techniques used in \textit{Activities}. \textit{Resource} is used to record a piece of resource, usually in the form of some electronic file. And finally, \textit{ArtifactAssetRelationship} is used to link \textit{ArtifactAsset}s (e.g. connecting \textit{Activity} to \textit{Participant}s). Note that the \textit{ArtifactAssetRelationship} is a generic relationship, however, the user can choose to use \textit{Property} to specify the purpose of an \textit{ArtifactAssetRelationship}. 
 
 \begin{figure}
 	\centering
@@ -185,10 +96,10 @@ All elements in the \textit{Artifact} package extend \textit{ArtifactElement} in
 One open question regarding the \textit{Artifact} package is how to refer to external materials (such as system requirement, system design model, system failure logic model, etc.). To achieve automation, it is necessary to have a means to refer to external materials (especially models) so that all information can be gathered together to form an assurance case. 
 The user may make use of the \textit{Property} element, as shown in Figure~\ref{fig:artifact1} (consider elements filled in \textit{white} first).
 
-In Figure~\ref{fig:artifact1} where elements are filled in \textit{white}, a \textit{Property} is associated to an \textit{Artifact}\footnote{The \textit{Artifact} should have its own features such as name and description, which is omitted here.}, which has a \textit{name} (of type \textit{LangString}): 'URI' and a \textit{Description}, which in turn specifies a file on local folder (systemdesign.model). In this way, the \textit{Property} element is used as a reference to a local file. 
+In Figure~\ref{fig:artifact1}, a \textit{Property} is associated to an \textit{Artifact}\footnote{The \textit{Artifact} should have its own features such as name and description, which is omitted here.}, which has a \textit{name} (of type \textit{LangString}): 'URI' and a \textit{Description}, which in turn specifies a file on local disk (systemdesign.model). In this way, the \textit{Property} element is used as a reference to a local file. 
 
-There are often cases that the user may want to refer to a single element (or a collection of elements) in a model. If this is the case, an additional \textit{Property} can be used, as shown in Figure~\ref{fig:artifact1} (elements filled in \textit{white}). 
-For the \textit{Property}, its name is \textit{Constraint} and \textit{OCL} is used in its description. In this example, two \textit{Properties} should be used together (first using \textit{URI} to locate the model, then using \textit{Constraint} to query the model).
+%There are often cases that the user may want to refer to a single element (or a collection of elements) in a model. If this is the case, an additional \textit{Property} can be used, as shown in Figure~\ref{fig:artifact1} (elements filled in \textit{white}). 
+%For the \textit{Property}, its name is \textit{Constraint} and \textit{OCL} is used in its description. In this example, two \textit{Properties} should be used together (first using \textit{URI} to locate the model, then using \textit{Constraint} to query the model).
 
 SACM does not restrict how external materials should be referenced, the description provided above is one way of achieving it. It also depends on tool implementations on how external references should be handled. 
 \begin{figure}[ht!]
@@ -201,8 +112,7 @@ SACM does not restrict how external materials should be referenced, the descript
 \label{sec:termPack}
 The \textit{Terminology} package captures concepts that enable the users of SACM to describe their argumentations in greater precision. The structure of the \textit{Terminology} package is shown in Figure~\ref{fig:term}.
 
-The root element of the \textit{Terminology} package is \textit{TerminologyElement} which also extends \textit{ArtifactElement} in the \textit{Base} package. \textit{TerminologyGroup}, \textit{TerminologyAsset} and \textit{TerminologyPackge} are direct children of \textit{TerminologyElement}. \textit{TerminologyAsset}s are organised in \textit{TerminologyPackage}s to promote modularity. SACM considers integration of assurance cases at the level of \textit{TerminologyPackage}. \textit{TerminologyInterface} and \textit{TerminologyPackageBinding} are used for this purpose.
-
+The root element of the \textit{Terminology} package is \textit{TerminologyElement} which also extends \textit{ArtifactElement} in the \textit{Base} package. \textit{TerminologyGroup}, \textit{TerminologyAsset} and \textit{TerminologyPackge} are direct children of \textit{TerminologyElement}. \textit{TerminologyAsset}s are organised in \textit{TerminologyPackage}s to promote modularity. System assurance case integration can be done at the level of \textit{TerminologyPackage}. \textit{TerminologyInterface} and \textit{TerminologyPackageBinding} are used for this purpose. 
 As \textit{TerminologyPackage} can also get large in size, \textit{TerminologyGroup} provides the user with a means to selectively group \textit{TerminologyAsset}s, so that the user of SACM can group/view \textit{TerminologAsset}s as they wish.
 
 \begin{figure}
@@ -212,7 +122,7 @@ As \textit{TerminologyPackage} can also get large in size, \textit{TerminologyGr
 	\label{fig:expression}
 \end{figure}
 
-\textit{ExpressionElement} captures the concept of different kinds of expressions used in argumentations. \textit{ExpressionElement} holds a \textit{value} (of type String). \textit{ExpressionElement} can either be an \textit{Expression} or a \textit{Term}. An \textit{Expression} is used to model phrases and sentences. For example, when stating a sentence: \textbf{All identified hazards have been sufficiently mitigated.}, the \textit{Expression} element can be used to to capture this sentence as shown in Figure~\ref{fig:expression} (element filled with cyan colour). Alternatively, the users of SACM may choose to capture each word in the sentence as an \textit{Expression}, as shown in Figure~\ref{fig:expression} (element filled with white colour). The idea behind \textit{Expression} is to store words/phrases/sentences in the \textit{TerminologyPackage} like a dictionary, so that the \textit{Expression}s can be re-used. Of course the example in Figure~\textit{fig:expression} does not add too much value to the assurance case, in realistic scenarios, only phrases that can be re-used should be captured in \textit{Expression}s. This is completely up to the user and tool developers of SACM. 
+\textit{ExpressionElement} captures the concept of two kinds of expressions used in argumentations. \textit{ExpressionElement} holds a \textit{value} (of type String). \textit{ExpressionElement} can either be an \textit{Expression} or a \textit{Term}. An \textit{Expression} is used to model phrases and sentences. For example, when stating a sentence: \{\textbf{All identified hazards have been sufficiently mitigated.}\}, the \textit{Expression} element can be used to to capture this sentence as shown in Figure~\ref{fig:expression} (element filled with cyan colour). Alternatively, the users of SACM may choose to capture each word in the sentence as an \textit{Expression}, as shown in Figure~\ref{fig:expression} (element filled with white colour). The idea behind \textit{Expression} is to store words/phrases/sentences in the \textit{TerminologyPackage} like a dictionary, so that the \textit{Expression}s can be re-used. Of course the example in Figure~\textit{fig:expression} does not add too much value to the assurance case, in realistic scenarios, only phrases that can be re-used should be captured in \textit{Expression}s. This is completely up to the user and tool developers of SACM. 
 
 \begin{figure}
 	\centering
@@ -226,7 +136,7 @@ The location of the hazard log can be captured using a \textit{Resource}\footnot
 In order to point to a specific model element (in this case, model element H1 in the hazardLog.model), the user may use OCL in the +externalReference feature of the \textit{Term}. This is illustrated in Figure~\ref{fig:termExample}.
 Again, SACM does not restrict how external references should be handled, the description provided above is one way of achieving it. It also depends on tool implementations on how external references are handled. 
 
-Sometimes, a term may refer to a \textit{ModelElement} within the assurance case (via the +origin feature), we will discuss this in Section~\ref{}.\will{example}
+Sometimes, a term may refer to a \textit{ModelElement} within the assurance case (via the +origin feature). This will be discussed in Section~\ref{sec:argPack}.
 
 The users of SACM may also organise \textit{ExpressionElement} into \textit{Categories}. For example, the users may create an \textit{Category} of Hazard, and associate the \textit{Term} H1 to it. 
 \subsection{SACM Argumentation Package}
@@ -254,31 +164,31 @@ To promote modularity, argumentations are organised in \textit{ArgumentPackage}s
 \end{itemize}
 
 The use of \textit{AssertionDeclaration} will be illustrated in Section~\ref{sec:claims}.
-Sometimes it is necessary to argue the confidence in the arguments provided in the assurance case. This can be achieved using the \textit{+metaClaim} feature of the \textit{Assertion} element. \textit{+metaClaim} is discussed in Section~\ref{}. \will{example}
+
+Sometimes it is necessary to argue the confidence in the arguments provided in the assurance case. This can be achieved using the \textit{+metaClaim} feature of the \textit{Assertion} element. \textit{+metaClaim} as its name suggests, is a \textit{Claim} about an \textit{Assertion} to argue the soundness of the \textit{Assertion}. Within the meta \textit{Claim}, one may write ''full confidence in Claim C1 is achieved via...'' in its description, within which the \textit{Term} G1 refers to another \textit{Claim} in the same SACM model. This is where the \textit{+origin} feature of the \textit{Term} is used, in the sense that the \textit{Term} G1 refers to a \textit{Claim} G1 within the same SACM model.
 
 \textit{Claim} and \textit{AssertedRelationship} are the core elements of the \textit{Argumentation} package. \textit{AssertedRelationship} are used to connect \textit{ArgumentAsset}s to form structured argumentation (\textit{AssertedRelationship}s can also be \textit{counter} relationships, indicated by the \textit{+isCounter} feature):
 
 \begin{itemize}
-	\item \textbf{AssertedCotnext} - this relationship is used to connect contextual \textit{Claim}s to \textit{asserted} \textit{Claim}s;
-	\item \textbf{AssertedEvidence} - this relationship is used to connect evidence (referenced via \textit{ArtifactReference}) to \textit{Claim}s;
-	\item \textbf{AssertedInference} - this relationship is used to connect \textit{asserted} \textit{Claim}s to an \textit{asserted} \textit{Claim};
+	\item \textbf{AssertedCotnext} - this relationship is used to connect contextual \textit{Assertion}s to an \textit{Assertion};
+	\item \textbf{AssertedEvidence} - this relationship is used to connect evidence (referenced via \textit{ArtifactReference}) to an \textit{Assertion};
+	\item \textbf{AssertedInference} - this relationship records the inference between on or more \textit{Assertion} and another \textit{Assertion};
 	\item \textbf{AssertedArtefactContext} - this relationship is used to connect contextual artefacts (via \textit{ArtifactReference}) to an artefact (via \textit{ArtifactReference});
-	\item \textbf{AssertedArtefactSupport} - this relationship is used to connect evidential artefacts (via \textit{ArtifactReference}) to an artefact (via \textit{ArtifactReference}).
+	\item \textbf{AssertedArtefactSupport} - this relationship is used to connect supporting artefacts (via \textit{ArtifactReference}) to an artefact (via \textit{ArtifactReference}).
 \end{itemize}
 
 \textit{ArtifactReference} is a type of \textit{ArgumentAsset}, which is able to refer to an \textit{ArtifactElement}. \textit{ArtifactReference} is typically used to refer to evidence stored in an \textit{Artifact} package. In addition, it can refer to any element that extend \textit{ArtifactElement} (all elements in the \textit{AssuranceCase}, \textit{Argumentation}, \textit{Artifact} and \textit{Terminology} packages are \textit{ArtifactElement}s).
 
-\textit{ArgumentReasoning} is also a type of \textit{ArgumentAsset}, it is used to provide a explanatory description for an \textit{AssertedRelationship}. An detailed discussion of \textit{ArgumentReasoning} is in Section~\ref{}. \will{example}
-
-\textit{Claim}s, \textit{AssertedRelationship}s, \textit{ArtifactReference} and \textit{ArgumentReasoning} form a structured argumentation network, which are stored in \textit{ArgumentPackage}s. 
+\textit{ArgumentReasoning} is also a type of \textit{ArgumentAsset}, it is used to provide a explanatory description for an \textit{AssertedRelationship}. An detailed discussion of \textit{ArgumentReasoning} is in Section~\ref{sec:relationships}.
 
 \subsection{Summary}
 In this section, we discussed the packages defined in SACM. We explain the intended semantics of the elements in the packages and we used some in-place examples to illustrate how SACM can be used to construct a system assurance case with argumentations regarding system properties (i.e. safety and/or security) and its supporting evidence/artefact (using the \textit{Artifact} and \textit{Terminology} packages of SACM). In the next section, we will illustrate how SACM can be used with more concrete examples.
 
 \section{SACM: Examples}
 In this section, we provide concrete examples on how SACM is used to construct structured argumentation, and how SACM can be used to form argumentation patterns (similar to GSN argument patterns). 
+Since GSN notations are widely accepted and understood, we compare GSN notations with their equivalent model elements in SACM to illustrate how SACM elements can be used to denote the same meaning carried by their GSN counterparts.
 
-\subsection{Example: Assertion Declarations}
+\subsection{Example: Making Claims and Citations}
 \label{sec:claims}
 
 \begin{figure}
@@ -296,7 +206,11 @@ In this section, we provide concrete examples on how SACM is used to construct s
 	\end{minipage}
 \end{figure}
 
-Figure~\ref{fig:assertedClaim} provides an example on how to construct a \textit{Claim}. A \textit{Claim} can have a name and a description, captured by \textit{LangString} and \textit{Description} respectively. A \textit{Claim} is \textbf{asserted} if it is supported by other \textit{Claim}s. In this example, it is connected by an \textit{AssertedInference} with another \textit{Claim} (details ommitted). The equivalence of \textit{Claim} C1 in Figure~\ref{fig:assertedClaim} in GSN is provided in Figure~\ref{fig:goalingsn}, where the \textit{Goal} G1 bears the same semantics with C1 (and how \textit{Goal} G1 is supported by subsequent \textit{Goal}s\footnote{Details of \textit{Goal}s are omitted.}).
+Figure~\ref{fig:assertedClaim} provides an example on how to construct a \textit{Claim}. 
+A \textit{Claim} can have a name and a description, captured by \textit{LangString} and \textit{Description} respectively. 
+A \textit{Claim} is \textbf{asserted} if it is supported by other \textit{Claim}s. 
+In this example, it is connected by an \textit{AssertedInference} with another \textit{Claim} (details ommitted). 
+The equivalence of \textit{Claim} C1 Figure~\ref{fig:assertedClaim} in GSN is provided in Figure~\ref{fig:goalingsn}, where the \textit{Goal} G1 bears the same semantics with C1 (and how \textit{Goal} G1 is supported by another \textit{Goal}\footnote{Details of subsequent \textit{Goal}s are omitted.}).
 
 \begin{figure}
 	\centering
@@ -313,7 +227,7 @@ Figure~\ref{fig:assertedClaim} provides an example on how to construct a \textit
 	\end{minipage}
 \end{figure}
 
-Like previously mentioned, a \textit{Claim} can be marked as \textbf{needsSupport}. Figure~\ref{fig:needsSupportClaim} illustrates the use of this declaration. A \textit{Claim} that is not supported by any argument/evidence should be marked as \textbf{needsSupport}. The equivalence of this \textit{Claim} is shown in Figure~\ref{fig:undevGoal}, where \textit{Goal} G1 bears the same semantics of \textit{Claim} C1. When a \textit{Goal} is not supported by argument/evidence, it is be marked as \textit{undeveloped}. 
+Like previously mentioned, a \textit{Claim} can be marked as \textbf{needsSupport}. Figure~\ref{fig:needsSupportClaim} illustrates the use of this declaration. A \textit{Claim} that is not supported by any argument/evidence should be marked as \textbf{needsSupport}. The equivalence of this \textit{Claim} in GSN is shown in Figure~\ref{fig:undevGoal}, where \textit{Goal} G1 bears the same semantics of \textit{Claim} C1. When a \textit{Goal} is not supported by argument/evidence, it is marked as \textit{undeveloped}. 
 
 \begin{figure}
 	\centering
@@ -355,20 +269,97 @@ A \textit{Claim} marked as \textbf{axiomatic} is used to state a well agreed fac
 	\caption{A \textbf{defeated} \textit{Claim}.}
 	\label{fig:defeatedClaim}
 \end{figure}
-A \textit{Claim} is marked as \textit{defeated} if the truth of the claim is proven to be false by supporting argument/evidence. Figure~\ref{fig:defeatedClaim} provides an example of a \textbf{defeated} \textit{Claim}, the \textit{Claim} C1 is connected with another \textit{Claim} (we do not consider the detail of this \textit{Claim} for this example) by an \textit{AssertedInference}, but with its +isCounter feature to be \textit{true}. This means that the \textit{AssertedInference} is a counter-argument, which negates the truth of \textit{Claim} C1 to be \textit{false}.
+A \textit{Claim} is marked as \textit{defeated} if the truth of the claim is proven to be false by supporting argument/evidence. Figure~\ref{fig:defeatedClaim} provides an example of a \textbf{defeated} \textit{Claim}, the \textit{Claim} C1 is connected with another \textit{Claim} (we do not consider the detail of this \textit{Claim} for this example) by an \textit{AssertedInference}, but with its +isCounter feature to be \textit{true}. This means that the \textit{AssertedInference} is a counter-argument, which negates the truth of \textit{Claim}, if the \textit{+source} of the \textit{AssertedInference} is \textit{true}.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{asCitedClaim.eps}
 	\caption{An \textbf{asCited} \textit{Claim}.}
-	\label{fig:asCitedClaim}
+	\label{fig:asCited}
 \end{figure}
 
-As previously discussed, the users of SACM are able to selectively disclose the content of an \textit{ArgumentPackage} via the use of \textit{ArgumentInterface}. Figure~\ref{fig:asCitedClaim} illustrates how an \textit{ArgumentPackageInterface} can be used. In this example, a \textit{Claim} C1 is held within an \textit{ArgumentPackage}, which contains an \textit{ArgumentPackageInterface} that in turn contains another \textit{Claim}, which is a citation. The \textit{Claim} 'cites' C1 in the \textit{ArgumentPackage} via the \textit{citedElement} feature (which is defined in the \textit{SACMElement} element in the \textit{Base} package). Hence, the \textbf{asCited} declaration on the \textit{Claim} should be used, which means that the truth of the \textit{Claim} as a citation, depends on the \textit{Claim} that it cites (in this case, \textit{Claim} C1).
+As previously discussed, the users of SACM are able to selectively disclose the content of an \textit{ArgumentPackage} via the use of \textit{ArgumentInterface}. Figure~\ref{fig:asCited} illustrates how an \textit{ArgumentPackageInterface} can be used. In this example, a \textit{Claim} C1 is held within an \textit{ArgumentPackage}, which contains an \textit{ArgumentPackageInterface} that in turn contains another \textit{Claim}, which is a citation (its \textit{+isCitation} is true). The \textit{Claim} '\textbf{cites}' C1 in the \textit{ArgumentPackage} via the \textit{+citedElement} feature (which is defined in the \textit{SACMElement} element in the \textit{Base} package). Hence, the \textbf{asCited} declaration on the \textit{Claim} should be used, which means that the truth of the \textit{Claim} as a citation, depends on the \textit{Claim} that it cites (in this case, \textit{Claim} C1).
 
-\subsection{Example: Asserted Relationships}
-The intent of \textit{Claim}s are declared using \textit{AssertionDeclaration}s, as previously demonstrated. Different types of \textit{Claim}s are then connected using different \textit{AssertedRelationship}s to form a structured argumentation. 
+The \textit{+isCitation} and \textit{+citedElement} features can be used in the same way in \textit{ArtifactPackageInterface} and \textit{TerminologyInterface}, should the developers of assurance cases wish to disclose information in their corresponding packages.
+
+\label{sec:confidence}
+\subsection{Example: AssertedRelationships and ArgumentReasoning}
+\label{sec:relationships}
+The intent of \textit{Claim}s are distinguished using \textit{AssertionDeclaration}s. 
+Different types of \textit{Claim}s are connected using different \textit{AssertedRelationship}s to form a structured argumentation. 
+
+\begin{figure}
+	\centering
+	\begin{minipage}[b]{0.49\textwidth}
+		\includegraphics[width=1\linewidth]{assertedInference.eps}
+		\caption{An example of \textbf{AssertedInference}.}
+		\label{fig:assertedInference}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{assertedContext.eps}
+		\caption{An example of \textbf{AssertedContext}.}
+		\label{fig:assertedContext}
+	\end{minipage}
+\end{figure}
+
+The \textit{AssertedInference} denotes the inference between one or more \textit{Assertion}s an another \textit{Assertion}, figure~\ref{fig:assertedInference} provides an example, where the truth of \textit{Claim} C1\footnote{description details are omitted due to space limit} is inferred from the truth of Claim C2. 
+
+The \textit{AssertedContext} connects contextual \textit{Assertion}s to an \textit{Assertion}, Figure~\ref{fig:assertedContext} provides an example, where the \textit{Claim} A1 provides contextual information for \textit{Claim} C1.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.7\linewidth]{assertedEvidence.eps}
+	\caption{An example of \textbf{AssertedEvidence}.}
+	\label{fig:assertedEvidence}
+\end{figure}
+
+The \textit{AssertedEvidence} connects evidence to an \textit{Assertion}, Figure~\ref{fig:assertedEvidence} provides an example, where the \textit{ArtifactReference} S1 (which refers to an \textit{Artifact} organised in an \textit{ArtifactPackage}, details omitted) provides evidence for the \textit{Claim} C1.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.9\linewidth]{assertedArtifactSupport.eps}
+	\caption{An example of \textbf{AssertedArtifactSupport}.}
+	\label{fig:assertedArtifactSupport}
+\end{figure}
+
+The \textit{AssertedArtifactSupport} connects supporting artefacts to an artefact, Figure~\ref{fig:assertedArtifactSupport} provides an example, where \textit{ArtifactRefernce} S2 (which cites an \textit{Artifact} \textit{System test plan}) supports the \textit{ArtifactReference} S1 (which cites the \textit{Artifact} \textit{System test report}), in the sense that the system test plan supports the system text report. The \textit{AssertedArtifactContext} is also used on \textit{ArtifactReferences}, except that it connects contextual artefacts to another artefact.
+
+As previously mentioned, all elements that extend \textit{ArtifactElement} can be considered an artifact, this is due to the fact that there are \textit{supporting} and \textit{contextual} relationships between elements rather than those in the \textit{Artefact} package. For example, assurance case developer may want to express that one \textit{ArgumentPackage} bears supporting arguments to another \textit{ArgumentPackage}, in this case, the user may want to use \textit{AssertedArtifactSupport} to connect two \textit{ArtifactReference} which reference these two \textit{ArgumentPackage}s. 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{argumentReasoning.eps}
+	\caption{An example of \textbf{ArgumentReasoning}.}
+	\label{fig:argumentReasoning}
+\end{figure}
+
+Sometimes, a justification of \textit{AssertedRelationship}s can be attached to further clarify the reasons of the \textit{AssertedRelationship}, \textit{ArgumentReasoning} is used for this purpose. Figure~\ref{fig:argumentReasoning} illustrates the use of \textit{ArgumentReasoning}, where top level \textit{Claim} C1 is backed by its sub-\textit{Claim} C2, which are connected by an \textit{AssertedInference}, the user may choose to give the \textit{AssertedInference} a reason with the use of \textit{ArgumentReasoning}. In this case, an \textit{ArgumentReasoning} S1 is attached to the \textit{AssertedInference}, which states that the argument is made by \textit{Argument over all identified hazards}. Supportive and contextual information can also be associated to \textit{ArgumentReasoning} via the use of \textit{AssertedSupport} and \textit{AssertedContext}. Since an \textit{ArgumentReasoning} is not an \textit{Assertion}, there is little value in arguing the soundness of the \textit{ArgumentReasoning}. 
+
+\begin{figure}
+	\includegraphics[width=.99\linewidth]{pattern.eps}
+	\caption{An example SACM argumentation pattern.}
+	\label{fig:sacmPattern}
+\end{figure}
 
 \subsection{Example: Argumentation Patterns}
+\label{sec:patterns}
+In GSN, there is a concept of \textit{GSN Pattern}s, which are essentially templates which enables the re-use of good practice in safety cases. SACM provides similar concepts so that the user can construct templates in SACM, and at a later stage, to \textit{instantiate} the templates by populating actual system information in the templates. Figure~\ref{fig:sacmPattern} shows an argumentation pattern in SACM. For comparison, the content of the pattern is identical to the GSN pattern shown in Figure~\ref{fig:dmilsPattern}. Note that some details are omitted due to the complexity of the SACM model.
+
+There is a \textit{TerminologyPackage} in the upper part of Figure~\ref{fig:sacmPattern} named TP1, within which contains an \textit{Expression} and a \textit{Term}\footnote{The containment is described in this way to improve comprehensibility.}. In the lower part of the figure, there is an \textit{ArgumentPackage} AP1, which contains the structured argumentation pattern (N.B. the packages are placed in this way to make the figure more readable and does not denote the priority of the packages).
+
+The top level \textit{Claim} of this pattern is \textbf{SysProps}, which maps to the \textit{Goal} \textbf{Goal:sysProps} in Figure~\ref{fig:dmilsPattern}. Note that \textbf{SysProps}'s \textit{+isAbstract} is set to \textit{true} since this is an abstract \textit{Claim} (a template). Now we focus on the \textit{description} of \textbf{SysProps}, within which an \textit{ExpressionLangString} is used. The \textit{ExpressionLangString} refers to the \textit{Expression} in \textit{TerminologyPackage} TP1 (which contains value \textit{\{D-MILS System\}} required properties are enforced). The curly brackets are a convention in GSN, which are called \textit{role}s in GSN. \textit{Role}s are essentially place holders in the pattern, the contents enclosed in the curly brackets will be replaced by actual system information if the pattern gets instantiated. In this case, when the pattern is instantiated, \{D-MILS System\} will be replaced with the actual system name (we will discuss instantiation rules later). 
+
+In the \textit{TerminologyPackage} TP1, the \textit{Expression} refers to the \textit{Term} \textit{D-MILS System}. This is a typical use of \textit{Term} in structured argumentation. When the pattern is \textit{instantiated}, the \textit{Term} should have its \textit{+externalReference} feature populated to import actual system information. 
+
+The structure of the argumentation in Figure~\ref{fig:sacmPattern} follows that in Figure~\ref{fig:dmilsPattern}, where the \textit{Claim} \textbf{PropEnforced} maps to \textit{Goal} \textbf{Goal:propEnforced}, the \textit{ArgumentReasoning} \textbf{sysSecurity} maps to \textit{Strategy} \textbf{Strat:sysSecurity}. Note that the \textit{Claim}s in yellow colour are the templates, which have their \textit{+isAbstract} feature set to true. 
+
+GSN pattern instantiation is often a manual procedure as safety case developers need to comprehend the GSN pattern and replace the \textit{role}s in the pattern with actual system information. In \cite{hawkins2015weaving}, a model-based approach is proposed, which makes use of a \textit{weaving model} to link the elements in the GSN with elements in system models. This is typically due to the fact that in GSN there are no means to specify instantiation rules for the GSN patterns. In SACM, as previously mentioned in Section~\ref{sec:basePack}, the element \textit{ImplmentationConstraint} can be used to specify the instantiation rules for patterns. This is illustrated in Figure~\ref{fig:sacmPattern} （element in blue）, that an \textit{ImplementationConstraint} is associated to the \textit{Term} \textit{D-MILS System}. Due to the space limit, we omit the containing elements of the \textit{ImplementationConstraint}. In this example, we use \textit{OCL} to describe the instantiation rule, in the fact that the \textit{Term} \textit{D-MILS System} will be replaced by the execution result of the OCL statement: \textit{System.allInstances()$\rightarrow$first().name} 
+
+Evidently, pattern instantiation needs tool support and model query engine to execute. The language used in \textit{ImplementationConstraint} are not limited to OCL, or even computer languages. \textit{ImplmentationConstraint}s described in natural languages can also be used as instantiation rules, except that the instantiation procedure is limited to manual only. 
+
+When a SACM model instantiates a SACM pattern, it can relate to the SACM pattern via the \textit{+abstractForm} feature. For example, if a \textit{Claim} C1 created by instantiating the template \textbf{SysProps}, it can refer to \textbf{SysProps} via the \textit{+abstractForm} for future reference. 
+
+
 
 \subsection{Example: A case study on the European Train Control Systems (ETCS)}

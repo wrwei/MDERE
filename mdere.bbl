@@ -64,4 +64,62 @@ Paul Chinneck, David Pumfrey, and Tim Kelly.
 \newblock \url{http://www.cs.york.ac.uk/~tpk/gsn/gsnaddoninstaller.zip}.
 \newblock Accessed: 06-04-2018.
 
+\bibitem{certWare}
+{NASA, CertWare}.
+\newblock \url{https://nasa.github.io/CertWare/}.
+\newblock Accessed: 06-04-2018.
+
+\bibitem{astahGSN}
+{Astah GSN Editor}.
+\newblock \url{http://astah.net/editions/gsn}.
+\newblock Accessed: 06-04-2018.
+
+\bibitem{jaaksi2002developing}
+Ari Jaaksi.
+\newblock {Developing Mobile Browsers in a Product Line}.
+\newblock {\em IEEE software}, 19(4):73--80, 2002.
+
+\bibitem{karna2009evaluating}
+Juha K{\"a}rn{\"a}, Juha-Pekka Tolvanen, and Steven Kelly.
+\newblock {Evaluating the Use of Domain-Specific Modeling in Practice}.
+\newblock In {\em {Proceedings of the 9th OOPSLA workshop on Domain-Specific
+  Modeling}}, 2009.
+
+\bibitem{bloomfield2010safety}
+Robin Bloomfield and Peter Bishop.
+\newblock Safety and assurance cases: Past, present and possible future--an
+  adelard perspective.
+\newblock In {\em Making Systems Safer}, pages 51--67. Springer, 2010.
+
+\bibitem{lautieri2005safsec}
+Samantha Lautieri, David Cooper, and David Jackson.
+\newblock Safsec: Commonalities between safety and security assurance.
+\newblock In {\em Constituents of Modern System-safety Thinking}, pages 65--75.
+  Springer, 2005.
+
+\bibitem{wei2017deis}
+Ran Wei, Tim~P Kelly, Richard Hawkins, and Eric Armengaud.
+\newblock Deis: Dependability engineering innovation for cyber-physical
+  systems.
+\newblock In {\em Federation of International Conferences on Software
+  Technologies: Applications and Foundations}, pages 409--416. Springer, 2017.
+
+\bibitem{Schneider2015}
+D.~Schneider, M.~Trapp, Y.~Papadopoulos, E.~Armengaud, M.~Zeller, and
+  K.~Höfig.
+\newblock Wap: Digital dependability identities.
+\newblock In {\em 2015 IEEE 26th International Symposium on Software
+  Reliability Engineering (ISSRE)}, pages 324--329, Nov 2015.
+
+\bibitem{kelly1997safety}
+Tim~P Kelly and John~A McDermid.
+\newblock Safety case construction and reuse using patterns.
+\newblock In {\em Safe Comp 97}, pages 55--69. Springer, 1997.
+
+\bibitem{hawkins2015weaving}
+Richard Hawkins, Ibrahim Habli, Dimitris Kolovos, Richard Paige, and Tim Kelly.
+\newblock Weaving an assurance case from design: a model-based approach.
+\newblock In {\em High Assurance Systems Engineering (HASE), 2015 IEEE 16th
+  International Symposium on}, pages 110--117. IEEE, 2015.
+
 \end{thebibliography}
