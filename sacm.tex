@@ -2,9 +2,9 @@
 \label{sec:sacm}
 The \textit{Structured Assurance Case Metamodel} (SACM) is standardised by the Object Management Group (OMG). The intention of the metamodel is to promote model-based approach in the process of \textit{System Assurance}, which is currently a manual approach that produces artefacts (i.e. Assurance Cases) that are (mostly) not consumable by computers. SACM is created to support structural argumentation approaches such as the \textit{Goal Structuring Notation} (GSN) and \textit{Claims, Arguments and Evidence} (CAE). 
 
-SACM captures not only fundamental concepts in the process of \textit{System Assurance} such as \textit{Claim}s and the relationships between \textit{Claim}s, it also captures concepts such as \textit{Artifact}s and \textit{Terminologi}es, in the sense that supporting evidence and information involved in the argument can be modelled in greater precision. In addition, SACM promotes \textit{modularity}, in the sense that assurance cases are organised in packages, which in turn organise argumentations, evidence and terminologies in corresponding packages. SACM also promotes \textit{openness} in the sense that external information (such as external models and/or documents) can be linked via the facilities provided. 
+SACM captures not only fundamental concepts in the process of \textit{System Assurance} such as \textit{Claim}s and the relationships between \textit{Claim}s, but also concepts such as \textit{Artifact}s and \textit{Terminologi}es, in the sense that supporting evidence and information involved in the argument can be modelled in greater precision. In addition, SACM promotes \textit{modularity}, in the sense that assurance cases are organised in packages, which in turn organise argumentations, evidence and terminologies in corresponding packages. SACM also promotes \textit{openness} in the sense that external information (such as external models and/or documents) can be linked via the facilities provided. 
 
-In this section, we provide a definitive guide to SACM. We discuss the packages in SACM and their intended usage. 
+In this section, we discuss the packages in SACM and explain their intended usage. 
 We will provide two types of examples to demonstrate how SACM can be used: for simple concepts to explain without further context we will use in-place examples; and for complex concepts which requires the context of understanding the entirety of SACM we will use dedicated examples, provided at the end of this section.
 Since OMG has not standardised the concrete syntax of SACM, we will use object diagrams in the examples. 
 
@@ -34,15 +34,16 @@ The core element in the \textit{AssuranceCase} package is the \textit{AssuranceC
 Sometimes, the developer of an \textit{AssuranceCasePackage} may want to make part of the \textit{AssuranceCasePackage} available externally so that they can be re-used. Consider the scenario where a system is composed of components A and B and \textit{AsssuranceCasePackage}s ACPA and ACPB are created respectively for A and B (which contain structured argumentations with regard to safety and/or security properties for A and B). The developer may want to make parts of the argumentations public so that during system integration, where A and B are integrated to form a system, their assurance cases ACPA and ACPB can also be integrated to form a new \textit{AssuranceCasePackage}. To disclose only necessary contents externally, one may make use of the \textit{AssuranceCasePackageInterface} to do so. 
 
 It is an usual activity, in the system integration process to integrate assurance cases of systems to form an overall assurance case. SACM handles this scenario with the \textit{AssuranceCasePackageBinding}, which binds two or more \textit{AssuranceCasePackageInterface}s together to form an overall \textit{AssuranceCasePackage}. This particular scenario is discussed in Section~\ref{} \will{example}.
-
-\subsection{SACM Base Package}
-\label{sec:basePack}
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{Base.eps}
 	\caption{Packages of SACM}
 	\label{fig:base}
 \end{figure}
+
+\subsection{SACM Base Package}
+\label{sec:basePack}
+
 The \textit{Base} package captures the foundational concepts of SACM, the structure of the \textit{Base} package is shown in Figure~\ref{fig:base}. The base element of all SACM elements is \textit{Element}. Its direct children are \textit{LangString}, \textit{MultiLangString} and \textit{SACMElement}.
 
 \textit{LangString} is used as an equivalence to \textit{String} (the value of which is held in the \textit{+content} feature), except it captures an additional feature \textit{+lang} which allows the users to define what language is used in the \textit{LangString}. \textit{ExpressionLangString} is used to not only record a \textit{String} in SACM, but also refer to its corresponding \textit{Expression} organised in a \textit{TerminologyPackage}. The usage of \textit{ExpressionLangString} is discussed in Section~\ref{sec:termPack} \textit{MultiLangString}, as its name suggests, is used to express the same semantics using different languages. For example, to express 'hazard' in both English and German, the user can create a \textit{MultiLangString} with two \textit{LangString}, as shown in Figure~\ref{fig:mulitiLang}.
@@ -122,7 +123,7 @@ As \textit{TerminologyPackage} can also get large in size, \textit{TerminologyGr
 	\label{fig:expression}
 \end{figure}
 
-\textit{ExpressionElement} captures the concept of two kinds of expressions used in argumentations. \textit{ExpressionElement} holds a \textit{value} (of type String). \textit{ExpressionElement} can either be an \textit{Expression} or a \textit{Term}. An \textit{Expression} is used to model phrases and sentences. For example, when stating a sentence: \{\textbf{All identified hazards have been sufficiently mitigated.}\}, the \textit{Expression} element can be used to to capture this sentence as shown in Figure~\ref{fig:expression} (element filled with cyan colour). Alternatively, the users of SACM may choose to capture each word in the sentence as an \textit{Expression}, as shown in Figure~\ref{fig:expression} (element filled with white colour). The idea behind \textit{Expression} is to store words/phrases/sentences in the \textit{TerminologyPackage} like a dictionary, so that the \textit{Expression}s can be re-used. Of course the example in Figure~\textit{fig:expression} does not add too much value to the assurance case, in realistic scenarios, only phrases that can be re-used should be captured in \textit{Expression}s. This is completely up to the user and tool developers of SACM. 
+\textit{ExpressionElement} captures the concept of two kinds of expressions used in argumentations. \textit{ExpressionElement} holds a \textit{value} (of type String). \textit{ExpressionElement} can either be an \textit{Expression} or a \textit{Term}. An \textit{Expression} is used to model phrases and sentences. For example, when stating a sentence: \textbf{All identified hazards have been sufficiently mitigated.}, the \textit{Expression} element can be used to to capture this sentence as shown in Figure~\ref{fig:expression} (element filled with cyan colour). Alternatively, the users of SACM may choose to capture each word in the sentence as an \textit{Expression}, as shown in Figure~\ref{fig:expression} (element filled with white colour). The idea behind \textit{Expression} is to store phrases/sentences in the \textit{TerminologyPackage} like a set of defined grammar, so that the \textit{Expression}s can be re-used. Of course the example in Figure~\textit{fig:expression} does not add too much value to the assurance case, in realistic scenarios, only phrases that can be re-used should be captured in \textit{Expression}s. This is completely up to the user and tool developers of SACM. 
 
 \begin{figure}
 	\centering
@@ -155,7 +156,7 @@ To promote modularity, argumentations are organised in \textit{ArgumentPackage}s
 \textit{ArgumentAsset} and its children are the elements that form the structured argumentation in the \textit{Argumentation} package. An \textit{Assertion} has an \textit{AssertionDeclaration} to distinguish different kinds of \textit{Assertion}s. The \textit{AssertionDeclaration}s are as follows: 
 
 \begin{itemize}
-	\item \textbf{asserted} - the default declaration, means that the \textit{Assertion} is given and is supported by evidence;
+	\item \textbf{asserted} - the default declaration, means that the \textit{Assertion} is made and is supported by evidence;
 	\item \textbf{needsSupport} - a flag indicating that the \textit{Assertion} is not supported yet (needs further development);
 	\item \textbf{assumed} - a flag indicating that the truth of the \textit{Assertion} is assumed although no supporting evidence is provided;
 	\item \textbf{axiomatic} - a flag indicating that the truth of the \textit{Assertion} is axiomatically true without further supporting evidence;
@@ -170,7 +171,7 @@ Sometimes it is necessary to argue the confidence in the arguments provided in t
 \textit{Claim} and \textit{AssertedRelationship} are the core elements of the \textit{Argumentation} package. \textit{AssertedRelationship} are used to connect \textit{ArgumentAsset}s to form structured argumentation (\textit{AssertedRelationship}s can also be \textit{counter} relationships, indicated by the \textit{+isCounter} feature):
 
 \begin{itemize}
-	\item \textbf{AssertedCotnext} - this relationship is used to connect contextual \textit{Assertion}s to an \textit{Assertion};
+	\item \textbf{AssertedContext} - this relationship is used to connect contextual \textit{Assertion}s to an \textit{Assertion};
 	\item \textbf{AssertedEvidence} - this relationship is used to connect evidence (referenced via \textit{ArtifactReference}) to an \textit{Assertion};
 	\item \textbf{AssertedInference} - this relationship records the inference between on or more \textit{Assertion} and another \textit{Assertion};
 	\item \textbf{AssertedArtefactContext} - this relationship is used to connect contextual artefacts (via \textit{ArtifactReference}) to an artefact (via \textit{ArtifactReference});
@@ -186,7 +187,7 @@ In this section, we discussed the packages defined in SACM. We explain the inten
 
 \section{SACM: Examples}
 In this section, we provide concrete examples on how SACM is used to construct structured argumentation, and how SACM can be used to form argumentation patterns (similar to GSN argument patterns). 
-Since GSN notations are widely accepted and understood, we compare GSN notations with their equivalent model elements in SACM to illustrate how SACM elements can be used to denote the same meaning carried by their GSN counterparts.
+Since GSN notations are widely accepted and understood, we compare GSN depictions with their equivalent model elements in SACM to illustrate how SACM elements can be used to denote the same meaning carried by their GSN counterparts.
 
 \subsection{Example: Making Claims and Citations}
 \label{sec:claims}
@@ -233,7 +234,7 @@ Like previously mentioned, a \textit{Claim} can be marked as \textbf{needsSuppor
 	\centering
 	\begin{minipage}[b]{0.7\textwidth}
 		\includegraphics[width=\textwidth]{assumedClaim.eps}
-		\caption{A \textbf{assumed} \textit{Claim} in SACM.}
+		\caption{An \textbf{assumed} \textit{Claim} in SACM.}
 		\label{fig:assumedClaim}
 	\end{minipage}
 	\hfill
@@ -250,7 +251,7 @@ A \textit{Claim} marked as \textbf{assumed} is used to state an assumption in th
 	\centering
 	\begin{minipage}[b]{0.7\textwidth}
 		\includegraphics[width=\textwidth]{axiomaticClaim.eps}
-		\caption{A \textbf{axiomatic} \textit{Claim} in SACM.}
+		\caption{An \textbf{axiomatic} \textit{Claim} in SACM.}
 		\label{fig:axiomaticClaim}
 	\end{minipage}
 	\hfill
@@ -344,7 +345,7 @@ Sometimes, a justification of \textit{AssertedRelationship}s can be attached to 
 
 \subsection{Example: Argumentation Patterns}
 \label{sec:patterns}
-In GSN, there is a concept of \textit{GSN Pattern}s, which are essentially templates which enables the re-use of good practice in safety cases. SACM provides similar concepts so that the user can construct templates in SACM, and at a later stage, to \textit{instantiate} the templates by populating actual system information in the templates. Figure~\ref{fig:sacmPattern} shows an argumentation pattern in SACM. For comparison, the content of the pattern is identical to the GSN pattern shown in Figure~\ref{fig:dmilsPattern}. Note that some details are omitted due to the complexity of the SACM model.
+In GSN, there is a concept of \textit{GSN Pattern}s \cite{kelly1997safety}, which are essentially templates that enable the re-use of good practice in safety cases. SACM provides similar concepts so that the user can construct templates in SACM, and at a later stage, to \textit{instantiate} the templates by populating actual system information in the templates. Figure~\ref{fig:sacmPattern} shows an argumentation pattern in SACM. For comparison, the content of the pattern is identical to the GSN pattern shown in Figure~\ref{fig:dmilsPattern}. Note that some details are omitted due to the complexity of the SACM model.
 
 There is a \textit{TerminologyPackage} in the upper part of Figure~\ref{fig:sacmPattern} named TP1, within which contains an \textit{Expression} and a \textit{Term}\footnote{The containment is described in this way to improve comprehensibility.}. In the lower part of the figure, there is an \textit{ArgumentPackage} AP1, which contains the structured argumentation pattern (N.B. the packages are placed in this way to make the figure more readable and does not denote the priority of the packages).
 
@@ -354,12 +355,9 @@ In the \textit{TerminologyPackage} TP1, the \textit{Expression} refers to the \t
 
 The structure of the argumentation in Figure~\ref{fig:sacmPattern} follows that in Figure~\ref{fig:dmilsPattern}, where the \textit{Claim} \textbf{PropEnforced} maps to \textit{Goal} \textbf{Goal:propEnforced}, the \textit{ArgumentReasoning} \textbf{sysSecurity} maps to \textit{Strategy} \textbf{Strat:sysSecurity}. Note that the \textit{Claim}s in yellow colour are the templates, which have their \textit{+isAbstract} feature set to true. 
 
-GSN pattern instantiation is often a manual procedure as safety case developers need to comprehend the GSN pattern and replace the \textit{role}s in the pattern with actual system information. In \cite{hawkins2015weaving}, a model-based approach is proposed, which makes use of a \textit{weaving model} to link the elements in the GSN with elements in system models. This is typically due to the fact that in GSN there are no means to specify instantiation rules for the GSN patterns. In SACM, as previously mentioned in Section~\ref{sec:basePack}, the element \textit{ImplmentationConstraint} can be used to specify the instantiation rules for patterns. This is illustrated in Figure~\ref{fig:sacmPattern} （element in blue）, that an \textit{ImplementationConstraint} is associated to the \textit{Term} \textit{D-MILS System}. Due to the space limit, we omit the containing elements of the \textit{ImplementationConstraint}. In this example, we use \textit{OCL} to describe the instantiation rule, in the fact that the \textit{Term} \textit{D-MILS System} will be replaced by the execution result of the OCL statement: \textit{System.allInstances()$\rightarrow$first().name} 
-
-Evidently, pattern instantiation needs tool support and model query engine to execute. The language used in \textit{ImplementationConstraint} are not limited to OCL, or even computer languages. \textit{ImplmentationConstraint}s described in natural languages can also be used as instantiation rules, except that the instantiation procedure is limited to manual only. 
+GSN pattern instantiation is often a manual procedure as safety case developers need to comprehend the GSN pattern and replace the \textit{role}s in the pattern with actual system information. In \cite{hawkins2015weaving}, a model-based approach is proposed, which makes use of a \textit{weaving model} to link the elements in the GSN with elements in system models. This is typically due to the fact that in GSN there are no means to specify instantiation rules for the GSN patterns. In SACM, as previously mentioned in Section~\ref{sec:basePack}, the element \textit{ImplmentationConstraint} can be used to specify the instantiation rules for patterns. The users of SACM can associate \textit{ImplementationConstraint} to any element and the use of language is not restricted.
+Evidently, pattern instantiation needs tool support and model management engine to execute the \textit{ImplementationConstraint}. The language used in \textit{ImplementationConstraint} are not limited to computer languages. \textit{ImplmentationConstraint}s described in natural languages can also be used as instantiation rules, except that the instantiation procedure is limited to manual only. 
 
 When a SACM model instantiates a SACM pattern, it can relate to the SACM pattern via the \textit{+abstractForm} feature. For example, if a \textit{Claim} C1 created by instantiating the template \textbf{SysProps}, it can refer to \textbf{SysProps} via the \textit{+abstractForm} for future reference. 
-
-
 
 \subsection{Example: A case study on the European Train Control Systems (ETCS)}
