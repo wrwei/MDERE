@@ -1,0 +1,337 @@
+pre {
+	"Begining Transformation...".println();
+	var aeToDiscard = new Sequence;
+}
+
+post {
+	"Transformation Complete".println();
+	for(ae in aeToDiscard)
+	{
+		delete ae;
+	}
+}
+
+@lazy
+//transforms LangString to LangString
+rule LangString2LangString 
+	transform l1: GSN!LangString
+	to l2: SACM!LangString {
+	l2.lang = l1.lang;
+	l2.content = l1.content;
+}
+
+@lazy
+//transforms from MultiLangString to MultiLangString
+rule MultiLantString2MultiLangString 
+	transform m1: GSN!MultiLangString
+	to m2: SACM!MultiLangString {
+	m2.value.addAll(m1.value.equivalent());
+}
+
+@lazy
+//transforms from ExpressionLangString to ExpressionLangString
+rule ExpressionLangString2ExpressionLangString 
+	transform els1: GSN!ExpressionLangString
+	to els2: SACM!ExpressionLangString {
+	els2.lang = els1.lang;
+	els2.content = els1.content;
+	if(els1.expression.isDefined())
+	{
+		els2.expression = els1.expression.equivalent();
+	}
+}
+
+@lazy
+//transforms from Expression to Expression
+rule Expression2Expression
+	transform e1: GSN!Expression
+	to e2: SACM!Expression {
+	e2.value = e1.value;
+	e2.element.addAll(e1.element.equivalent());
+}
+
+@lazy
+//transforms from Term to Term
+rule Term2Term
+	transform t1: GSN!Term
+	to t2: SACM!Term {
+	t2.value = t1.value;
+	t2.externalReference = t1.externalReference;
+	t2.origin = t1.origin.equivalent();
+}
+
+@lazy
+//transforms Description to Description
+rule Description2Description 
+	transform d1: GSN!Description
+	to d2: SACM!Description {
+	d2.content = d1.content.equivalent();
+}
+
+//rule to transform module to ArgumentPackage
+rule Module2ArgumentPackage
+	transform m:GSN!Module
+	to ap: SACM!ArgumentPackage{
+	//transform name
+	ap.name = m.name.equivalent();
+	ap.description = m.description.equivalent();
+	//transform argumentationElement
+	ap.argumentationElement.addAll(m.argumentationElement.equivalent());
+}
+
+rule Contract2ArgumentPackageBinding
+	transform c: GSN!ContractModule
+	to	apb: SACM!ArgumentPackageBinding {
+	apb.name = c.name.equivalent();
+	apb.description = c.description.equivalent();
+	//transform argumentationElement
+	apb.argumentationElement.addAll(c.argumentationElement.equivalent());
+}
+
+@lazy
+//transforms Goal to Claim
+rule Goal2Claim 
+	transform g: GSN!Goal
+	to c: SACM!Claim {
+	c.name = g.name.equivalent();
+	c.description = g.description.equivalent();
+	
+	//normal goal
+	if(g.undeveloped = false and g.toBeSupportedByContract = false and g.uninstantiated = false)
+	{
+		c.assertionDeclaration = SACM!AssertionDeclaration#asserted;
+	}
+	//Undeveloped Goal
+	else if(g.undeveloped = true and g.toBeSupportedByContract = false and g.uninstantiated = false)
+	{
+		c.assertionDeclaration = SACM!AssertionDeclaration#needsSupport;
+	}
+	//Uninstantiated Goal
+	else if(g.undeveloped = false and g.toBeSupportedByContract = false and g.uninstantiated = true)
+	{
+		c.isAbstract = true;
+	}
+	//ToBeSupportedByContract Goal
+	else if(g.undeveloped = false and g.toBeSupportedByContract = true and g.uninstantiated = false)
+	{
+		c.assertionDeclaration = SACM!AssertionDeclaration#needsSupport;
+		c.taggedValue.add(createTaggedValue("toBeSupportedByContract"));
+	}
+	//to be supported and uninstantiated
+	else if(g.undeveloped = false and g.toBeSupportedByContract = true and g.uninstantiated = true)
+	{
+		c.isAbstract = true;
+		c.assertionDeclaration = SACM!AssertionDeclaration#needsSupport;
+		c.taggedValue.add(createTaggedValue("toBeSupportedByContract"));
+	}
+	
+	//if public then add TaggedValue
+	if(g.isPublic = true)
+	{
+		c.taggedValue.add(createTaggedValue("public"));
+	}
+}
+
+@lazy
+rule Justification2Claim
+	transform j: GSN!Justification
+	to c: SACM!Claim {
+	if(j.uninstantiated = true)
+	{
+		c.isAbstract = true;
+	}
+	c.assertionDeclaration = SACM!AssertionDeclaration#axiomatic;
+	c.name = j.name.equivalent();
+	c.description = j.description.equivalent();
+}
+
+@lazy
+rule Assumption2Claim
+	transform a: GSN!Assumption
+	to c: SACM!Claim {
+	if(a.uninstantiated = true)
+	{
+		c.isAbstract = true;
+	}
+	c.assertionDeclaration = SACM!AssertionDeclaration#assumed;
+	c.name = a.name.equivalent();
+	c.description = a.description.equivalent();
+}
+
+@lazy
+//transforms from Solution to 
+rule Solution2ArtifactReference
+	transform s: GSN!Solution
+	to ar: SACM!ArtifactReference {
+	ar.name = s.name.equivalent();
+	ar.description = s.description.equivalent();
+	
+	if(s.uninstantiated = true)
+	{
+		ar.isAbstract = true;
+	}
+	
+	if(s.isPublic = true)
+	{
+		ar.taggedValue.add(createTaggedValue("public"));
+	}
+}
+
+@lazy
+rule Context2Claim 
+	transform context: GSN!Context
+	to claim: SACM!Claim {
+	guard: context.refersToExternalMaterial = false or context.refersToExternalMaterial.isUndefined()
+	if(context.uninstantiated = true)
+	{
+		claim.isAbstract = true;
+	}
+	
+	claim.name = context.name.equivalent();
+	claim.description = context.description.equivalent();
+	
+	if(context.isPublic = true)
+	{
+		claim.taggedValue.add(createTaggedValue("public"));
+	}
+}
+
+@lazy
+rule Context2ArtifactReference
+	transform c: GSN!Context
+	to ar: SACM!ArtifactReference {
+	guard: c.refersToExternalMaterial = true
+	
+	if(c.uninstantiated = true)
+	{
+		ar.isAbstract = true;
+	}
+	ar.name = c.name.equivalent();
+	ar.description = c.description.equivalent();
+	
+	if(c.isPublic = true)
+	{
+		aec.taggedValue.add(createTaggedValue("public"));
+	}
+}
+
+@lazy
+rule Strategy2ArgumentReasoning 
+	transform s: GSN!Strategy
+	to ai: SACM!AssertedInference, ae: SACM!AssertedEvidence, ar: SACM!ArgumentReasoning {
+	
+	var upperLevel = getSupportedByForStrategyAsTarget(s);
+	var lowerLevel = getSupportedByForStrategyAsSource(s);
+
+	if(s.uninstantiated = true)
+	{
+	 	ar.isAbstract = true;
+	}
+	ar.name = s.name.equivalent();
+	ar.description = s.description.equivalent();
+	
+	var supportedByConnectingSolutions: Collection = lowerLevel.select(sb|sb.target.exists(t|t.isTypeOf(GSN!Solution)));
+	if(supportedByConnectingSolutions.isEmpty())
+	{
+		aeToDiscard.add(ae);
+	}
+	else
+	{
+		ae.source.addAll(supportedByConnectingSolutions.target.flatten().asSet().equivalent());
+		ae.target.addAll(upperLevel.source.flatten().asSet().equivalent());
+		ae.reasoning = ar;
+	}
+	var suppoortedByConnectingGoals: Collection = lowerLevel.select(sb|sb.target.exists(t|t.isTypeOf(GSN!Goal)));
+	if(suppoortedByConnectingGoals.isEmpty()) 
+	{
+		aeToDiscard.add(ai);
+	}
+	else 
+	{
+		ai.source.addAll(lowerLevel.target.flatten().asSet().equivalent());
+		ai.target.addAll(upperLevel.source.flatten().asSet().equivalent());
+		ai.reasoning = ar;
+	}
+}
+
+@lazy
+rule SupportedBy2AssertedEvidence
+	transform sb: GSN!SupportedBy
+	to ae: SACM!AssertedEvidence {
+	guard : sb.source.forAll(s|s.isTypeOf(GSN!Goal)) and sb.target.forAll(t|t.isTypeOf(GSN!Solution))
+	ae.source.addAll(sb.target.equivalent());
+	ae.target.addAll(sb.source.equivalent());
+}
+
+@lazy
+rule SupportedBy2AssertedInference
+	transform sb: GSN!SupportedBy
+	to ai: SACM!AssertedInference {
+	guard : sb.source.forAll(s|s.isTypeOf(Goal)) and sb.target.forAll(t|t.isTypeOf(Goal))
+	ai.source.addAll(sb.target.equivalent());
+	ai.target.addAll(sb.source.equivalent());
+}
+
+@lazy
+rule InContextOf2AssertedContext
+	transform ico: GSN!InContextOf
+	to ac: SACM!AssertedContext {
+	ac.source.addAll(ico.target.equivalent());
+	ac.target.addAll(ico.source.equivalent());
+}
+
+@lazy
+rule AwayGoal2ArtifactReference
+	transform ag: GSN!AwayGoal
+	to c: SACM!Claim {
+	c.isCitation = true;
+	c.name = ag.name.equivalent();
+	c.description = ag.description.equivalent();
+	c.citedElement = ag.citedElement.equivalent();
+}
+
+@lazy
+rule AwaySolution2ArtifactReference
+	transform awaySolution: GSN!AwaySolution
+	to ar: SACM!ArtifactReference {
+	ar.name = awaySolution.name.equivalent();
+	ar.description = awaySolution.description.equivalent();
+	ar.referencedArtifactElement.add(awaySolution.referencedArtifactElement.equivalent());
+}
+
+@lazy
+rule AwayContext2ArtifactReference
+	transform ac: GSN!AwayContext
+	to ar: SACM!ArtifactReference {
+	ar.name = ac.name.equivalent();
+	ar.description = ac.description.equivalent();
+	ar.referencedArtifactElement.add(ac.citedElement.equivalent());
+}
+
+operation getSupportedByForStrategyAsSource(strategy: GSN!Strategy)
+{
+	var allSupportedBy = getAllSupportedBy();
+	return allSupportedBy.select(sb|sb.source.includes(strategy));
+}
+
+operation getSupportedByForStrategyAsTarget(strategy: GSN!Strategy)
+{
+	var allSupportedBy = getAllSupportedBy();
+	return allSupportedBy.select(sb|sb.target.includes(strategy));
+}
+
+operation getAllSupportedBy()
+{
+	return GSN!SupportedBy.allInstances();
+}
+
+operation createTaggedValue(key: String)
+{
+	var taggedValue = new SACM!TaggedValue;
+	var _key = new SACM!MultiLangString;
+	var value = new SACM!LangString;
+	value.content = key;
+	taggedValue.key = _key;
+	_key.value.add(value);
+	return taggedValue;
+}

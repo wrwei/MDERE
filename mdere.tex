@@ -3,8 +3,11 @@
 \usepackage{graphicx}
 \usepackage{listings}
 \usepackage{caption}
+\usepackage{algorithm2e}
 \graphicspath{{./fig/}}
-
+\newcommand{\Let}{\textbf{let~}}
+\newcommand{\Call}{\textbf{call~}}
+\newcommand{\var}[1]{\texttt{#1}}
 
  
 %-------------------------------------------------
@@ -22,15 +25,25 @@
 
 
 \lstset{
-	xleftmargin=0em,
+	xleftmargin=2em,
 	captionpos=b,
 	basicstyle=\ttfamily\color[rgb]{0.4,0.4,0.4},
 	columns=flexible,
 	tabsize=2,
-	numbers=none,
+	numbers=left,
 	keywordstyle=\bfseries\color[rgb]{0,0,0},
 	nolol=true
 }
+
+\lstdefinelanguage{ETL}{
+	morekeywords={import, pre, post, var, rule, to, extends, not, with, guard, match, merge, transform, for, in, and, or, self, operation, return, def, if, new, else, match, compare, conform, into, switch, case, default, model, alias, driver, path, nsuri},
+	sensitive=true,
+	morecomment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	morestring=[b]",
+	showstringspaces=false
+}
+
 
 \authorrunning{Ran Wei, Tim P. Kelly, Richard Hawkins}
 
@@ -68,12 +81,11 @@
 
 \input{sacm}
 
-\input{section3}
+\input{GSNAndSACM}
 
+\input{toolSupport}
 
-\input{section5}
-
-\input{section6}
+\input{conclusion}
 
 \noindent\textbf{Acknowledgements}
 This work is supported by the European Union'’s Horizon 2020 research and innovation programme through the DEIS project (grant agreement No 732242). 
