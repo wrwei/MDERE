@@ -30,12 +30,12 @@ There has been increasing interest in the use of structured argumentation in oth
 
 To promote standardisation and interoperability, the Object Management Group (OMG) specified and issued the \textit{Structured Assurance Case Metamodel}. In version 2.0 of SACM\footnote{Released in September, 2017}, a considerable amount of changes have been introduced to promote modularity and openness of SACM. SACM provides a complete solution for model based system assurance case construction. In addition, supporting evidence and related information can also be referenced via reference mechanisms provided in SACM. This makes SACM more powerful than existing techniques such as GSN and CAE.
 
-However, in the SACM specification there is limited information on the intended usage of facilities provided in SACM. To exploit SACM's full potential, and to promote the adoption of SACM, it is necessary to explain SACM in detail so that safety and security engineers can fully use SACM  and achieve higher level goals (e.g. automated model-to-text transformation to generate assurance case reports). 
+However, in the SACM specification there is limited information on the intended usage of SACM. To exploit SACM's full potential, and to promote the adoption of SACM, it is necessary to explain SACM in detail so that safety and security engineers can fully use SACM to achieve higher level goals (e.g. automated model-to-text transformation to generate assurance case reports). 
 
 In the current state of practice, graphical notations such as GSN remain the most popular approach for system assurance. 
 SACM is designed to support GSN, but the OMG specification does not provide a mapping between GSN elements and SACM elements. 
 This is due to the fact there has not been a SACM aligned GSN metamodel. 
-Thus, in this paper we provide an official GSN metamodel which aligns to SACM. 
+Thus, in this paper we provide a GSN metamodel which aligns to SACM. 
 There is also a need to interoperate from GSN to SACM.
 The reason behind this is two fold. First of all, the OMG has not defined a concrete syntax (i.e. graphical notation) for SACM elements， which makes creating SACM models a tedious and error-prone process. Thus, it is a good practice to use the GSN metamodel to construct the structured argumentation and then transform from GSN to SACM using model-to-model transformation. Secondly, since GSN has been widely adopted in industry, practitioners can convert their legacy GSN diagrams into GSN models, and then transform GSN to SACM to enable model-based system assurance. 
 Due the reasons above, in this paper, we will provide a mapping (model-to-model transformation) from GSN to SACM.

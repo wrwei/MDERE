@@ -13,45 +13,45 @@ Warning--empty publisher in hse
 Warning--empty publisher in mod2007
 Warning--empty publisher in caa2007
 Warning--empty publisher in yellowBook2007
-You've used 22 entries,
+You've used 24 entries,
             1791 wiz_defined-function locations,
-            558 strings with 6690 characters,
-and the built_in function-call counts, 4934 in all, are:
-= -- 457
-> -- 160
-< -- 8
-+ -- 64
-- -- 42
-* -- 231
-:= -- 676
-add.period$ -- 73
-call.type$ -- 22
-change.case$ -- 17
+            569 strings with 6999 characters,
+and the built_in function-call counts, 5564 in all, are:
+= -- 516
+> -- 182
+< -- 11
++ -- 72
+- -- 48
+* -- 265
+:= -- 759
+add.period$ -- 80
+call.type$ -- 24
+change.case$ -- 19
 chr.to.int$ -- 0
-cite$ -- 27
-duplicate$ -- 270
-empty$ -- 556
-format.name$ -- 42
-if$ -- 1205
+cite$ -- 29
+duplicate$ -- 308
+empty$ -- 620
+format.name$ -- 48
+if$ -- 1363
 int.to.chr$ -- 0
-int.to.str$ -- 22
-missing$ -- 21
-newline$ -- 113
-num.names$ -- 16
-pop$ -- 146
+int.to.str$ -- 24
+missing$ -- 23
+newline$ -- 123
+num.names$ -- 18
+pop$ -- 158
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 136
+skip$ -- 160
 stack$ -- 0
-substring$ -- 236
-swap$ -- 87
-text.length$ -- 8
+substring$ -- 266
+swap$ -- 106
+text.length$ -- 11
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 5
-while$ -- 41
-width$ -- 24
-write$ -- 228
+while$ -- 47
+width$ -- 26
+write$ -- 252
 (There was 1 error message)

@@ -1,0 +1,160 @@
+pre {
+	"Begining Transformation...".println();
+	var aeToDiscard = new Sequence;
+}
+
+post {
+	"Transformation Complete".println();
+	for(ae in aeToDiscard)
+	{
+		delete ae;
+	}
+}
+
+@lazy
+//transforms LangString to LangString
+rule LangString2LangString 
+	transform l1: CAE!LangString
+	to l2: SACM!LangString {
+	l2.lang = l1.lang;
+	l2.content = l1.content;
+}
+
+@lazy
+//transforms from MultiLangString to MultiLangString
+rule MultiLantString2MultiLangString 
+	transform m1: CAE!MultiLangString
+	to m2: SACM!MultiLangString {
+	m2.value.addAll(m1.value.equivalent());
+}
+
+@lazy
+//transforms from ExpressionLangString to ExpressionLangString
+rule ExpressionLangString2ExpressionLangString 
+	transform els1: CAE!ExpressionLangString
+	to els2: SACM!ExpressionLangString {
+	els2.lang = els1.lang;
+	els2.content = els1.content;
+	if(els1.expression.isDefined())
+	{
+		els2.expression = els1.expression.equivalent();
+	}
+}
+
+@lazy
+//transforms from Expression to Expression
+rule Expression2Expression
+	transform e1: CAE!Expression
+	to e2: SACM!Expression {
+	e2.value = e1.value;
+	e2.element.addAll(e1.element.equivalent());
+}
+
+@lazy
+//transforms from Term to Term
+rule Term2Term
+	transform t1: CAE!Term
+	to t2: SACM!Term {
+	t2.value = t1.value;
+	t2.externalReference = t1.externalReference;
+	t2.origin = t1.origin.equivalent();
+}
+
+@lazy
+//transforms Description to Description
+rule Description2Description 
+	transform d1: CAE!Description
+	to d2: SACM!Description {
+	d2.content = d1.content.equivalent();
+}
+
+
+@lazy
+//transforms Goal to Claim
+rule Claim2Claim 
+	transform c1: CAE!Claim
+	to c2: SACM!Claim {
+	c2.name = c1.name.equivalent();
+	c2.description = c1.description.equivalent();
+}
+
+@lazy
+rule Assumption2Claim
+	transform a: CAE!Assumption
+	to c: SACM!Claim {
+	c.assertionDeclaration = SACM!AssertionDeclaration#assumed;
+	c.name = a.name.equivalent();
+	c.description = a.description.equivalent();
+}
+
+@lazy
+//transforms from Solution to 
+rule Evidence2ArtifactReference
+	transform s: CAE!Solution
+	to ar: SACM!ArtifactReference {
+	ar.name = s.name.equivalent();
+	ar.description = s.description.equivalent();
+}
+
+@lazy
+rule Argument2ArgumentReasoning 
+	transform a: CAE!Argument
+	to ar: SACM!ArgumentReasoning {
+	
+	ar.name = s.name.equivalent();
+	ar.description = s.description.equivalent();
+	
+	var outGoingSupport = getOutgoingSupport(a);
+	
+	var incomingIsEvidenceFor = getIncomingIsEvidenceFor(a);
+	if(not incomingIsEvidenceFor.isEmpty()) {
+		var assertedEvidence = new SACM!AssertedEvidence;
+		assertedEvidence.source.addAll(incomingIsEvidenceFor.source.flatten().asSet().equivalent());
+		assertedEvidence.target = outGoingSupport.target.equivalent();
+		a.eContainer.argumentElement.add(assertedEvidence);
+	}
+	
+	var incomingIsSubClaimOf = getIncomingIsSubClaimOf(a);
+	if(not incomingIsSubClaimOf.isEmpty()) {
+		var assertedInference = new SACM!AssertedInference;
+		assertedInference.source.addAll(incomingIsSubClaimOf.source.flatten().asSet().equivalent());
+		assertedInference.target = outGoingSupport.target.equivalent();
+		a.eContainer.argumentElement.add(assertedInference);
+	}
+}
+
+@lazy
+rule IsEvidenceFor2AssertedEvidence
+	transform ief: CAE!IsEvidenceFor
+	to ae: SACM!AssertedEvidence {
+	guard : ief.source.forAll(s|s.isTypeOf(CAE!Evidence)) and ief.target.forAll(t|t.isTypeOf(CAE!Claim))
+	ae.source.addAll(ief.target.equivalent());
+	ae.target.addAll(ief.source.equivalent());
+}
+
+@lazy
+rule IsSubClaimOf2AssertedInference
+	transform isco: CAE!IsSubClaimOf
+	to ai: SACM!AssertedInference {
+	guard : isco.source.forAll(s|s.isTypeOf(Claim)) and isco.target.forAll(t|t.isTypeOf(Claim))
+	ai.source.addAll(sb.target.equivalent());
+	ai.target.addAll(sb.source.equivalent());
+}
+
+operation getIncomingIsEvidenceFor(argument: CAE!Argument)
+{
+	var isEvidenceFor = CAE!IsEvidenceFor.allInstances();
+	return isEvidenceFor.select(ief|ief.target.includes(argument));
+}
+
+operation getIncomingIsSubClaimOf(argument: CAE!Argument)
+{
+	var isSubClaimOf = CAE!IsSubClaimOf.allInstances();
+	return isSubClaimOf.select(isco|isco.target.includes(argument));
+}
+
+operation getOutgoingSupport(argument: CAE!Argument)
+{
+	var allSupports = CAE!Supports.allInstances();
+	return allSupports.select(s|s.source.includes(argument)).first();
+}
