@@ -25,7 +25,7 @@ Although the \textit{Base} package provides the foundation of SACM, it is necess
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{AssuranceCase.eps}
-	\caption{Packages of SACM}
+	\caption{SACM AssuranceCase Package.}
 	\label{fig:ac}
 \end{figure}
 
@@ -33,11 +33,11 @@ The core element in the \textit{AssuranceCase} package is the \textit{AssuranceC
 
 Sometimes, the developer of an \textit{AssuranceCasePackage} may want to make part of the \textit{AssuranceCasePackage} available externally so that they can be re-used. Consider the scenario where a system is composed of components A and B and \textit{AsssuranceCasePackage}s ACPA and ACPB are created respectively for A and B (which contain structured argumentations with regard to safety and/or security properties for A and B). The developer may want to make parts of the argumentations public so that during system integration, where A and B are integrated to form a system, their assurance cases ACPA and ACPB can also be integrated to form a new \textit{AssuranceCasePackage}. To disclose only necessary contents externally, one may make use of the \textit{AssuranceCasePackageInterface} to do so. 
 
-It is an usual activity, in the system integration process to integrate assurance cases of systems to form an overall assurance case. SACM handles this scenario with the \textit{AssuranceCasePackageBinding}, which binds two or more \textit{AssuranceCasePackageInterface}s together to form an overall \textit{AssuranceCasePackage}. This particular scenario is discussed in Section~\ref{section:etcs}.
+The premise of system integration in safety related domains is to integrate assurance cases of systems to form an overall assurance case. SACM handles this scenario with the \textit{AssuranceCasePackageBinding}, which binds two or more \textit{AssuranceCasePackageInterface}s together to form an overall \textit{AssuranceCasePackage}. This particular scenario is discussed in Section~\ref{section:etcs}.
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{Base.eps}
-	\caption{Packages of SACM}
+	\caption{SACM Base Package.}
 	\label{fig:base}
 \end{figure}
 
@@ -71,7 +71,7 @@ In summary, the \textit{Base} package lays the foundation for SACM, it provides 
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{Artifact.eps}
-	\caption{Packages of SACM}
+	\caption{SACM Artifact Package.}
 	\label{fig:arti}
 \end{figure}
 
@@ -106,7 +106,7 @@ SACM does not restrict how external materials should be referenced, the descript
 \begin{figure}[ht!]
 	\centering
 	\includegraphics[width=1\linewidth]{Terminology.eps}
-	\caption{Packages of SACM}
+	\caption{SACM Terminology Package.}
 	\label{fig:term}
 \end{figure}
 \subsection{SACM Terminology Package}
@@ -123,7 +123,7 @@ As \textit{TerminologyPackage} can also get large in size, \textit{TerminologyGr
 	\label{fig:expression}
 \end{figure}
 
-\textit{ExpressionElement} captures the concept of two kinds of expressions used in argumentations. \textit{ExpressionElement} holds a \textit{value} (of type String). \textit{ExpressionElement} can either be an \textit{Expression} or a \textit{Term}. An \textit{Expression} is used to model phrases and sentences. For example, when stating a sentence: \textbf{All identified hazards have been sufficiently mitigated.}, the \textit{Expression} element can be used to to capture this sentence as shown in Figure~\ref{fig:expression} (element filled with cyan colour). Alternatively, the users of SACM may choose to capture arbitrary phrases in the sentence as an \textit{Expression}, as shown in Figure~\ref{fig:expression} (element filled with yellow colour). The idea behind \textit{Expression} is to store phrases/sentences in the \textit{TerminologyPackage} like a set of defined grammar, so that the \textit{Expression}s can be re-used. Of course the example in Figure~\textit{fig:expression} does not add too much value to the assurance case, in realistic scenarios, only phrases that can be re-used should be captured in \textit{Expression}s. This is completely up to the user and tool developers of SACM. 
+\textit{ExpressionElement} captures the concept of two kinds of expressions used in argumentations. \textit{ExpressionElement} holds a \textit{value} (of type String). \textit{ExpressionElement} can either be an \textit{Expression} or a \textit{Term}. An \textit{Expression} is used to model phrases and sentences. For example, when stating a sentence: \textbf{All identified hazards have been sufficiently mitigated.}, the \textit{Expression} element can be used to to capture this sentence as shown in Figure~\ref{fig:expression} (element filled with cyan colour). Alternatively, the users of SACM may choose to capture arbitrary phrases in the sentence as an \textit{Expression}, as shown in Figure~\ref{fig:expression} (element filled with yellow colour). The idea behind \textit{Expression} is to store phrases/sentences in the \textit{TerminologyPackage} like a set of defined grammar, so that the \textit{Expression}s can be re-used. Of course the example in Figure~\ref{fig:expression} does not add too much value to the assurance case, in realistic scenarios, only phrases that can be re-used should be captured in \textit{Expression}s. This is completely the decision to make for the users and tool developers of SACM. 
 
 \begin{figure}
 	\centering
@@ -145,7 +145,7 @@ The users of SACM may also organise \textit{ExpressionElement} into \textit{Cate
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{Argumentation.eps}
-	\caption{Packages of SACM}
+	\caption{SACM Argumentation Package.}
 	\label{fig:arg}
 \end{figure}
 The \textit{Argumentation} Package captures the concepts required to model structured arguments regarding system properties. The structure of the \textit{Argumentation} package is shown in Figure~\ref{fig:arg}.
