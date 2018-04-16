@@ -3,7 +3,7 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: mdere.aux
 The style file: unsrt.bst
 Database file #1: references.bib
-Repeated entry---line 162 of file references.bib
+Repeated entry---line 181 of file references.bib
  : @incollection{kelly1997safety
  :                              ,
 I'm skipping whatever remains of this entry
@@ -13,45 +13,45 @@ Warning--empty publisher in hse
 Warning--empty publisher in mod2007
 Warning--empty publisher in caa2007
 Warning--empty publisher in yellowBook2007
-You've used 24 entries,
+You've used 26 entries,
             1791 wiz_defined-function locations,
-            569 strings with 6999 characters,
-and the built_in function-call counts, 5564 in all, are:
-= -- 516
-> -- 182
-< -- 11
+            572 strings with 7138 characters,
+and the built_in function-call counts, 5635 in all, are:
+= -- 529
+> -- 178
+< -- 9
 + -- 72
-- -- 48
-* -- 265
-:= -- 759
-add.period$ -- 80
-call.type$ -- 24
-change.case$ -- 19
+- -- 46
+* -- 252
+:= -- 769
+add.period$ -- 87
+call.type$ -- 26
+change.case$ -- 20
 chr.to.int$ -- 0
-cite$ -- 29
+cite$ -- 31
 duplicate$ -- 308
-empty$ -- 620
-format.name$ -- 48
-if$ -- 1363
+empty$ -- 643
+format.name$ -- 46
+if$ -- 1382
 int.to.chr$ -- 0
-int.to.str$ -- 24
-missing$ -- 23
-newline$ -- 123
+int.to.str$ -- 26
+missing$ -- 24
+newline$ -- 133
 num.names$ -- 18
-pop$ -- 158
+pop$ -- 175
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 160
+skip$ -- 150
 stack$ -- 0
-substring$ -- 266
-swap$ -- 106
-text.length$ -- 11
+substring$ -- 256
+swap$ -- 96
+text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 5
 while$ -- 47
-width$ -- 26
-write$ -- 252
+width$ -- 28
+write$ -- 269
 (There was 1 error message)

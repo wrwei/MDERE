@@ -1,5 +1,5 @@
 \section{Introduction}
-Systems/services used to perform critical functions require justifications that they exhibit necessary properties (i.e. safety and/or security). \textit{Assurance case}s provide an explicit means for justifying and assessing confidence in these critical properties. In certain industries, typically in the safety-critical domain (e.g. defence, avaiation, automotive and nuclear), it is a regulatory requirement that an assurance case (or a safety case) is developed and reviewed as part of the certification process \cite{healthFound}.
+Systems/services used to perform critical functions require justifications that they exhibit necessary properties (i.e. safety and/or security). \textit{Assurance case}s provide an explicit means for justifying and assessing confidence in these critical properties. In certain industries, typically in the safety-critical domain (e.g. defence, avaiation, automotive and nuclear), it is a regulatory requirement that an assurance case is developed and reviewed as part of the certification process \cite{healthFound}.
 An assurance case report is a document that facilitates information exchange between various system stakeholders (e.g. between operator and regulator), where the knowledge related to the safety and security of the system is communicated in a clear and defendable way \cite{hawkins2013assurance}. 
 
 %System Assurance is the process of building clear, comprehensive and defensible arguments regarding the properties of systems (i.e. safety and/or security. 
@@ -15,15 +15,17 @@ Model-based system assurance attracts significant amount of interests in recent 
 
 %Broadly speaking, the development and acceptance of assurance cases poses significant challenges for engineers and assessors. This is due to the size and complexity of assurance cases, where explicit and implicit dependencies exist between the argumentation for safety/security in the assurance case and its supporting evidence/artefacts, which may include system test data, system failure and hazard analysis, system architecture, etc. In particular, the lack of integration with, and the limited traceability to these evidence/artefacts undermine confidence in the argumentation presented in the assurance case. 
 
-In this paper, we provide a detailed explanation of SACM and discuss the applications of it. We first discuss the motivation of our work. We then provide detailed discussions about the facilities provided by SACM\footnote{Version 2.0 as of April, 2019}. We discuss the relationship between existing system assurance approachs (e.g. GSN and CAE) and SACM. We demonstrate how SACM can be used to construct an assurance case using examples, and how to maintain the traceability between the argumentation of assurance cases and their supporting evidence/artefacts. We finally discuss briefly the application of model-based system assurance in the context of CPS and networks of CPSs.
+In this paper, we provide a detailed explanation of SACM and discuss its relationship with existing system assurance approaches. We first discuss the motivation of our work. We then provide detailed discussions about the facilities provided by SACM\footnote{Version 2.0 as of April, 2019}. 
+%We discuss the relationship between existing system assurance approachs (e.g. GSN and CAE) and SACM. 
+We demonstrate how SACM can be used to construct an assurance case using examples, and how to maintain the traceability between the argumentation of assurance cases and their supporting evidence/artefacts. We finally discuss briefly tool support for model-based system assurance, namely the Assurance Case Modelling Environment (ACME).
 
 The contributions of this paper are as follows:
 \begin{itemize}
 	\item A definitive exposition of SACM version 2.0;
-	\item A GSN metamodel that is compliant with SACM;
-	\item A comprehensive mapping between SACM and GSN;
 	\item A detailed discussion on how to use SACM to create a complete system assurance case.
+	\item GSN and CAE metamodels that are compliant with SACM;
+	\item Comprehensive mappings from GSN/CAE to SACM;
 \end{itemize}
 
-This paper is organised as follows. In Section~\ref{sec:background} and Section~\ref{sec:gsn}, we provide the motivation and the background of our work. In Section~\ref{sec:sacm} we provide detailed discussions about SACM. We also provide examples on how to use SACM to construct an assurance case. In Section~\ref{sec:mapping}, we discuss the relationship between existing notations and SACM. We provide SACM compliant metamodels for GSN and CAE and their mappings to SACM. In Section~\ref{}, we discuss future works with regard to tool support. We finally conclude the paper in Section~\ref{}.
+This paper is organised as follows. In Section~\ref{sec:background} and Section~\ref{sec:gsn}, we provide the motivation and the background of our work. In Section~\ref{sec:sacm} we provide detailed discussions about SACM. We also provide examples on how to use SACM to construct an assurance case. In Section~\ref{sec:mapping}, we discuss the relationship between existing notations and SACM. We provide SACM compliant metamodels for GSN and CAE and their mappings to SACM. In Section~\ref{sec:toolsupport}, we briefly discuss tool support for model-based system assurance. We finally conclude the paper in Section~\ref{sec:conclusion}.
 

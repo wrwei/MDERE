@@ -5,7 +5,7 @@ It is necessary to discuss the Goal Structuring Notation (GSN) before discussing
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{basicGSN.eps}
-	\caption{Core GSN Elements}
+	\caption{Core GSN elements.}
 	\label{fig:gsnCore}
 \end{figure}
 
@@ -14,7 +14,7 @@ A \textit{Goal} represents a claim within the argumentation. A \textit{Strategy}
 \begin{figure}
 	\centering
 	\includegraphics[width=0.5\linewidth]{gsnConnectors.eps}
-	\caption{Core GSN Elements}
+	\caption{GSN connectors.}
 	\label{fig:gsnEdges}
 \end{figure}
 
@@ -25,7 +25,7 @@ When the elements of the GSN are linked together in a network, they are describe
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{gsn_example.png}
-	\caption{An example goal structure}
+	\caption{An example goal structure.}
 	\label{fig:goalStructure}
 \end{figure}
 Figure~\ref{fig:modularGSN} shows how GSN supports modularity. Goal structures can be organised in \textit{Module}s. For example, for a system that consists two components A and B, it is possible to organise the safety case of component A in Module A and safety case of component B in Module B. Modularity promotes re-use, so that safety cases for system components can be re-used when different components integrate to form a system. When integrating system safety case, a \textit{Contract Module} can be used to \textit{bind} different \textit{Module}s together. Binding is done via the use of \textit{Away Goal}s, \textit{Away Context}s and \textit{Away Solution}, where \textit{Goal}s, \textit{Context}s and \textit{Solution}s from an external \textit{Module} can be referenced. Like other GSN elements, away elements can be connected using \textit{SupportedBy} and \textit{InContextOf} edges.
@@ -33,7 +33,7 @@ Figure~\ref{fig:modularGSN} shows how GSN supports modularity. Goal structures c
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\linewidth]{ModularGSN.eps}
-	\caption{Modular GSN Elements}
+	\caption{Modular GSN elements.}
 	\label{fig:modularGSN}
 \end{figure}
 
@@ -42,7 +42,7 @@ GSN also provides the extension for users to define \textit{GSN Pattern}s to re-
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{gsnPattern.eps}
-	\caption{An example goal structure}
+	\caption{GSN pattern elements.}
 	\label{fig:gsnPatterns}
 \end{figure}
 
@@ -51,7 +51,7 @@ The \textit{Uninstantiated} indicator marks that an element is abstract and to b
 \begin{figure}[ht!]
 	\centering
 	\includegraphics[width=.8\linewidth]{pattern_example.pdf}
-	\caption{An example of GSN Pattern for the D-MILS Project \cite{}}
+	\caption{An example of GSN Pattern \cite{kelly1997safety}}
 	\label{fig:dmilsPattern}
 \end{figure}
 

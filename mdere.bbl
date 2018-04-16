@@ -65,7 +65,7 @@ Paul Chinneck, David Pumfrey, and Tim Kelly.
 \newblock Accessed: 06-04-2018.
 
 \bibitem{certWare}
-{NASA, CertWare}.
+{CertWare, NASA}.
 \newblock \url{https://nasa.github.io/CertWare/}.
 \newblock Accessed: 06-04-2018.
 
@@ -97,6 +97,11 @@ Samantha Lautieri, David Cooper, and David Jackson.
 \newblock In {\em Constituents of Modern System-safety Thinking}, pages 65--75.
   Springer, 2005.
 
+\bibitem{sacm}
+{Structured Assurance Case Metamodel, Object Management Group}.
+\newblock \url{https://www.omg.org/spec/SACM/About-SACM/}.
+\newblock Accessed: 06-04-2018.
+
 \bibitem{wei2017deis}
 Ran Wei, Tim~P Kelly, Richard Hawkins, and Eric Armengaud.
 \newblock Deis: Dependability engineering innovation for cyber-physical
@@ -104,12 +109,11 @@ Ran Wei, Tim~P Kelly, Richard Hawkins, and Eric Armengaud.
 \newblock In {\em Federation of International Conferences on Software
   Technologies: Applications and Foundations}, pages 409--416. Springer, 2017.
 
-\bibitem{Schneider2015}
-D.~Schneider, M.~Trapp, Y.~Papadopoulos, E.~Armengaud, M.~Zeller, and
-  K.~Höfig.
-\newblock Wap: Digital dependability identities.
-\newblock In {\em 2015 IEEE 26th International Symposium on Software
-  Reliability Engineering (ISSRE)}, pages 324--329, Nov 2015.
+\bibitem{trapp2013safety}
+Mario Trapp, Daniel Schneider, and Peter Liggesmeyer.
+\newblock A safety roadmap to cyber-physical systems.
+\newblock In {\em Perspectives on the future of software engineering}, pages
+  81--94. Springer, 2013.
 
 \bibitem{kelly1997safety}
 Tim~P Kelly and John~A McDermid.
@@ -128,10 +132,14 @@ Dimitrios~S Kolovos, Richard~F Paige, and Fiona~AC Polack.
 \newblock In {\em International Conference on Theory and Practice of Model
   Transformations}, pages 46--60. Springer, 2008.
 
-\bibitem{kolovos2006eclipse}
-Dimitrios~S Kolovos, Richard~F Paige, and Fiona~AC Polack.
-\newblock Eclipse development tools for epsilon.
-\newblock In {\em Eclipse Summit Europe, Eclipse Modeling Symposium}, volume
-  20062, page 200, 2006.
+\bibitem{gmf}
+{Graphical Modeling Framework}.
+\newblock \url{https://www.eclipse.org/gmf-tooling/}.
+\newblock Accessed: 06-04-2018.
+
+\bibitem{steinberg2008emf}
+Dave Steinberg, Frank Budinsky, Ed~Merks, and Marcelo Paternostro.
+\newblock {\em EMF: eclipse modeling framework}.
+\newblock Pearson Education, 2008.
 
 \end{thebibliography}
