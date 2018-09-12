@@ -3,57 +3,81 @@
 
 \subsection{Safety Cases}
 %System Assurance is the process of building clear, comprehensive and defensible arguments regarding the properties of systems (i.e. safety and/or security\footnote{\textit{System properties} refer to system safety and/or security hereafter}. 
+
 The concept of assurance cases has been long established in the safety-related domain, where the term \textit{safety case} is normally used. 
-For many industries, the development, review and acceptance of a safety case forms a key element of regulatory processes. This includes the nuclear \cite{hse}, defence \cite{mod2007}, civil aviation \cite{caa2007} and railway \cite{yellowBook2007} industries. Safety cases are defined in \cite{kelly2004goal} as follows: \textit{A safety case should communicate a clear, comprehensible and defensible argument that a system is acceptably safe to operate in a particular context}. 
+For many industries, the development, review and acceptance of a safety case forms a key element of regulatory processes. This includes the nuclear \cite{hse}, defence \cite{mod2007}, civil aviation \cite{caa2007} and railway \cite{yellowBook2007} industries. 
+Safety cases are defined in \cite{kelly2004goal} as follows: \textit{A safety case should communicate a clear, comprehensible and defensible argument that a system is acceptably safe to operate in a particular context}. 
 
-Historically, safety arguments were typically communicated in safety cases through free text. However, there are problems experienced when text is the only medium available for expressing complex arguments. One problem of using free text is that the language used in the text can be unclear and poorly structured, there is no guarantee that system engineers would produce safety cases with clear and well-structured language. Also, the capability of expressing cross-references for free text is very limited, multiple cross-references can also disrupt the flow of the main argument. Most importantly, the problem with using free text is in ensuring that all stakeholders involved share the same understanding of the argument to development, agree and maintain the safety arguments within the safety case \cite{kelly2004goal}.
+Historically, safety arguments were typically communicated in safety cases through free text. However, there are problems experienced when text is the only medium available for expressing complex arguments. 
+One problem of using free text is that the language used in the text can be unclear and poorly structured, there is no guarantee that system engineers would produce safety cases with a clear and well-structured language. 
+Also, the capability of expressing cross-references for free text is very limited, multiple cross-references can also disrupt the flow of the main argument. 
+Most importantly, the problem with using free text is in ensuring that all stakeholders involved share the same understanding of the argument to development, agree and maintain the safety arguments within the safety case \cite{kelly2004goal}.
 
-To overcome the problems of expressing safety arguments in free text, graphical argumentation notations have been developed. Graphical argumentation notations are capable of explicitly representing the elements that form a safety argument (i.e. requirements, claims, evidence and context), and the relationships between these elements (i.e. how individual requirements are supported by specific claims, how claims are supported by evidence and the assumed context that is defined for the argument). 
+To overcome the problems of expressing safety arguments in free text, graphical argumentation notations have been developed. 
+Graphical argumentation notations are capable of explicitly representing the elements that form a safety argument (i.e. requirements, claims, evidence and context), and the relationships between these elements (i.e. how individual requirements are supported by specific claims, how claims are supported by evidence and the assumed context that is defined for the argument). 
 Amongst the graphical notations, the Goal Structuring Notation (GSN) \cite{kelly2004goal} has been widely accepted and adopted \cite{chinneck2004turning}. 
 The key benefit experienced by companies/organisations adopting GSN is that it improves the comprehension of the safety argument amongst all of the key project stakeholders (e.g. system developers, safety engineers, independent assessors and certification authorities), therefore improving the quality of the debate and discussion amongst the stakeholders and reducing the time taken to reach agreements on the argument approaches being adopted.
 
-A number of drawing tools have been developed \cite{asce, iscade, yorkgsn, certWare, astahGSN} to produce GSN diagrams. Although GSN diagrams produced by the majority of the tools are valuable in communicating safety argumentations amongst stakeholders, these diagrams cannot be consumed and interpreted by computers (e.g. automated validation of safety argumentation, automated generation of safety case reports). 
+A number of drawing tools have been developed \cite{asce, iscade, yorkgsn, certWare, astahGSN} to produce GSN diagrams. 
+Although GSN diagrams produced by the majority of the tools are valuable in communicating safety argumentations amongst stakeholders, these diagrams cannot be consumed and interpreted by computers (e.g. automated validation of safety argumentation, automated generation of safety case reports). 
 
 %Some tools support exporting the diagrams into machine consumable models \cite{}, however, these tools implement their own versions of the GSN metamodel.
 
 \subsection{Safety Cases and Model Driven Engineering}
-Model-Driven Engineering (MDE) is a contemporary software engineering approach. In MDE, \textit{model}s are first class artefacts, therefore driving the development. There are two important aspects in MDE: domain specific modelling and model management. Domain specific modelling enables domain experts to capture the concepts in their systems in the form of \textit{metamodel}s, which are then used to create models of their systems (that conform to the defined \textit{metamodel}s). Model management enables a series of operations to be performed on models in an automated manner, which include, but not limited to: Model Validation, Model-to-Model Transformation, Model-to-Text Transformation. MDE has been proven to improve productivity significantly due to the automation that model management provides \cite{jaaksi2002developing, karna2009evaluating}. 
+Model-Driven Engineering (MDE) is a contemporary software engineering approach. 
+In MDE, \textit{model}s are first class artefacts, therefore driving the development. 
+There are two important aspects in MDE: domain specific modelling and model management. 
+Domain specific modelling enables domain experts to capture the concepts in their systems in the form of \textit{metamodel}s, which are then used to create models of their systems (that conform to the defined \textit{metamodel}s). 
+Model management enables a series of operations to be performed on models in an automated manner, which include, but not limited to: Model Validation, Model-to-Model Transformation, and Model-to-Text Transformation.
+MDE has been proven to improve productivity significantly due to the automation that model management provides \cite{jaaksi2002developing, karna2009evaluating}. 
 
-There is a tendency for tools to adopt MDE, it is no exception for GSN tools. Some GSN tools support exporting GSN diagrams into machine consumable models \cite{certWare, astahGSN}. However, these tools implement their own versions of the GSN metamodels, which do not consider the links from safety argumentations to their supporting evidence. Therefore, there is little value in performing model management operations on them.
+There is a tendency for tools to adopt MDE, it is no exception for GSN tools. 
+Some GSN tools support exporting GSN diagrams into machine consumable models \cite{certWare, astahGSN}.
+However, these tools implement their own versions of the GSN metamodels, which do not consider the links from safety argumentations to their supporting evidence. 
+Therefore, there is little value in performing model management operations on them.
 
 
 %To promote re-use of good practice when creating structured argumentations, GSN provides a mechanism where \textit{Safety Case Pattern}s can be defined. Safety case patterns are essentially argumentation templates, which will be populated when the patterns are \textit{instantiated} \cite{kelly1997safety}. However, the pattern instantiation has often been a manual process. In \cite{}, the authors identify the need to automate safety case pattern instantiation and point out that the use of Model-Driven Engineering (MDE) can 
 %
 
 \subsection{Assurance Cases and the Structured Assurance Case Metamodel}
-There has been increasing interest in the use of structured argumentation in other domains, particularly for demonstrating system security \cite{bloomfield2010safety}. Such argumentations are typically referred to as \textit{security cases}. The similarities between safety and security cases have been highlighted in \cite{lautieri2005safsec}. Therefore, the term \textit{assurance case} is a broader definition: \textit{An assurance case should communicate a clear, comprehensible and defensible argument that a system/service is acceptably safe and/or secure to operate in a particular context.} 
+There has been increasing interest in the use of structured argumentation in other domains, particularly for demonstrating system security \cite{bloomfield2010safety}. 
+Such argumentations are typically referred to as \textit{security cases}. 
+The similarities between safety and security cases have been highlighted in \cite{lautieri2005safsec}. 
+Therefore, the term \textit{assurance case} is a broader definition: \textit{An assurance case should communicate a clear, comprehensible and defensible argument that a system/service is acceptably safe and/or secure to operate in a particular context.} 
 
-To promote standardisation and interoperability, the Object Management Group (OMG) specified and issued the \textit{Structured Assurance Case Metamodel} \cite{sacm}. In version 2.0 of SACM\footnote{Released in September, 2017}, a considerable amount of changes have been introduced to promote modularity and openness of SACM. SACM provides a complete solution for model based system assurance case construction. In addition, supporting evidence and related information can also be referenced via reference mechanisms provided in SACM. This makes SACM more powerful than existing techniques such as GSN and CAE.
+To promote standardisation and interoperability, the Object Management Group (OMG) specified and issued the \textit{Structured Assurance Case Metamodel} \cite{sacm}. 
+In version 2.0 of SACM\footnote{Released in September, 2017}, a considerable amount of changes have been introduced to promote modularity and openness of SACM. 
+SACM provides a complete solution for model based system assurance case construction. 
+In addition, supporting evidence and related information can also be referenced via reference mechanisms provided in SACM. 
+This makes SACM more powerful than existing techniques such as GSN and CAE.
 
-However, in the SACM specification there is limited information on the intended usage of SACM. To exploit SACM's full potential, and to promote the adoption of SACM, it is necessary to explain SACM in detail so that safety and security engineers can fully use SACM to achieve higher level goals (e.g. automated model-to-text transformation to generate assurance case reports). 
+However, in the SACM specification there is limited information on the intended usage of SACM. 
+In order to exploit SACM's full potential, and to promote the adoption of SACM, it is necessary to explain SACM in detail so that safety and security engineers can fully use SACM to achieve higher level goals (e.g. automated model-to-text transformation to generate assurance case reports). 
 
 In the current state of practice, graphical notations such as GSN remain the most popular approach for system assurance. 
 SACM is designed to support GSN, but the OMG specification does not provide a mapping between GSN elements and SACM elements. 
 This is due to the fact there has not been a SACM aligned GSN metamodel. 
 Thus, in this paper we provide a GSN metamodel which aligns to SACM. 
-There is also a need to interoperate from GSN to SACM. 
-The reason behind this is two fold. First of all, the OMG has not defined a concrete syntax (i.e. graphical notation) for SACM elements，which makes creating SACM models a tedious and error-prone process. 
-Thus, to make the transition from GSN to SACM, it is a good practice to use GSN notations to construct arguments and then transform from to SACM using model-to-model transformation. Secondly, since GSN has been widely adopted in industry, practitioners can convert their legacy diagrams into GSN models, and then transform to SACM to enable model-based system assurance. 
-Due the reasons above, in this paper, we will provide a mapping (model-to-model transformation) from GSN to SACM.
+There is also a need to translate from GSN to SACM. 
+The reason behind this is two fold. First of all, the OMG has not defined a concrete syntax (i.e. graphical notation) for SACM elements, which makes creating SACM models a tedious and error-prone process. 
+Thus, to make the transition from GSN to SACM, it is good practice to use GSN notations to construct arguments and then transform from to SACM using model-to-model transformation. Secondly, since GSN has been widely adopted in industry, practitioners can convert their legacy diagrams into GSN models, and then transform to SACM to enable model-based system assurance. 
+Due to the reasons above, in this paper, we will provide a mapping (model-to-model transformation) from GSN to SACM.
 
 \subsection{Model-based System Assurance and Technology Trends}
 %Model based system assurance also brings benefits to system integration at design time. When integrating system components, safety/security engineers can review and integrate assurance cases of the system components. In this scenario, model management operations can be used to achieve (some degree of) automation in this task. This is particularly useful when systems are build using off-the-shelf components with their own assurance cases.
 
-In recent years, the term Cyber-Physical Systems (CPS) has emerged to characterise a new generation of embedded systems. CPSs are open and adaptive systems, in the sense that they dynamically interconnect with each other (and other systems) at runtime and they are able to dynamically adapt to changing contexts. 
+In recent years, the term Cyber-Physical Systems (CPS) has emerged to characterise a new generation of embedded systems. 
+CPSs are open and adaptive systems, in the sense that they dynamically interconnect with each other (and other systems) at runtime and they are able to dynamically adapt to changing contexts. 
 
 CPS has attracted a significant amount of research interest in recent years for its enormous potential for economic and societal impact in domains such as mobility, home automation and health care \cite{wei2017deis}. 
 The open and adaptive nature of CPS poses a significant new challenge in assuring dependability. 
 For example, CPSs typically collaborate with each other by temporarily forming a network of CPSs. 
 It is necessary to ensure the dependability of the temporary network of CPS.
-In \cite{trapp2013safety}, the authors identify the importance of system assurance at runtime for CPS and propose the idea of Models@Runtime and Assurance Case@Runtime, in the sense that system assurance information is exchanged when CPSs interconnect with each other to reason the dependability of the to-be-formed system of systems.
+In \cite{trapp2013safety}, the authors identify the importance of system assurance at runtime for CPS and propose the idea of Models@Runtime and Assurance Case@Runtime, in the sense that system assurance information is exchanged when CPSs interconnect with each other to reason about the dependability of the to-be-formed system of systems.
 
 We envision that SACM is the best candidate for AssuranceCase@Runtime in this context, for its extensive support for argumentation and the ability to link to supporting evidence within the model. 
 SACM also provides multi-language support, in the sense that argumentations can be expressed using computer languages, which is the premise for automated argument reasoning. This is particularly beneficial for CPSs.
 This scenario is also applicable to Internet of Things (IoT) where systems that collaborate with each other are connected to the Internet (where security is also a concern). 
 
-Therefore, model-based assurance cases are more than 'nice diagrams', they are important artefacts which can be used at design time for system integration, as well as at runtime for automated reasoning when systems collaborate with each other and form temporary networks. 
+Therefore, model-based assurance cases are more than `nice diagrams', they are important artefacts which can be used at design time for system integration, as well as at runtime for automated reasoning when systems collaborate with each other and form temporary networks. 
