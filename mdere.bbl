@@ -22,6 +22,38 @@ Tim Kelly and Rob Weaver.
 \newblock \url{https://www.adelard.com/asce/choosing-asce/cae.html}.
 \newblock Accessed: 06-04-2018.
 
+\bibitem{denney2017tool}
+Ewen Denney and Ganesh Pai.
+\newblock Tool support for assurance case development.
+\newblock {\em Automated Software Engineering}, pages 1--65, 2017.
+
+\bibitem{matsuno2010dependability}
+Yutaka Matsuno, Hiroki Takamura, and Yutaka Ishikawa.
+\newblock A dependability case editor with pattern library.
+\newblock In {\em High-Assurance Systems Engineering (HASE), 2010 IEEE 12th
+  International Symposium on}, pages 170--171. IEEE, 2010.
+
+\bibitem{netkachova2014tool}
+Kateryna Netkachova, Oleksandr Netkachov, and Robin Bloomfield.
+\newblock Tool support for assurance case building blocks.
+\newblock In {\em International Conference on Computer Safety, Reliability, and
+  Security}, pages 62--71. Springer, 2014.
+
+\bibitem{larrucea2017supporting}
+Xabier Larrucea, Alastair Walker, and Ricardo Colomo-Palacios.
+\newblock Supporting the management of reusable automotive software.
+\newblock {\em IEEE Software}, (3):40--47, 2017.
+
+\bibitem{yorkgsn}
+{University of York Freeware Visio Add-on}.
+\newblock \url{http://www.cs.york.ac.uk/~tpk/gsn/gsnaddoninstaller.zip}.
+\newblock Accessed: 06-04-2018.
+
+\bibitem{barry2011certware}
+Matthew~R Barry.
+\newblock Certware: A workbench for safety case production and analysis.
+\newblock In {\em Aerospace Conference, 2011 IEEE}, pages 1--10. IEEE, 2011.
+
 \bibitem{hse}
 Health and Safety~Executive (HSE).
 \newblock {\em Safety Assessment Principles for Nuclear Facilities}.
@@ -48,31 +80,6 @@ Paul Chinneck, David Pumfrey, and Tim Kelly.
 \newblock Turning up the heat on safety case construction.
 \newblock In {\em Practical Elements of Safety}, pages 223--240. Springer,
   2004.
-
-\bibitem{asce}
-{Adelard Safety Case Editor (ASCE)}.
-\newblock \url{https://www.adelard.co.uk}.
-\newblock Accessed: 06-04-2018.
-
-\bibitem{iscade}
-{Integrated Safety Case Development Environment (ISCaDE)}.
-\newblock \url{http://www.iscade.co.uk/}.
-\newblock Accessed: 06-04-2018.
-
-\bibitem{yorkgsn}
-{University of York Freeware Visio Add-on}.
-\newblock \url{http://www.cs.york.ac.uk/~tpk/gsn/gsnaddoninstaller.zip}.
-\newblock Accessed: 06-04-2018.
-
-\bibitem{certWare}
-{CertWare, NASA}.
-\newblock \url{https://nasa.github.io/CertWare/}.
-\newblock Accessed: 06-04-2018.
-
-\bibitem{astahGSN}
-{Astah GSN Editor}.
-\newblock \url{http://astah.net/editions/gsn}.
-\newblock Accessed: 06-04-2018.
 
 \bibitem{jaaksi2002developing}
 Ari Jaaksi.

@@ -2,8 +2,6 @@
 \label{sec:background}
 
 \subsection{Safety Cases}
-%System Assurance is the process of building clear, comprehensive and defensible arguments regarding the properties of systems (i.e. safety and/or security\footnote{\textit{System properties} refer to system safety and/or security hereafter}. 
-
 The concept of assurance cases has been long established in the safety-related domain, where the term \textit{safety case} is normally used. 
 For many industries, the development, review and acceptance of a safety case forms a key element of regulatory processes. This includes the nuclear \cite{hse}, defence \cite{mod2007}, civil aviation \cite{caa2007} and railway \cite{yellowBook2007} industries. 
 Safety cases are defined in \cite{kelly2004goal} as follows: \textit{A safety case should communicate a clear, comprehensible and defensible argument that a system is acceptably safe to operate in a particular context}. 
@@ -18,7 +16,7 @@ Graphical argumentation notations are capable of explicitly representing the ele
 Amongst the graphical notations, the Goal Structuring Notation (GSN) \cite{kelly2004goal} has been widely accepted and adopted \cite{chinneck2004turning}. 
 The key benefit experienced by companies/organisations adopting GSN is that it improves the comprehension of the safety argument amongst all of the key project stakeholders (e.g. system developers, safety engineers, independent assessors and certification authorities), therefore improving the quality of the debate and discussion amongst the stakeholders and reducing the time taken to reach agreements on the argument approaches being adopted.
 
-A number of drawing tools have been developed \cite{asce, iscade, yorkgsn, certWare, astahGSN} to produce GSN diagrams. 
+A number of drawing tools have been developed \cite{denney2017tool, matsuno2010dependability, netkachova2014tool, larrucea2017supporting, yorkgsn, barry2011certware} to produce GSN diagrams. 
 Although GSN diagrams produced by the majority of the tools are valuable in communicating safety argumentations amongst stakeholders, these diagrams cannot be consumed and interpreted by computers (e.g. automated validation of safety argumentation, automated generation of safety case reports). 
 
 %Some tools support exporting the diagrams into machine consumable models \cite{}, however, these tools implement their own versions of the GSN metamodel.
@@ -32,7 +30,7 @@ Model management enables a series of operations to be performed on models in an 
 MDE has been proven to improve productivity significantly due to the automation that model management provides \cite{jaaksi2002developing, karna2009evaluating}. 
 
 There is a tendency for tools to adopt MDE, it is no exception for GSN tools. 
-Some GSN tools support exporting GSN diagrams into machine consumable models \cite{certWare, astahGSN}.
+Some GSN tools support exporting GSN diagrams into machine consumable models \cite{barry2011certware, larrucea2017supporting}.
 However, these tools implement their own versions of the GSN metamodels, which do not consider the links from safety argumentations to their supporting evidence. 
 Therefore, there is little value in performing model management operations on them.
 

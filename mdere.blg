@@ -3,55 +3,55 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: mdere.aux
 The style file: unsrt.bst
 Database file #1: references.bib
-Repeated entry---line 181 of file references.bib
+Repeated entry---line 204 of file references.bib
  : @incollection{kelly1997safety
  :                              ,
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for ""
 Warning--empty publisher in healthFound
+Warning--there's a number but no volume in larrucea2017supporting
 Warning--empty publisher in hse
 Warning--empty publisher in mod2007
 Warning--empty publisher in caa2007
 Warning--empty publisher in yellowBook2007
-You've used 26 entries,
+You've used 27 entries,
             1791 wiz_defined-function locations,
-            572 strings with 7138 characters,
-and the built_in function-call counts, 5635 in all, are:
-= -- 529
-> -- 178
-< -- 9
-+ -- 72
-- -- 46
-* -- 252
-:= -- 769
-add.period$ -- 87
-call.type$ -- 26
-change.case$ -- 20
+            585 strings with 7687 characters,
+and the built_in function-call counts, 6719 in all, are:
+= -- 646
+> -- 219
+< -- 13
++ -- 85
+- -- 58
+* -- 339
+:= -- 934
+add.period$ -- 93
+call.type$ -- 27
+change.case$ -- 21
 chr.to.int$ -- 0
-cite$ -- 31
-duplicate$ -- 308
-empty$ -- 643
-format.name$ -- 46
-if$ -- 1382
+cite$ -- 33
+duplicate$ -- 368
+empty$ -- 723
+format.name$ -- 58
+if$ -- 1636
 int.to.chr$ -- 0
-int.to.str$ -- 26
-missing$ -- 24
-newline$ -- 133
-num.names$ -- 18
-pop$ -- 175
+int.to.str$ -- 27
+missing$ -- 29
+newline$ -- 138
+num.names$ -- 23
+pop$ -- 166
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 150
+skip$ -- 182
 stack$ -- 0
-substring$ -- 256
-swap$ -- 96
-text.length$ -- 9
+substring$ -- 369
+swap$ -- 126
+text.length$ -- 13
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 5
-while$ -- 47
-width$ -- 28
-write$ -- 269
+warning$ -- 6
+while$ -- 66
+width$ -- 29
+write$ -- 291
 (There was 1 error message)
