@@ -11,15 +11,15 @@ One problem of using free text is that the language used in the text can be uncl
 Also, the capability of expressing cross-references for free text is very limited, multiple cross-references can also disrupt the flow of the main argument. 
 Most importantly, the problem with using free text is in ensuring that all stakeholders involved share the same understanding of the argument to development, agree and maintain the safety arguments within the safety case \cite{kelly2004goal}.
 
-To overcome the problems of expressing safety arguments in free text, graphical argumentation notations have been developed. 
+To overcome the problems of expressing safety arguments in free text, graphical argumentation notations were developed. 
 Graphical argumentation notations are capable of explicitly representing the elements that form a safety argument (i.e. requirements, claims, evidence and context), and the relationships between these elements (i.e. how individual requirements are supported by specific claims, how claims are supported by evidence and the assumed context that is defined for the argument). 
 Amongst the graphical notations, the Goal Structuring Notation (GSN) \cite{kelly2004goal} has been widely accepted and adopted \cite{chinneck2004turning}. 
 The key benefit experienced by companies/organisations adopting GSN is that it improves the comprehension of the safety argument amongst all of the key project stakeholders (e.g. system developers, safety engineers, independent assessors and certification authorities), therefore improving the quality of the debate and discussion amongst the stakeholders and reducing the time taken to reach agreements on the argument approaches being adopted.
+\will{add CAE}
 
 A number of drawing tools have been developed \cite{denney2017tool, matsuno2010dependability, netkachova2014tool, larrucea2017supporting, yorkgsn, barry2011certware} to produce GSN diagrams. 
 Although GSN diagrams produced by the majority of the tools are valuable in communicating safety argumentations amongst stakeholders, these diagrams cannot be consumed and interpreted by computers (e.g. automated validation of safety argumentation, automated generation of safety case reports). 
 
-%Some tools support exporting the diagrams into machine consumable models \cite{}, however, these tools implement their own versions of the GSN metamodel.
 
 \subsection{Safety Cases and Model Driven Engineering}
 Model-Driven Engineering (MDE) is a contemporary software engineering approach. 
@@ -35,11 +35,8 @@ However, these tools implement their own versions of the GSN metamodels, which d
 Therefore, there is little value in performing model management operations on them.
 
 
-%To promote re-use of good practice when creating structured argumentations, GSN provides a mechanism where \textit{Safety Case Pattern}s can be defined. Safety case patterns are essentially argumentation templates, which will be populated when the patterns are \textit{instantiated} \cite{kelly1997safety}. However, the pattern instantiation has often been a manual process. In \cite{}, the authors identify the need to automate safety case pattern instantiation and point out that the use of Model-Driven Engineering (MDE) can 
-%
-
 \subsection{Assurance Cases and the Structured Assurance Case Metamodel}
-There has been increasing interest in the use of structured argumentation in other domains, particularly for demonstrating system security \cite{bloomfield2010safety}. 
+There has been an increasing interest in the use of structured argumentation in other domains, particularly for demonstrating system security \cite{bloomfield2010safety}. 
 Such argumentations are typically referred to as \textit{security cases}. 
 The similarities between safety and security cases have been highlighted in \cite{lautieri2005safsec}. 
 Therefore, the term \textit{assurance case} is a broader definition: \textit{An assurance case should communicate a clear, comprehensible and defensible argument that a system/service is acceptably safe and/or secure to operate in a particular context.} 
