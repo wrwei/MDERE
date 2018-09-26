@@ -13,13 +13,22 @@ Most importantly, the problem with using free text is in ensuring that all stake
 
 To overcome the problems of expressing safety arguments in free text, graphical argumentation notations were developed. 
 Graphical argumentation notations are capable of explicitly representing the elements that form a safety argument (i.e. requirements, claims, evidence and context), and the relationships between these elements (i.e. how individual requirements are supported by specific claims, how claims are supported by evidence and the assumed context that is defined for the argument). 
-Amongst the graphical notations, the Goal Structuring Notation (GSN) \cite{kelly2004goal} has been widely accepted and adopted \cite{chinneck2004turning}. 
+Amongst the graphical notations, the \textit{Goal Structuring Notation} (GSN) \cite{kelly2004goal} has been widely accepted and adopted \cite{chinneck2004turning}. 
 The key benefit experienced by companies/organisations adopting GSN is that it improves the comprehension of the safety argument amongst all of the key project stakeholders (e.g. system developers, safety engineers, independent assessors and certification authorities), therefore improving the quality of the debate and discussion amongst the stakeholders and reducing the time taken to reach agreements on the argument approaches being adopted.
-\will{add CAE}
 
-A number of drawing tools have been developed \cite{denney2017tool, matsuno2010dependability, netkachova2014tool, larrucea2017supporting, yorkgsn, barry2011certware} to produce GSN diagrams. 
-Although GSN diagrams produced by the majority of the tools are valuable in communicating safety argumentations amongst stakeholders, these diagrams cannot be consumed and interpreted by computers (e.g. automated validation of safety argumentation, automated generation of safety case reports). 
+Another popular graphical argumentation notation is the \textit{Claims, Arguments and Evidence} (CAE) \cite{bishop2000methodology}. 
+CAE views assurance cases as a set of \textit{Claim}s supported by \textit{Argument}s, which in turn rely on \textit{Evidence}.
+Compared to CAE, GSN provides are more granular decomposition of safety arguments into \textit{Goal}s, \textit{Context}s, \textit{Assumption}s, \textit{Justification}s, \textit{Strateg-}ies and \textit{Solution}s. GSN supports additional features such as \textit{Module}s and \textit{Contract Modules} and argument templates (GSN Patterns) to promote modularity and re-use.
+In this paper we will focus on GSN and SACM since we are the principal contributors to the standardisation of both of them.
 
+A recent study has looked into tools for assurance cases over the period of the past twenty years \cite{maksimov2018}. 
+The study identifies 37 assurance case tools, where 32 of them offer support for GSN. 
+Integrated tools AdvoCATE \cite{denney2017tool}, Astah GSN \cite{larrucea2017supporting} and D-Case Editor \cite{matsuno2010dependability} support GSN and claim compliance with SACM. 
+Tools CertWare \cite{barry2011certware} and ASCE \cite{netkachova2014tool} support GSN, CAE as well as SACM.
+However, the claimed support for SACM in fact refer to SACM version 1.0 (released in June, 2015), which was replaced by SACM version 2.0 (released in March, 2018) with significant changes to the standard.
+
+Whilst the assurance case diagrams produced by the tools are valuable in communicating system assurance argumentations amongst stakeholders, the diagrams are mostly not model-based (except for CertWare \cite{barry2011certware} and Astah GSN \cite{larrucea2017supporting}). 
+Thus, automated model management operations (model-to-model transformations, model-to-text transformations, model validations, model mergings, etc.) on such diagrams can not be applied to the diagrams. 
 
 \subsection{Safety Cases and Model Driven Engineering}
 Model-Driven Engineering (MDE) is a contemporary software engineering approach. 
@@ -30,10 +39,9 @@ Model management enables a series of operations to be performed on models in an 
 MDE has been proven to improve productivity significantly due to the automation that model management provides \cite{jaaksi2002developing, karna2009evaluating}. 
 
 There is a tendency for tools to adopt MDE, it is no exception for GSN tools. 
-Some GSN tools support exporting GSN diagrams into machine consumable models \cite{barry2011certware, larrucea2017supporting}.
-However, these tools implement their own versions of the GSN metamodels, which do not consider the links from safety argumentations to their supporting evidence. 
-Therefore, there is little value in performing model management operations on them.
-
+CertWare \cite{barry2011certware} and Astah GSN \cite{larrucea2017supporting} support exporting argumentation diagrams to models. 
+However, these tools implement their own versions of the GSN metamodels, which suffers poor compatibility issues with SACM. 
+Although both of the tools claim they support SACM, as previously discussed, they support SACM version 1.0, which is replaced by SACM version 2.0 with significant changes.
 
 \subsection{Assurance Cases and the Structured Assurance Case Metamodel}
 There has been an increasing interest in the use of structured argumentation in other domains, particularly for demonstrating system security \cite{bloomfield2010safety}. 

@@ -81,6 +81,18 @@ Paul Chinneck, David Pumfrey, and Tim Kelly.
 \newblock In {\em Practical Elements of Safety}, pages 223--240. Springer,
   2004.
 
+\bibitem{bishop2000methodology}
+Peter Bishop and Robin Bloomfield.
+\newblock A methodology for safety case development.
+\newblock In {\em Safety and Reliability}, volume~20, pages 34--42. Taylor \&
+  Francis, 2000.
+
+\bibitem{maksimov2018}
+Mike Maksimov, Nick Fung, Sahar Kokaly, and Marsha Chechik.
+\newblock Two decades of assurance case tools: A survey.
+\newblock In {\em Proc. 6th International Workshop on Assurance Cases for
+  Software-Intensive Systems (ASSURE 2018)}, 2018.
+
 \bibitem{jaaksi2002developing}
 Ari Jaaksi.
 \newblock {Developing Mobile Browsers in a Product Line}.

@@ -3,7 +3,7 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: mdere.aux
 The style file: unsrt.bst
 Database file #1: references.bib
-Repeated entry---line 204 of file references.bib
+Repeated entry---line 216 of file references.bib
  : @incollection{kelly1997safety
  :                              ,
 I'm skipping whatever remains of this entry
@@ -13,45 +13,46 @@ Warning--empty publisher in hse
 Warning--empty publisher in mod2007
 Warning--empty publisher in caa2007
 Warning--empty publisher in yellowBook2007
-You've used 27 entries,
+Warning--can't use both volume and number fields in bishop2000methodology
+You've used 29 entries,
             1791 wiz_defined-function locations,
-            585 strings with 7687 characters,
-and the built_in function-call counts, 6719 in all, are:
-= -- 646
-> -- 219
-< -- 13
-+ -- 85
-- -- 58
-* -- 339
-:= -- 934
-add.period$ -- 93
-call.type$ -- 27
-change.case$ -- 21
+            598 strings with 8059 characters,
+and the built_in function-call counts, 7274 in all, are:
+= -- 695
+> -- 241
+< -- 15
++ -- 93
+- -- 64
+* -- 372
+:= -- 1011
+add.period$ -- 100
+call.type$ -- 29
+change.case$ -- 23
 chr.to.int$ -- 0
-cite$ -- 33
-duplicate$ -- 368
-empty$ -- 723
-format.name$ -- 58
-if$ -- 1636
+cite$ -- 36
+duplicate$ -- 399
+empty$ -- 783
+format.name$ -- 64
+if$ -- 1770
 int.to.chr$ -- 0
-int.to.str$ -- 27
-missing$ -- 29
-newline$ -- 138
-num.names$ -- 23
-pop$ -- 166
+int.to.str$ -- 29
+missing$ -- 31
+newline$ -- 148
+num.names$ -- 25
+pop$ -- 177
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 182
+skip$ -- 198
 stack$ -- 0
-substring$ -- 369
-swap$ -- 126
-text.length$ -- 13
+substring$ -- 393
+swap$ -- 139
+text.length$ -- 15
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 6
-while$ -- 66
-width$ -- 29
-write$ -- 291
+warning$ -- 7
+while$ -- 71
+width$ -- 31
+write$ -- 314
 (There was 1 error message)
