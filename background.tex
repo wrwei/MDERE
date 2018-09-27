@@ -16,19 +16,20 @@ Graphical argumentation notations are capable of explicitly representing the ele
 Amongst the graphical notations, the \textit{Goal Structuring Notation} (GSN) \cite{kelly2004goal} has been widely accepted and adopted \cite{chinneck2004turning}. 
 The key benefit experienced by companies/organisations adopting GSN is that it improves the comprehension of the safety argument amongst all of the key project stakeholders (e.g. system developers, safety engineers, independent assessors and certification authorities), therefore improving the quality of the debate and discussion amongst the stakeholders and reducing the time taken to reach agreements on the argument approaches being adopted.
 
-Another popular graphical argumentation notation is the \textit{Claims, Arguments and Evidence} (CAE) \cite{bishop2000methodology}. 
+Another popular graphical argumentation notation is \textit{Claims-Arguments-Evidence} (CAE) \cite{bishop2000methodology}. 
 CAE views assurance cases as a set of \textit{Claim}s supported by \textit{Argument}s, which in turn rely on \textit{Evidence}.
-Compared to CAE, GSN provides are more granular decomposition of safety arguments into \textit{Goal}s, \textit{Context}s, \textit{Assumption}s, \textit{Justification}s, \textit{Strateg-}ies and \textit{Solution}s. GSN supports additional features such as \textit{Module}s and \textit{Contract Modules} and argument templates (GSN Patterns) to promote modularity and re-use.
-In this paper we will focus on GSN and SACM since we are the principal contributors to the standardisation of both of them.
+Compared to CAE, GSN provides more granular decomposition of safety arguments into \textit{Goal}s, \textit{Context}s, \textit{Assumption}s, \textit{Justification}s, \textit{Strateg-}ies and \textit{Solution}s. GSN supports additional features such as \textit{Module}s, \textit{Contract Modules} and argument templates (GSN Patterns) to promote modularity and re-use.
+In this paper we will focus on GSN (and its relationship to SACM) since we are the principal contributors to the standardisation of both GSN and SACM.
 
-A recent study has looked into tools for assurance cases over the period of the past twenty years \cite{maksimov2018}. 
+A recent study \cite{maksimov2018} has looked into and compared assurance case tools that have been developed in the past twenty years. 
 The study identifies 37 assurance case tools, where 32 of them offer support for GSN. 
-Integrated tools AdvoCATE \cite{denney2017tool}, Astah GSN \cite{larrucea2017supporting} and D-Case Editor \cite{matsuno2010dependability} support GSN and claim compliance with SACM. 
-Tools CertWare \cite{barry2011certware} and ASCE \cite{netkachova2014tool} support GSN, CAE as well as SACM.
-However, the claimed support for SACM in fact refer to SACM version 1.0 (released in June, 2015), which was replaced by SACM version 2.0 (released in March, 2018) with significant changes to the standard.
+Some tools also support SACM \cite{denney2017tool, larrucea2017supporting, matsuno2010dependability, barry2011certware, netkachova2014tool}. 
+%Among the tools, AdvoCATE \cite{denney2017tool}, Astah GSN \cite{larrucea2017supporting} and D-Case Editor \cite{matsuno2010dependability} support GSN and claim compliance with SACM. 
+%Tools CertWare \cite{barry2011certware} and ASCE \cite{netkachova2014tool} support GSN and CAE, and also claim compliance with SACM.
+However, the claimed support for SACM in fact refer to SACM version 1.0 (released in June, 2015), which was replaced by SACM version 2.0 (released in March, 2018). 
 
-Whilst the assurance case diagrams produced by the tools are valuable in communicating system assurance argumentations amongst stakeholders, the diagrams are mostly not model-based (except for CertWare \cite{barry2011certware} and Astah GSN \cite{larrucea2017supporting}). 
-Thus, automated model management operations (model-to-model transformations, model-to-text transformations, model validations, model mergings, etc.) on such diagrams can not be applied to the diagrams. 
+%Whilst the assurance case diagrams produced by the tools are valuable in communicating system assurance argumentations amongst stakeholders, the diagrams are mostly not model-based (except for the ones created by CertWare \cite{barry2011certware} and Astah GSN \cite{larrucea2017supporting}). 
+%Thus, automated model management operations (model-to-model transformations, model-to-text transformations, model validations, model mergings, etc.) on such diagrams can not be performed on the diagrams. 
 
 \subsection{Safety Cases and Model Driven Engineering}
 Model-Driven Engineering (MDE) is a contemporary software engineering approach. 
@@ -36,12 +37,15 @@ In MDE, \textit{model}s are first class artefacts, therefore driving the develop
 There are two important aspects in MDE: domain specific modelling and model management. 
 Domain specific modelling enables domain experts to capture the concepts in their systems in the form of \textit{metamodel}s, which are then used to create models of their systems (that conform to the defined \textit{metamodel}s). 
 Model management enables a series of operations to be performed on models in an automated manner, which include, but not limited to: Model Validation, Model-to-Model Transformation, and Model-to-Text Transformation.
-MDE has been proven to improve productivity significantly due to the automation that model management provides \cite{jaaksi2002developing, karna2009evaluating}. 
+MDE has been proven to improve productivity significantly due to the automation provided by model management operations \cite{jaaksi2002developing, karna2009evaluating}. 
 
-There is a tendency for tools to adopt MDE, it is no exception for GSN tools. 
-CertWare \cite{barry2011certware} and Astah GSN \cite{larrucea2017supporting} support exporting argumentation diagrams to models. 
-However, these tools implement their own versions of the GSN metamodels, which suffers poor compatibility issues with SACM. 
-Although both of the tools claim they support SACM, as previously discussed, they support SACM version 1.0, which is replaced by SACM version 2.0 with significant changes.
+There are a number of assurance case tools that adopt MDE, such as AdvoCATE \cite{denney2017tool}, D-Case Editor \cite{matsuno2010dependability}, ASCE \cite{netkachova2014tool}, Astah GSN \cite{larrucea2017supporting}, and CertWare \cite{barry2011certware}. 
+However,  a common issue with these tools is that they all define their own GSN metamodels \cite{denney2017tool}.
+This is due to the fact that there has not been an standard GSN metamodel.
+Thus, there may be interoperability problems when one wishes to import GSN models created by other tools to his/her own tool. 
+Although the tools mentioned above all claim to support SACM, the support was for SACM version 1.0.
+Since SACM version 1.0 was not sufficiently explained (no work has been done in this aspect), there may be cognitive gaps between different tool developers, thus the exported SACM models from the tools may differ.
+In addition, since SACM version 2.0 was released recently, and there have been a considerable amount of changes, the claimed support for SACM for these tools are out-dated. 
 
 \subsection{Assurance Cases and the Structured Assurance Case Metamodel}
 There has been an increasing interest in the use of structured argumentation in other domains, particularly for demonstrating system security \cite{bloomfield2010safety}. 
@@ -50,7 +54,9 @@ The similarities between safety and security cases have been highlighted in \cit
 Therefore, the term \textit{assurance case} is a broader definition: \textit{An assurance case should communicate a clear, comprehensible and defensible argument that a system/service is acceptably safe and/or secure to operate in a particular context.} 
 
 To promote standardisation and interoperability, the Object Management Group (OMG) specified and issued the \textit{Structured Assurance Case Metamodel} \cite{sacm}. 
-In version 2.0 of SACM\footnote{Released in September, 2017}, a considerable amount of changes have been introduced to promote modularity and openness of SACM. 
+SACM is developed by the developers of system assurance approaches (e.g. GSN and CAE), based on the collective knowledge and experiences of safety and/or security practitioners over the period of two decades. 
+
+In version 2.0 of SACM\footnote{Released in March, 2018}, a considerable amount of changes have been introduced to promote modularity and openness of SACM. 
 SACM provides a complete solution for model based system assurance case construction. 
 In addition, supporting evidence and related information can also be referenced via reference mechanisms provided in SACM. 
 This makes SACM more powerful than existing techniques such as GSN and CAE.
@@ -67,20 +73,23 @@ The reason behind this is two fold. First of all, the OMG has not defined a conc
 Thus, to make the transition from GSN to SACM, it is good practice to use GSN notations to construct arguments and then transform from to SACM using model-to-model transformation. Secondly, since GSN has been widely adopted in industry, practitioners can convert their legacy diagrams into GSN models, and then transform to SACM to enable model-based system assurance. 
 Due to the reasons above, in this paper, we will provide a mapping (model-to-model transformation) from GSN to SACM.
 
-\subsection{Model-based System Assurance and Technology Trends}
+\subsection{Model-based System Assurance and Cyber-Physical Systems}
 %Model based system assurance also brings benefits to system integration at design time. When integrating system components, safety/security engineers can review and integrate assurance cases of the system components. In this scenario, model management operations can be used to achieve (some degree of) automation in this task. This is particularly useful when systems are build using off-the-shelf components with their own assurance cases.
 
-In recent years, the term Cyber-Physical Systems (CPS) has emerged to characterise a new generation of embedded systems. 
-CPSs are open and adaptive systems, in the sense that they dynamically interconnect with each other (and other systems) at runtime and they are able to dynamically adapt to changing contexts. 
+The physical and digital worlds are gradually merging into a largely connected globe. 
+This is backed by the emergence of concepts such as Cyber-Physical Systems (CPS).
+Openness and adaptivity are core properties of CPS as constituent systems dynamically connect to each other and have to adapt to a changing context at runtime \cite{trapp2013safety}.
+CPS harbours the potential for vast economic and societal impact in domains such as automotive, health care, and home automation due to their open and adaptive nature \cite{wei2017deis}.
+The majority of application domains of CPS are safety-critical, such as car2car scenarios and collaborative autonomous mobile systems.
+If these systems fail, they may cause harm and lead to temporary collapse of important infrastructures, with catastrophic consequences for industry and society.
+Therefore, it is imperative to ensure the dependability of CPS in order to realise their full potential. 
+However, the open and adaptive nautre of CPS poses significant challenges to assuring such systems, as it is nearly impossible to anticipate the concrete CPS structure, its capabilities and the environmental context sufficiently at design time.
 
-CPS has attracted a significant amount of research interest in recent years for its enormous potential for economic and societal impact in domains such as mobility, home automation and health care \cite{wei2017deis}. 
-The open and adaptive nature of CPS poses a significant new challenge in assuring dependability. 
-For example, CPSs typically collaborate with each other by temporarily forming a network of CPSs. 
-It is necessary to ensure the dependability of the temporary network of CPS.
+Therefore, existing design time system assurance activities are inappropriate to enable dynamic system assurance for CPS at runtime. 
 In \cite{trapp2013safety}, the authors identify the importance of system assurance at runtime for CPS and propose the idea of Models@Runtime and Assurance Case@Runtime, in the sense that system assurance information is exchanged when CPSs interconnect with each other to reason about the dependability of the to-be-formed system of systems.
 
-We envision that SACM is the best candidate for AssuranceCase@Runtime in this context, for its extensive support for argumentation and the ability to link to supporting evidence within the model. 
-SACM also provides multi-language support, in the sense that argumentations can be expressed using computer languages, which is the premise for automated argument reasoning. This is particularly beneficial for CPSs.
-This scenario is also applicable to Internet of Things (IoT) where systems that collaborate with each other are connected to the Internet (where security is also a concern). 
+We envision that SACM is the best candidate for AssuranceCase@Runtime in this context, this is backed by the fact that SACM is used in the DEIS project \cite{wei2017deis} as a backbone for its Open Dependability Exchange metamodel (ODE), to ensure the dependability of CPS. 
 
-Therefore, model-based assurance cases are more than `nice diagrams', they are important artefacts which can be used at design time for system integration, as well as at runtime for automated reasoning when systems collaborate with each other and form temporary networks. 
+%SACM also provides multi-language support, in the sense that argumentations can be expressed using computer languages, which is the premise for automated argument reasoning. This is particularly beneficial for CPSs.
+%
+%Therefore, model-based assurance cases are more than `nice diagrams', they are important artefacts which can be used at design time for system integration, as well as at runtime for automated reasoning when systems collaborate with each other and form temporary networks. 

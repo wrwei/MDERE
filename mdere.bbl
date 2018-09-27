@@ -44,15 +44,15 @@ Xabier Larrucea, Alastair Walker, and Ricardo Colomo-Palacios.
 \newblock Supporting the management of reusable automotive software.
 \newblock {\em IEEE Software}, (3):40--47, 2017.
 
-\bibitem{yorkgsn}
-{University of York Freeware Visio Add-on}.
-\newblock \url{http://www.cs.york.ac.uk/~tpk/gsn/gsnaddoninstaller.zip}.
-\newblock Accessed: 06-04-2018.
-
 \bibitem{barry2011certware}
 Matthew~R Barry.
 \newblock Certware: A workbench for safety case production and analysis.
 \newblock In {\em Aerospace Conference, 2011 IEEE}, pages 1--10. IEEE, 2011.
+
+\bibitem{yorkgsn}
+{University of York Freeware Visio Add-on}.
+\newblock \url{http://www.cs.york.ac.uk/~tpk/gsn/gsnaddoninstaller.zip}.
+\newblock Accessed: 06-04-2018.
 
 \bibitem{hse}
 Health and Safety~Executive (HSE).
@@ -121,18 +121,18 @@ Samantha Lautieri, David Cooper, and David Jackson.
 \newblock \url{https://www.omg.org/spec/SACM/About-SACM/}.
 \newblock Accessed: 06-04-2018.
 
+\bibitem{trapp2013safety}
+Mario Trapp, Daniel Schneider, and Peter Liggesmeyer.
+\newblock A safety roadmap to cyber-physical systems.
+\newblock In {\em Perspectives on the future of software engineering}, pages
+  81--94. Springer, 2013.
+
 \bibitem{wei2017deis}
 Ran Wei, Tim~P Kelly, Richard Hawkins, and Eric Armengaud.
 \newblock Deis: Dependability engineering innovation for cyber-physical
   systems.
 \newblock In {\em Federation of International Conferences on Software
   Technologies: Applications and Foundations}, pages 409--416. Springer, 2017.
-
-\bibitem{trapp2013safety}
-Mario Trapp, Daniel Schneider, and Peter Liggesmeyer.
-\newblock A safety roadmap to cyber-physical systems.
-\newblock In {\em Perspectives on the future of software engineering}, pages
-  81--94. Springer, 2013.
 
 \bibitem{kelly1997safety}
 Tim~P Kelly and John~A McDermid.
