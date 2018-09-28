@@ -121,6 +121,48 @@ Samantha Lautieri, David Cooper, and David Jackson.
 \newblock \url{https://www.omg.org/spec/SACM/About-SACM/}.
 \newblock Accessed: 06-04-2018.
 
+\bibitem{despotou2008investigating}
+George Despotou and T~Kelly.
+\newblock Investigating the use of argument modularity to optimise through-life
+  system safety assurance.
+\newblock 2008.
+
+\bibitem{luo2015safety}
+Yaping Luo, Mark van~den Brand, and Alexandre Kiburse.
+\newblock Safety case development with sbvr-based controlled language.
+\newblock In {\em International Conference on Model-Driven Engineering and
+  Software Development}, pages 3--17. Springer, 2015.
+
+\bibitem{attwood2014use}
+Katrina~Claire Attwood, Tim Kelly, and Philippa Conmy.
+\newblock The use of controlled vocabularies and structured expressions in the
+  assurance of cps.
+\newblock {\em Ada User Journal}, pages 251--258, 2014.
+
+\bibitem{taguchi2014linking}
+Kenji Taguchi, Souma Daisuke, Hideaki Nishihara, and Toshinori Takai.
+\newblock Linking traceability with gsn.
+\newblock In {\em Software Reliability Engineering Workshops (ISSREW), 2014
+  IEEE International Symposium on}, pages 192--197. IEEE, 2014.
+
+\bibitem{hawkins2015need}
+Richard~David Hawkins, Ibrahim Habli, and Tim Kelly.
+\newblock The need for a weaving model in assurance case automation.
+\newblock {\em Ada User Journal}, pages 187--191, 2015.
+
+\bibitem{fenn2005putting}
+Jane Fenn and Brian Jepson.
+\newblock Putting trust into safety arguments.
+\newblock In {\em Constituents of Modern System-safety Thinking}, pages 21--35.
+  Springer, 2005.
+
+\bibitem{armstrong2004deconstruction}
+James~M Armstrong and Stephen~E Paynter.
+\newblock The deconstruction of safety arguments through adversarial
+  counter-argument.
+\newblock In {\em International Conference on Computer Safety, Reliability, and
+  Security}, pages 3--16. Springer, 2004.
+
 \bibitem{trapp2013safety}
 Mario Trapp, Daniel Schneider, and Peter Liggesmeyer.
 \newblock A safety roadmap to cyber-physical systems.
