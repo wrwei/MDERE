@@ -30,8 +30,8 @@
           </y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="false">
             <y:AttributeLabel>value: All identified hazards 
-have been elininated 
-or sufficiently mitigated.</y:AttributeLabel>
+have been sufficiently 
+mitigated.</y:AttributeLabel>
             <y:MethodLabel/>
           </y:UML>
         </y:UMLClassNode>
@@ -204,7 +204,6 @@ have been sufficnetly mitigated</y:AttributeLabel>
     </edge>
     <edge id="e2" source="n5" target="n8">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -219,7 +218,6 @@ have been sufficnetly mitigated</y:AttributeLabel>
     </edge>
     <edge id="e3" source="n0" target="n4">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>

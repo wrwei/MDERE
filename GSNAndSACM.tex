@@ -3,18 +3,19 @@
 SACM is designed to support existing safety notations such as GSN and CAE. 
 In previous sections, we briefly demonstrated the semantics of SACM elements by comparing them with GSN notations. 
 In this section, we provide a GSN metamodel and a CAE metamodel that are compliant to SACM. 
-We also discuss the interoperability from GSN and CAE to SACM.
+We also discuss the transformation from GSN and CAE to SACM.
 
 \subsection{The GSN Metamodel and the inteoperability from GSN to SACM}
-As previously discussed, SACM provides a richer set of features compared to GSN, which includes the ability to standardise evidential and informational artifacts in the models, standardising controlled grammar and terminologies, as well as modular organisation and integration of artifacts and terminologies. 
-In general, creating a metamodel for GSN is a simple task, for there are only several concepts that GSN captures. 
-However, we think it is more ideal to create the GSN metamodel by extending SACM elements, so that not only can the GSN metamodel inherit features provided by SACM, but it also makes the interoperability from GSN to SACM easier. 
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{GSN.eps}
 	\caption{SACM compliant GSN metamodel.}
 	\label{fig:gsnMetamodel}
 \end{figure}
+
+As previously discussed, SACM provides a richer set of features compared to GSN, which includes the ability to standardise evidential and informational artifacts in the models, standardising controlled grammar and terminologies, as well as modular organisation and integration of artifacts and terminologies. 
+In general, creating a metamodel for GSN is a simple task, for there are only several concepts that GSN captures. 
+However, we think it is more ideal to create the GSN metamodel by extending SACM elements, so that not only can the GSN metamodel inherit features provided by SACM, but it also makes the interoperability from GSN to SACM easier. 
 
 Our version of the GSN metamodel is shown in Figure~\ref{fig:gsnMetamodel}. 
 In GSN, argumentations are organised in \textit{Module}s, which is made as a sub-type of \textit{ArgumentPackage} in SACM; \textit{ContractMoudle} are essentially contracts that bind \textit{Module}s together, thus it is a sub-type of \textit{ArgumentPackageBinding}. 
@@ -30,9 +31,26 @@ Thus, \textit{Context} is made a sub-type of \textit{ArgumentAsset}.
 \textit{SupportedBy} is made a sub-type of \textit{AssertedInference} and \textit{InContextOf} is made a sub-type of \textit{AssertedContext}. 
 \textit{Strategy} is made a sub-type of \textit{ArgumentReasoning} for it explains the intention of an \textit{AssertedRelationship}.
 
-The way that the GSN metamodel is created makes it inherently capable of modelling artefacts and terminologies due to the fact that the GSN metamodel also inherits the \textit{Base}, \textit{AssuranceCase}, \textit{Artifact} and \textit{Terminology} packages. 
-Our vision is that such GSN metamodel is able to create goal structures, and link evidential and contextual information from the goal structures to their supporting materials, modelling using the \textit{Artifact} and \textit{Terminology} packages. 
+The way that the GSN metamodel is created makes it inherently compatible with SACM, so that it can be used in as an \textit{ArgumentPackage}, organised in an \textit{AssuranceCasePackage}, with its supporting artefacts organised in \textit{ArtifactPackage}s and controlled language organised in \textit{TerminologyPckage}s. 
 
+To enable interoperability from GSN to SACM, we provide a model-to-model transformation\footnote{Available at: \url{https://github.com/wrwei/MDERE/blob/master/technical}} defined using the Epsilon Transformation Language (ETL) \cite{kolovos2008epsilon}. 
+Most of the transformation is straight forward - instances of the GSN elements are transformed into instances of the SACM elements that the GSN elements extend. 
+There is one exception: the transformation from \textit{Strategy} to \textit{ArgumentReasoning}. As discussed in Section~\ref{sec:relationships}, an \textit{ArgumentReasoning} is associated to an \textit{AssertedRelationship}, but in GSN, a \textit{Strategy} acts as a node in a goal structure. 
+This requires analysis to be performed during the transformation, which is shown in Algorithm~\ref{alg:s2ar}.
+Algorithm~\ref{alg:s2ar} defines the transformation rule \textit{Strategy2ArgumentReasong}. 
+Line 1 retrieves the \textit{Strategy} to be transformed;
+Line 2 creates a new \textit{ArgumentReasoning};
+Line 3 and 4 transform the \textit{name} and \textit{description} of the \textit{Strategy} to the \textit{ArgumentReasoning} (the equivalent() operation in ETL divert control to corresponding transformation rules that transform \textit{Name} to \textit{Name}, and returns the transformed model element).
+Line 5 checks if the \textit{Strategy} is uninstantiated, and then in line 6, make the \textit{ArgumentReasoning} \textit{abstract}.
+Line 8 retrieves the incoming \textit{SupportedBy}  for the \textit{Strategy}.
+Line 9 retrieves all outgoing \textit{SupportedBy} for the \textit{Strategy} (In GSN, the flow of an argument goes from top to bottom. Thus, for a \textit{Strategy}, there is one incoming \textit{SupportedBy} and many outgoing \textit{SupportedBy}s).
+Line 10 retrieves the \textit{Goal} from the incoming \textit{SupportedBy}.
+Line 11 retrieves the \textit{Goal}s from the outgoing \textit{SupportedBy}s. 
+Then, in line 13 an \textit{AssertedInference} is created. 
+It is worth noting that in SACM, the inference flows from bottom to top. Thus the source and target of the \textit{AssertedInference} are the transformed counterparts of \textit{supportedByToGoals} in line 11 and the transformed counterparts of \textit{supportedByFromGoal} in line 10, respectively.
+
+It is worth noting that some developers use \textit{Solutions} to directly support \textit{Strategy}. 
+This is forbidden in the GSN standard. 
 \begin{algorithm}[ht!]
 	{
 		\fontsize{9}{10}
@@ -53,44 +71,40 @@ Our vision is that such GSN metamodel is able to create goal structures, and lin
 		
 		\Let strategy = \textit{Strategy} to be transformed;\\
 		\Let argumentReasoning = new \textit{ArgumentReasoning};\\
-		\Let incomingSupportedBy = the incoming \textit{SupportedBy} to \textit{strategy};\\
-		\Let outgoingSupportedBy = all outgoing \textit{SupportedBy}s from \textit{strategy};\\
+
 		argumentReasoning.name = strategy.name.equivalent();\\
 		argumentReasoning.description = strategy.description.equivalent();\\
 		\If {strategy.uninstantiated == true} {
 			argumentReasoning.isAbstract = true;
 		}
-		\Let supportedByToSolution = all \textit{SupportedBy}s from \textit{outgoingSupportedBy} \\
-		that connects to a \textit{Solution};\\
-		\If{supportedByToSolution is not empty}{
-			\Let assertedEvidence = new \textit{AssertedEvidence};\\
-			assertedEvidence.target = incomingSupportedBy.source;\\
-			\For{supportedBy in supportedByToSolution}{
-				assertedEvidence.source.add(supportedBy.target);\\
-			}
-		}
-		\Let supportedByToGoal = all \textit{SupportedBy}s from \textit{outgoingSupportedBy} \\
-		that connects to a \textit{Goal};\\
+%		\Let supportedByToSolution = all \textit{SupportedBy}s from \textit{outgoingSupportedBy} \\
+%		that connects to a \textit{Solution};\\
+%		\If{supportedByToSolution is not empty}{
+%			\Let assertedEvidence = new \textit{AssertedEvidence};\\
+%			assertedEvidence.target = incomingSupportedBy.source;\\
+%			\For{supportedBy in supportedByToSolution}{
+%				assertedEvidence.source.add(supportedBy.target);\\
+%			}
+%		}
+		\Let incomingSupportedBy = the incoming \textit{SupportedBy} to \textit{strategy};\\
+		\Let outgoingSupportedBys = all outgoing \textit{SupportedBy}s from \textit{strategy};\\
+		\Let supportedByFromGoal = \textit{Goal} from \textit{incomingSupportedBy}\\
+		\Let supportedByToGoals = all \textit{Goal}s from \textit{outgoingSupportedBys} that connects to \textit{strategy};\\
 		\If{supportedByToGoal is not empty}{
 			\Let assertedInference = new \textit{AssertedInference};\\
-			assertedInference.target = assertedInference.source;\\
-			\For{supportedBy in supportedByToGoal}{
-				assertedInference.source.add(supportedBy.target);\\
+			assertedInference.target = supportedByFromGoal.equivalent();\\
+			\For{goal in supportedByToGoals}{
+				assertedInference.source.add(goal.equivalent());\\
 			}
 		}
 	}
 	\
-	\caption{Transforming Strategy into ArgumentReasoning}
+	\caption{Transforming Rule Strategy2ArgumentReasoning}
 	\label{alg:s2ar}
 \end{algorithm}
 
-To enable interoperability from GSN to SACM, we provide a model-to-model transformation\footnote{Available at: \url{https://github.com/wrwei/MDERE/blob/master/technical}} defined using the Epsilon Transformation Language\cite{kolovos2008epsilon}. 
-Most of the transformation is straight forward - instances of the GSN elements are transformed into instances of the SACM elements that the GSN elements extend. 
-There is one exception: the transformation from \textit{Strategy} to \textit{ArgumentReasoning}. As discussed in Section~\ref{sec:relationships}, an \textit{ArgumentReasoning} is associated to an \textit{AssertedRelationship}, but in GSN, a \textit{Strategy} acts as a node in a goal structure. 
-This requires analysis to be performed during the transformation, which is shown in Algorithm~\ref{alg:s2ar}.
-
 \subsection{The CAE metamodel and the interoprability from CAE to SACM}
-Claims, Arguments and Evidence (CAE) \cite{cae} is another widely used notation to construct safety arguments. Concepts in CAE are similar to those in GSN. 
+Claims-Arguments-Evidence (CAE) \cite{bishop2000methodology} is another widely used notation to construct safety arguments. Concepts in CAE are similar to those in GSN. 
 There has not been an official metamodel defined for CAE. Thus, we provide our own version of CAE that extends SACM, shown in Figure~\ref{fig:caeMetamodel}.
 
 \begin{figure}

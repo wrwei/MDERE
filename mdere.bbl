@@ -17,10 +17,11 @@ Tim Kelly and Rob Weaver.
 \newblock In {\em Proceedings of the dependable systems and networks 2004
   workshop on assurance cases}, page~6. Citeseer, 2004.
 
-\bibitem{cae}
-{Claims, Arguments and Evidence (CAE)}.
-\newblock \url{https://www.adelard.com/asce/choosing-asce/cae.html}.
-\newblock Accessed: 06-04-2018.
+\bibitem{bishop2000methodology}
+Peter Bishop and Robin Bloomfield.
+\newblock A methodology for safety case development.
+\newblock In {\em Safety and Reliability}, volume~20, pages 34--42. Taylor \&
+  Francis, 2000.
 
 \bibitem{denney2017tool}
 Ewen Denney and Ganesh Pai.
@@ -80,12 +81,6 @@ Paul Chinneck, David Pumfrey, and Tim Kelly.
 \newblock Turning up the heat on safety case construction.
 \newblock In {\em Practical Elements of Safety}, pages 223--240. Springer,
   2004.
-
-\bibitem{bishop2000methodology}
-Peter Bishop and Robin Bloomfield.
-\newblock A methodology for safety case development.
-\newblock In {\em Safety and Reliability}, volume~20, pages 34--42. Taylor \&
-  Francis, 2000.
 
 \bibitem{maksimov2018}
 Mike Maksimov, Nick Fung, Sahar Kokaly, and Marsha Chechik.
@@ -150,6 +145,12 @@ Richard~David Hawkins, Ibrahim Habli, and Tim Kelly.
 \newblock The need for a weaving model in assurance case automation.
 \newblock {\em Ada User Journal}, pages 187--191, 2015.
 
+\bibitem{hawkins2015weaving}
+Richard Hawkins, Ibrahim Habli, Dimitris Kolovos, Richard Paige, and Tim Kelly.
+\newblock Weaving an assurance case from design: a model-based approach.
+\newblock In {\em High Assurance Systems Engineering (HASE), 2015 IEEE 16th
+  International Symposium on}, pages 110--117. IEEE, 2015.
+
 \bibitem{fenn2005putting}
 Jane Fenn and Brian Jepson.
 \newblock Putting trust into safety arguments.
@@ -176,16 +177,14 @@ Ran Wei, Tim~P Kelly, Richard Hawkins, and Eric Armengaud.
 \newblock In {\em Federation of International Conferences on Software
   Technologies: Applications and Foundations}, pages 409--416. Springer, 2017.
 
+\bibitem{gsn2010draft}
+GSN Committee et~al.
+\newblock Draft gsn standard version 1.0, 2010.
+
 \bibitem{kelly1997safety}
 Tim~P Kelly and John~A McDermid.
 \newblock Safety case construction and reuse using patterns.
 \newblock In {\em Safe Comp 97}, pages 55--69. Springer, 1997.
-
-\bibitem{hawkins2015weaving}
-Richard Hawkins, Ibrahim Habli, Dimitris Kolovos, Richard Paige, and Tim Kelly.
-\newblock Weaving an assurance case from design: a model-based approach.
-\newblock In {\em High Assurance Systems Engineering (HASE), 2015 IEEE 16th
-  International Symposium on}, pages 110--117. IEEE, 2015.
 
 \bibitem{kolovos2008epsilon}
 Dimitrios~S Kolovos, Richard~F Paige, and Fiona~AC Polack.

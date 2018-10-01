@@ -2,13 +2,12 @@
 \label{sec:gsn}
 It is necessary to discuss the Goal Structuring Notation (GSN) before discussing SACM as SACM was developed based on the concepts in GSN. 
 GSN is a well established graphical argumentation notation to represent safety arguments in a structured way. 
-GSN captures elements that form safety argument, and the relationships between the elements. 
 GSN is widely adopted within safety-critical industries for the presentation of safety arguments within safety cases. 
 The core elements of GSN are shown in Figure~\ref{fig:gsnCore}.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1\linewidth]{basicGSN.eps}
+	\includegraphics[width=.9\linewidth]{basicGSN.eps}
 	\caption{Core GSN elements.}
 	\label{fig:gsnCore}
 \end{figure}
@@ -29,38 +28,38 @@ An element can be \textit{Undeveloped}, which means that a line of argument has 
 \end{figure}
 
 Core elements of GSN are connected with two types of connectors, as shown in Figure~\ref{fig:gsnEdges}. 
-The \textit{SupportedBy} edge allows inferential or evidential relationships to be documented. 
+The \textit{SupportedBy} connector allows inferential or evidential relationships to be documented. 
 The \textit{InContextOf} relates contextual elements (i.e. \textit{Context}, \textit{Assumption} and \textit{Justification}) to \textit{Goal}s and \textit{Strategies}.
-
-When the elements of the GSN are linked together in a network, they are described as a \textit{goal structure}. 
-The purpose of any goal structure is to show how \textit{Goal}s are successively broken down into sub-\textit{Goal}s until a point is reached where \textit{Goal}s can be supported by direct reference to available evidence (\textit{Solution}s). 
-An example goal structure is shown in Figure~\ref{fig:goalStructure}.
-
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{gsn_example.png}
-	\caption{An example goal structure.}
+	\caption{An example goal structure \cite{gsn2010draft}.}
 	\label{fig:goalStructure}
 \end{figure}
+
+When the elements of the GSN are linked together in a network, they are often referred to as a \textit{goal structure}. 
+The purpose of any goal structure is to show how \textit{Goal}s are successively broken down into sub-\textit{Goal}s until a point is reached where \textit{Goal}s can be supported by direct reference to available evidence (\textit{Solution}s). 
+An example goal structure is shown in Figure~\ref{fig:goalStructure}.
+
 Figure~\ref{fig:modularGSN} shows how GSN supports modularity. 
 Goal structures can be organised in \textit{Module}s. 
 For example, for a system that consists of two components A and B, it is possible to organise the safety case of component A in Module A and safety case of component B in Module B. 
 Modularity promotes re-use, so that safety cases for system components can be re-used when different components integrate to form a system. 
 When integrating system safety cases, a \textit{Contract Module} can be used to \textit{bind} different \textit{Module}s together. 
 Binding is done via the use of \textit{Away Goal}s, \textit{Away Context}s and \textit{Away Solution}, where \textit{Goal}s, \textit{Context}s and \textit{Solution}s from an external \textit{Module} can be referenced. 
-Like other GSN elements, away elements can be connected using \textit{SupportedBy} and \textit{InContextOf} edges.
+Like other GSN elements, away elements can be connected using \textit{SupportedBy} and \textit{InContextOf} connectors.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.9\linewidth]{ModularGSN.eps}
+	\includegraphics[width=0.8\linewidth]{ModularGSN.eps}
 	\caption{Modular GSN elements.}
 	\label{fig:modularGSN}
 \end{figure}
-For a successful GSN safety case, people tend to define a template of the safety case for re-using. 
+For a successful GSN safety case, people tend to define a template of the safety case to re-use its structure in the future. 
 GSN provides the extension for users to define templates that are called \textit{GSN patterns}.
 In~\cite{kelly1997safety}, the use of patterns is discussed, patterns are a means of documenting and reusing successful assurance argument structures. 
 Safety case argument patterns provide a way of capturing the required form of a safety argument in a manner that is abstract from the details of a particular argument. It is then possible to use the patterns to create specific arguments by \textit{instantiating} the patterns in a manner appropriate to the application. 
-Pattern instantiation refers to the process of constructing concrete system safety cases by filling in the templates provided in the GSN pattern with actual system information. Figure~\ref{fig:gsnPatterns} shows the elements in GSN which enable the users to create patterns.
+Pattern instantiation refers to the process of constructing concrete system safety cases by populating the templates provided in the GSN pattern with actual system information. Figure~\ref{fig:gsnPatterns} shows the elements in GSN which enable the users to create patterns.
 
 \begin{figure}
 	\centering
@@ -71,7 +70,7 @@ Pattern instantiation refers to the process of constructing concrete system safe
 
 The \textit{Uninstantiated} indicator marks that an element is abstract and to be instantiated, at some later stage, the abstract element needs to be replaced with a more concrete instance. 
 \textit{Uninstantiated indicator} can be associated to any GSN element, Figure~\ref{fig:gsnPatterns} demonstrates how it can be associated to a \textit{Goal}. 
-The \textit{Undeveloped and Uninstantiated} indicator marks an element (in particular, \textit{Goal}s and \textit{Strategies}) is both abstract (to be instantiated) and needs more development (needs supporting argument), Figure~\ref{fig:gsnPatterns} demonstrates its usage on a Goal. 
+The \textit{Undeveloped and Uninstantiated} indicator marks an element (in particular, \textit{Goal}s and \textit{Strategies}) to be both abstract (to be instantiated) and needs more development (needs supporting argument), Figure~\ref{fig:gsnPatterns} demonstrates its usage on a Goal. 
 In GSN patterns, the \textit{SupportedBy} and \textit{InContextOf} connector can bear more information, the \textit{Many} decorator on a connector indicates that when the pattern is instantiated, the connector can be multiplied \textit{n} times (expressed in the label) based on the actual system information provided. 
 The \textit{Optional} decorator indicates that when the pattern is instantiated, the connector can connect to one or zero element. 
 The \textit{Choice} decorator on a connector can be used to denote possible alternatives in satisfying a relationship. 
@@ -79,7 +78,7 @@ It can represent 1-of-n and m-of-n selection.
 
 \begin{figure}[ht!]
 	\centering
-	\includegraphics[width=.8\linewidth]{pattern_example.pdf}
+	\includegraphics[width=.7\linewidth]{pattern_example.pdf}
 	\caption{An example of a GSN Pattern \cite{kelly1997safety}}
 	\label{fig:dmilsPattern}
 \end{figure}

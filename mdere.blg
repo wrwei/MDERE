@@ -8,43 +8,43 @@ Repeated entry---line 223 of file references.bib
  :                              ,
 I'm skipping whatever remains of this entry
 Warning--empty publisher in healthFound
+Warning--can't use both volume and number fields in bishop2000methodology
 Warning--there's a number but no volume in larrucea2017supporting
 Warning--empty publisher in hse
 Warning--empty publisher in mod2007
 Warning--empty publisher in caa2007
 Warning--empty publisher in yellowBook2007
-Warning--can't use both volume and number fields in bishop2000methodology
 Warning--empty journal in despotou2008investigating
 You've used 36 entries,
             1791 wiz_defined-function locations,
-            630 strings with 9195 characters,
-and the built_in function-call counts, 9464 in all, are:
-= -- 919
-> -- 312
+            630 strings with 9163 characters,
+and the built_in function-call counts, 9490 in all, are:
+= -- 918
+> -- 319
 < -- 21
-+ -- 119
-- -- 83
-* -- 487
-:= -- 1310
-add.period$ -- 125
++ -- 121
+- -- 85
+* -- 489
+:= -- 1319
+add.period$ -- 124
 call.type$ -- 36
 change.case$ -- 30
 chr.to.int$ -- 0
 cite$ -- 44
 duplicate$ -- 518
 empty$ -- 994
-format.name$ -- 83
-if$ -- 2307
+format.name$ -- 85
+if$ -- 2310
 int.to.chr$ -- 0
 int.to.str$ -- 36
 missing$ -- 38
-newline$ -- 183
-num.names$ -- 32
-pop$ -- 212
+newline$ -- 182
+num.names$ -- 33
+pop$ -- 211
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 275
+skip$ -- 277
 stack$ -- 0
 substring$ -- 551
 swap$ -- 192
@@ -53,7 +53,7 @@ text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 8
-while$ -- 96
+while$ -- 97
 width$ -- 38
-write$ -- 393
+write$ -- 392
 (There was 1 error message)
