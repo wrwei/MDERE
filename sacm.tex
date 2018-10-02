@@ -32,15 +32,14 @@ The \textit{Argumentation} package captures the concepts used in arguing system 
 
 \subsection{SACM AssuranceCase Package}
 \label{sec:acPack}
-Although the \textit{Base} package provides the foundation of SACM, it is necessary to discuss the \textit{AssuranceCase} package first as it provides an insight on how an \textit{Assurance Case} in SACM is organised. 
-The structure of the \textit{AssuranceCase} package is shown in Figure~\ref{fig:ac}.
-
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{AssuranceCase.eps}
 	\caption{SACM AssuranceCase Package.}
 	\label{fig:ac}
 \end{figure}
+Although the \textit{Base} package provides the foundation of SACM, it is necessary to discuss the \textit{AssuranceCase} package first as it provides an insight on how an \textit{Assurance Case} in SACM is organised. 
+The structure of the \textit{AssuranceCase} package is shown in Figure~\ref{fig:ac}.
 
 The core element in the \textit{AssuranceCase} package is the \textit{AssuranceCasePackage} element, which extends the \textit{ArtifactElement} in the \textit{Base} package. 
 The implication is that an \textit{AssuranceCasePackage} can be considered to be an artefact. 
@@ -52,16 +51,16 @@ The developer may want to make parts of the argumentations public so that during
 To disclose only necessary contents externally, one may make use of the \textit{AssuranceCasePackageInterface} to do so. 
 
 The premise of system integration in safety related domains is to integrate assurance cases of systems to form an overall assurance case. SACM handles this scenario with the \textit{AssuranceCasePackageBinding}, which binds two or more \textit{AssuranceCasePackageInterface}s together to form an overall \textit{AssuranceCasePackage}. This particular scenario is discussed in Section~\ref{section:etcs}.
-\begin{figure}
+
+\subsection{SACM Base Package}
+\label{sec:basePack}
+
+\begin{figure}[ht!]
 	\centering
 	\includegraphics[width=1\linewidth]{Base.eps}
 	\caption{SACM Base Package.}
 	\label{fig:base}
 \end{figure}
-
-\subsection{SACM Base Package}
-\label{sec:basePack}
-
 The \textit{Base} package captures the fundamental concepts of SACM, the structure of the \textit{Base} package is shown in Figure~\ref{fig:base}. 
 The base element of all SACM elements is \textit{Element}. 
 Its direct children are \textit{LangString}, \textit{MultiLangString} and \textit{SACMElement}.
@@ -459,14 +458,14 @@ Note that some details are omitted due to the complexity of the SACM model.
 \end{figure}
 
 There is a \textit{TerminologyPackage} in the upper part of Figure~\ref{fig:sacmPattern} named \textit{TP1}, within which contains an \textit{Expression} and a \textit{Term}\footnote{The containment is described in this way to improve comprehensibility.}. 
-In the lower part of the figure, there is an \textit{ArgumentPackage} AP1, which contains the structured argumentation pattern (N.B. the packages are placed in this way to make the figure more readable and does not denote the priority of the packages).
+In the lower part of the figure, there is an \textit{ArgumentPackage} \textit{AP1}, which contains the structured argumentation pattern (N.B. the packages are placed in this way to make the figure more readable and does not denote the priority of the packages).
 
 The top level \textit{Claim} of this pattern is \textbf{G1}, which maps to the \textit{Goal} \textbf{G1} in Figure~\ref{fig:dmilsPattern}. 
 Note that \textbf{G1}'s \textit{+isAbstract} is set to \textit{true} since this is an abstract \textit{Claim} (a template). Now we focus on the \textit{description} of \textbf{G1}, within which an \textit{ExpressionLangString} is used. 
 The \textit{ExpressionLangString} refers to the \textit{Expression} in \textit{TerminologyPackage} \textit{TP1} (which contains value: \textit{\{System X\} is safe}). 
 The curly brackets are a convention in GSN, which are called \textit{role}s in GSN. 
 \textit{Role}s are essentially place holders in the pattern, the contents enclosed in the curly brackets will be replaced by actual system information if the pattern gets instantiated. 
-In this case, when the pattern is instantiated, \{System X\} will be replaced with the actual system name. 
+In this case, when the pattern is instantiated, \{System X\} will be replaced with the name(s) of actual system(s). 
 
 In the \textit{TerminologyPackage} \textit{TP1}, the \textit{Expression} refers to the \textit{Term} \textit{System X}. 
 This is a typical use of \textit{Term} in structured argumentation. 
@@ -476,7 +475,7 @@ The structure of the argumentation in Figure~\ref{fig:sacmPattern} follows that 
 Note that the \textit{Claim}s in yellow colour are the templates, which have their \textit{+isAbstract} feature set to true. 
 
 GSN pattern instantiation is often a manual procedure as safety case developers need to comprehend the GSN pattern and replace the \textit{role}s in the pattern with actual system information. In \cite{hawkins2015weaving}, a model-based approach is proposed, which makes use of a \textit{weaving model} to link the elements in the GSN with elements in system models. 
-This is typically due to the fact that in GSN there are no means to specify instantiation rules for the GSN patterns.
+This is typically due to the fact that in GSN there are no means to specify instantiation rules for GSN patterns.
 In SACM, as previously mentioned in Section~\ref{sec:basePack}, the element \textit{ImplementationConstraint} can be used to specify the instantiation rules for patterns. 
 The users of SACM can associate \textit{ImplementationConstraint} to any element and the use of language is not restricted.
 Evidently, pattern instantiation needs tool support and an model management engine to execute the \textit{ImplementationConstraint}s. 

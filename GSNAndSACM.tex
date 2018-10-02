@@ -37,20 +37,6 @@ To enable interoperability from GSN to SACM, we provide a model-to-model transfo
 Most of the transformation is straight forward - instances of the GSN elements are transformed into instances of the SACM elements that the GSN elements extend. 
 There is one exception: the transformation from \textit{Strategy} to \textit{ArgumentReasoning}. As discussed in Section~\ref{sec:relationships}, an \textit{ArgumentReasoning} is associated to an \textit{AssertedRelationship}, but in GSN, a \textit{Strategy} acts as a node in a goal structure. 
 This requires analysis to be performed during the transformation, which is shown in Algorithm~\ref{alg:s2ar}.
-Algorithm~\ref{alg:s2ar} defines the transformation rule \textit{Strategy2ArgumentReasong}. 
-Line 1 retrieves the \textit{Strategy} to be transformed;
-Line 2 creates a new \textit{ArgumentReasoning};
-Line 3 and 4 transform the \textit{name} and \textit{description} of the \textit{Strategy} to the \textit{ArgumentReasoning} (the equivalent() operation in ETL divert control to corresponding transformation rules that transform \textit{Name} to \textit{Name}, and returns the transformed model element).
-Line 5 checks if the \textit{Strategy} is uninstantiated, and then in line 6, make the \textit{ArgumentReasoning} \textit{abstract}.
-Line 8 retrieves the incoming \textit{SupportedBy}  for the \textit{Strategy}.
-Line 9 retrieves all outgoing \textit{SupportedBy} for the \textit{Strategy} (In GSN, the flow of an argument goes from top to bottom. Thus, for a \textit{Strategy}, there is one incoming \textit{SupportedBy} and many outgoing \textit{SupportedBy}s).
-Line 10 retrieves the \textit{Goal} from the incoming \textit{SupportedBy}.
-Line 11 retrieves the \textit{Goal}s from the outgoing \textit{SupportedBy}s. 
-Then, in line 13 an \textit{AssertedInference} is created. 
-It is worth noting that in SACM, the inference flows from bottom to top. Thus the source and target of the \textit{AssertedInference} are the transformed counterparts of \textit{supportedByToGoals} in line 11 and the transformed counterparts of \textit{supportedByFromGoal} in line 10, respectively.
-
-It is worth noting that some developers use \textit{Solutions} to directly support \textit{Strategy}. 
-This is forbidden in the GSN standard. 
 \begin{algorithm}[ht!]
 	{
 		\fontsize{9}{10}
@@ -71,21 +57,21 @@ This is forbidden in the GSN standard.
 		
 		\Let strategy = \textit{Strategy} to be transformed;\\
 		\Let argumentReasoning = new \textit{ArgumentReasoning};\\
-
+		
 		argumentReasoning.name = strategy.name.equivalent();\\
 		argumentReasoning.description = strategy.description.equivalent();\\
 		\If {strategy.uninstantiated == true} {
 			argumentReasoning.isAbstract = true;
 		}
-%		\Let supportedByToSolution = all \textit{SupportedBy}s from \textit{outgoingSupportedBy} \\
-%		that connects to a \textit{Solution};\\
-%		\If{supportedByToSolution is not empty}{
-%			\Let assertedEvidence = new \textit{AssertedEvidence};\\
-%			assertedEvidence.target = incomingSupportedBy.source;\\
-%			\For{supportedBy in supportedByToSolution}{
-%				assertedEvidence.source.add(supportedBy.target);\\
-%			}
-%		}
+		%		\Let supportedByToSolution = all \textit{SupportedBy}s from \textit{outgoingSupportedBy} \\
+		%		that connects to a \textit{Solution};\\
+		%		\If{supportedByToSolution is not empty}{
+		%			\Let assertedEvidence = new \textit{AssertedEvidence};\\
+		%			assertedEvidence.target = incomingSupportedBy.source;\\
+		%			\For{supportedBy in supportedByToSolution}{
+		%				assertedEvidence.source.add(supportedBy.target);\\
+		%			}
+		%		}
 		\Let incomingSupportedBy = the incoming \textit{SupportedBy} to \textit{strategy};\\
 		\Let outgoingSupportedBys = all outgoing \textit{SupportedBy}s from \textit{strategy};\\
 		\Let supportedByFromGoal = \textit{Goal} from \textit{incomingSupportedBy}\\
@@ -102,10 +88,26 @@ This is forbidden in the GSN standard.
 	\caption{Transforming Rule Strategy2ArgumentReasoning}
 	\label{alg:s2ar}
 \end{algorithm}
+Algorithm~\ref{alg:s2ar} defines the transformation rule \textit{Strategy2ArgumentReasong}. 
+Line 1 retrieves the \textit{Strategy} to be transformed;
+Line 2 creates a new \textit{ArgumentReasoning};
+Line 3 and 4 transform the \textit{name} and \textit{description} of the \textit{Strategy} to the \textit{ArgumentReasoning} (the equivalent() operation in ETL divert control to corresponding transformation rules that transform \textit{Name} to \textit{Name}, and returns the transformed model element).
+Line 5 checks if the \textit{Strategy} is uninstantiated, and then in line 6, make the \textit{ArgumentReasoning} \textit{abstract}.
+Line 8 retrieves the incoming \textit{SupportedBy}  for the \textit{Strategy}.
+Line 9 retrieves all outgoing \textit{SupportedBy} for the \textit{Strategy} (In GSN, the flow of an argument goes from top to bottom. Thus, for a \textit{Strategy}, there is one incoming \textit{SupportedBy} and many outgoing \textit{SupportedBy}s).
+Line 10 retrieves the \textit{Goal} from the incoming \textit{SupportedBy}.
+Line 11 retrieves the \textit{Goal}s from the outgoing \textit{SupportedBy}s. 
+Then, in line 13 an \textit{AssertedInference} is created. 
+It is worth noting that in SACM, the inference flows from bottom to top. Thus the source and target of the \textit{AssertedInference} are the transformed counterparts of \textit{supportedByToGoals} in line 11 and the transformed counterparts of \textit{supportedByFromGoal} in line 10, respectively.
+
+It is worth noting that some developers use \textit{Solutions} to directly support \textit{Strategy}. 
+This is forbidden in the GSN standard (permitted SupportedBy connections are: \textit{Goal}-to-\textit{Goal}, \textit{Goal}-to-\textit{Strategy}, \textit{Goal}-to-\textit{Solution} and \textit{Strategy}-to-\textit{Goal}). 
+This is one of the reasons why model-based assurance case is desired - automated model validation can be performed to check the well-formedness of assurance cases.
 
 \subsection{The CAE metamodel and the interoprability from CAE to SACM}
 Claims-Arguments-Evidence (CAE) \cite{bishop2000methodology} is another widely used notation to construct safety arguments. Concepts in CAE are similar to those in GSN. 
 There has not been an official metamodel defined for CAE. Thus, we provide our own version of CAE that extends SACM, shown in Figure~\ref{fig:caeMetamodel}.
+
 
 \begin{figure}
 	\centering
@@ -122,7 +124,7 @@ In CAE, there is a notion of \textit{Assumption}, which is made a sub-type of \t
 In CAE, there are three types of relationships, the \textit{IsEvidenceFor} connects \textit{Evidence} with \textit{Claim}s, thus is made a sub-type of \textit{AssertedEvidence}; the \textit{IsSubClaimOf} relationship connects sub-\textit{Claim}s to \textit{Claim} and is made a sub-type of \textit{AssertedInference}; the \textit{Supports} relationship connects \textit{Argument}s to \textit{Claim} and is also made a sub-type of \textit{AssertedInference}. 
 Since there is no notion of modules in CAE, the argumentation is contained in \textit{ArgumentPackage}s inherited from SACM.
 
-The transformation from CAE to SACM is similar to the transformation from GSN to SACM (which is also implemented in Epsilon Transformation Language), with the same issue that a model analysis is needed when transforming \textit{Argument} to \textit{ArgumentReasoning}. 
+The transformation from CAE to SACM is similar to the transformation from GSN to SACM (which is also implemented in Epsilon Transformation Language), with the same issue that \textit{Argument} needs to be \textit{ArgumentReasoning}. 
 The detailed transformation is made publicly available\footnote{Available at: \url{https://github.com/wrwei/MDERE/blob/master/technical}}.
 
 

@@ -164,6 +164,12 @@ James~M Armstrong and Stephen~E Paynter.
 \newblock In {\em International Conference on Computer Safety, Reliability, and
   Security}, pages 3--16. Springer, 2004.
 
+\bibitem{denney2013formal}
+Ewen Denney and Ganesh Pai.
+\newblock A formal basis for safety case patterns.
+\newblock In {\em International Conference on Computer Safety, Reliability, and
+  Security}, pages 21--32. Springer, 2013.
+
 \bibitem{trapp2013safety}
 Mario Trapp, Daniel Schneider, and Peter Liggesmeyer.
 \newblock A safety roadmap to cyber-physical systems.

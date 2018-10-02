@@ -19,13 +19,16 @@ The key benefit experienced by companies/organisations adopting GSN is that it i
 
 Another popular graphical argumentation notation is \textit{Claims-Arguments-Evidence} (CAE) \cite{bishop2000methodology}. 
 CAE views assurance cases as a set of \textit{Claim}s supported by \textit{Argument}s, which in turn rely on \textit{Evidence}.
-Compared to CAE, GSN provides more granular decomposition of safety arguments into \textit{Goal}s, \textit{Context}s, \textit{Assumption}s, \textit{Justification}s, \textit{Strateg-}ies and \textit{Solution}s. GSN supports additional features such as \textit{Module}s, \textit{Contract Modules} and argument templates (GSN Patterns) to promote modularity and re-use.
-In this paper we will focus on GSN (and its relationship to SACM) since we are the principal contributors to the standardisation of both GSN and SACM.
+Compared to CAE, 
+%GSN provides more granular decomposition of safety arguments into \textit{Goal}s, \textit{Context}s, \textit{Assumption}s, \textit{Justification}s, \textit{Strateg-}ies and \textit{Solution}s. 
+GSN supports additional features such as \textit{Module}s, \textit{Contract Modules} and argument templates (GSN Patterns) to promote modularity and re-use.
+In this paper, we focus on GSN (and its relationship to SACM) since we are the principal contributors to the standardisation of both GSN and SACM.
 
 A number of graphical assurance case tools have been developed due to the popularity of graphical argumentation notations. 
 A recent study \cite{maksimov2018} has looked into and compared assurance case tools that have been developed in the past twenty years (where 32 of them support GSN). 
 The majority of the tools do not support model-based approach (i.e. creating model-based graphical assurance cases).
-Whilst graphical assurance cases are valuable in communicating the safety and/or security properties of the system, model-based assurance cases enable higher level operations such as automated validation, model merging and model-to-model transformations, which are critical to emerging technology domains (explained later in this section). 
+Whilst graphical assurance cases are valuable in communicating the safety and/or security properties of the system, model-based assurance cases enable higher level model management operations to be performed.
+%, such as automated validation, model merging and model-to-model transformations. 
 %
 %However, the claimed support for SACM in fact refer to SACM version 1.0 (released in June, 2015), which was replaced by SACM version 2.0 (released in March, 2018). 
 
@@ -40,6 +43,8 @@ Domain specific modelling enables domain experts to capture the concepts in thei
 Model management enables a variety of operations to be performed on models in an automated manner, which include, but not limited to: Model Validation, Model-to-Model Transformation, Model-to-Text Transformation and Model Merging.
 MDE has been proven to improve consistency and productivity significantly due to the automation provided by model management operations \cite{jaaksi2002developing, karna2009evaluating}. 
 
+MDE is particularly beneficial to system assurance.
+For example, model validation can be used to check well-formedness of assurance cases (e.g. that a \textit{Strategy} cannot be directly supported by a \textit{Solution}); model-to-text transformation can be used to generate assurance case report; model merging can be used to bind assurance cases, etc. 
 A number of assurance case tools adopt MDE, such as AdvoCATE \cite{denney2017tool}, D-Case Editor \cite{matsuno2010dependability}, ASCE \cite{netkachova2014tool}, Astah GSN \cite{larrucea2017supporting}, and CertWare \cite{barry2011certware}. 
 However, a common problem with these tools is that they define their own GSN metamodels. 
 This is due to the fact that there has not been an standard GSN metamodel (apart from the mappings from GSN to SACM provided on the GSN website\footnote{\url{http://www.goalstructuringnotation.info/}}).
@@ -56,8 +61,8 @@ Therefore, the term \textit{assurance case} is a broader definition: \textit{An 
 
 To promote standardisation and interoperability, the Object Management Group (OMG) specified and issued the \textit{Structured Assurance Case Metamodel} \cite{sacm}. 
 SACM is developed by the developers of system assurance approaches (e.g. GSN and CAE), based on the collective knowledge and experiences of safety and/or security practitioners over the period of two decades. 
-Because of this, features that are not supported by GSN and CAE have been evaluated and added to SACM. 
-A selection of features (that have been identified and motivated by previous work) but not supported in GSN/CAE have been added to SACM, and are summarised in Table~\ref{tab:feature}.
+Because of this, features that are not supported by GSN and CAE have been evaluated and included in SACM. 
+A selection of such features are summarised in Table~\ref{tab:feature} (with an indicative but non-exhaustive list of works that motivate the features).
 
 \begin{table}[]
 	\centering
@@ -70,51 +75,52 @@ A selection of features (that have been identified and motivated by previous wor
 		F4. Automated Assurance Case Instantiation &\multicolumn{1}{c|}{\cite{hawkins2015need, hawkins2015weaving}}                  \\ \hline
 		F5. Describing the Level of Trust in Arguments &\multicolumn{1}{c|}{\cite{fenn2005putting}}                  \\ \hline
 		F6. Counter-Arguments in Assurance Cases &\multicolumn{1}{c|}{\cite{armstrong2004deconstruction}}                  \\ \hline
-		F7. Multiple Language Support &\multicolumn{1}{c|}{N/A}                  \\ \hline
+		F7. Multiple Language Support &\multicolumn{1}{c|}{\cite{denney2013formal}}                  \\ \hline
 	\end{tabular}
 	\caption{Features added to SACM}
 	\label{tab:feature}
 \end{table}
 
-It is important to promote modularity for assurance cases, so that system safety/security can be argued on a component basis (instead of having a huge assurance case diagram) \cite{despotou2008investigating}. 
-Modularity (F1) is supported by GSN, however, in SACM modularity is more granular due to the fact that the users of SACM are able to create not only argument packages, but also terminology packages, artifact packages and assurance case package.
+\textbf{Modularity (F1)}. It is important to promote modularity for assurance cases, so that system safety/security can be argued on a component basis (instead of having a huge assurance case diagram) \cite{despotou2008investigating}. 
+Modularity is supported by GSN, however, in SACM modularity is more granular due to the fact that the users of SACM are able to create not only argument packages, but also terminology packages, artifact packages and assurance case package.
 
-Various studies have identified the importance of controlled vocabulary (F2) used in system assurance arguments \cite{luo2015safety, attwood2014use}. 
+\textbf{Controlled Vocabulary (F2)}. Various studies have identified the importance of controlled vocabulary used in system assurance arguments \cite{luo2015safety, attwood2014use}. 
 In SACM, the users are able to create controlled vocabulary (which can relay to actual model/model elements that define the vocabulary) and refer to them in the assurance argument. 
 
-In GSN and CAE, evidence in assurance cases are described using natural language, there is no built-in facility that enables the traceability from evidence to the actual artifact. 
+\textbf{Traceability from Evidence to Artifact (F3)}. In GSN and CAE, evidence in assurance cases are described using natural language, there is no built-in facility that enables the traceability from evidence to the actual artifact. 
 Existing work achieves traceability through the use of an external metamodel \cite{taguchi2014linking}.
-In SACM, traceability (F3) is naturally supported, which will be explained in Section~\ref{sec:sacm}.
+In SACM, traceability is naturally supported, which will be explained in Section~\ref{sec:sacm}.
 
-Assurance case templates are useful in capturing good practice in system assurance for re-use.
+\textbf{Automated Assurance Case Instantiation (F4)}. Assurance case templates are useful in capturing good practice in system assurance for re-use.
 GSN provides the notion of \textit{GSN patterns}, which enables the users to create abstract safety cases (templates), and then \textit{instantiate} the patterns based on actual system information to create concrete safety cases. 
 In~\cite{hawkins2015need} and ~\cite{hawkins2015weaving}, a model based automated pattern instantiation approach is discussed and presented. 
 This approach uses a intermediate \textit{weaving model} to link GSN patterns with system models. 
-In SACM, automated instantiation (F4) can be achieved without the introduction of intermediate models.
+In SACM, automated instantiation can be achieved without the introduction of intermediate models.
 
-It is important to argue the trustworthiness of arguments made in an assurance case (F5), motivated in~\cite{fenn2005putting}. 
+\textbf{Describing the Level of Trust in Arguments (F5)}. It is important to argue the trustworthiness of arguments made in an assurance case (F5), motivated in~\cite{fenn2005putting}. 
 In GSN and CAE, there is no explicit means to express the level of trust in an argument. 
 However, in SACM, there is a facility specifically designed to argue the trustworthiness of an argument.
 
-Sometimes, it is also important to present counter arguments (F6) in an assurance case~\cite{armstrong2004deconstruction}.
+\textbf{Counter-Arguments in Assurance Cases (F6)}. Sometimes, it is also important to present counter arguments in an assurance case~\cite{armstrong2004deconstruction}.
 However, in GSN and CAE there is no specific means to express counter arguments. 
 In SACM, an argument can be declared as \textit{counter}, to declare a reversal argument.
 
-Multiple language support (F7) seems trivial in assurance cases created using GSN and CAE.
-However, when creating SACM version 2.0 we have realised that the importance of multiple language support not only lies in the means to describe arguments in multiple natural languages, but also lies in the means to describe arguments in formal languages.
+\textbf{Multiple Language Support (F7)}. Multiple language support seems trivial in assurance cases created using GSN and CAE.
+However, when creating SACM version 2.0 we have realised that the importance of multiple language support not only lies in the means to describe arguments in multiple natural languages, but also lies in the means to describe arguments in formal languages \cite{denney2013formal}.
 Arguments described using formal language enable the possibility of automated reasoning of system safety, which is particularly important in the context of runtime model-based system assurance.
 
-As principal contributors of SACM, we have a better understanding in SACM and can conclude that SACM is more powerful than GSN and CAE.
+As principal contributors of SACM and the originators of GSN, we can conclude that SACM is more powerful than GSN and CAE in terms of expressiveness.
 However, in the SACM specification there is limited information on the intended usage of SACM. 
-In order to exploit SACM's full potential, and to promote the adoption of SACM, it is necessary to explain SACM in detail so that safety and security engineers can fully use SACM to achieve higher level goals (e.g. automated model-to-text transformation to generate assurance case reports). 
+In order to exploit SACM's full potential, and to promote the adoption of SACM, it is necessary to explain SACM in detail so that safety and security engineers can fully use SACM to achieve higher level goals (e.g. automated model validation to check either well-formedness or runtime safety certification). 
 
 In the current state of practice, graphical notations such as GSN remain the most popular approach for system assurance. 
 SACM is designed to support GSN, but the OMG specification does not provide a mapping between GSN elements and SACM elements. 
 This is due to the fact there has not been a SACM aligned GSN metamodel. 
 Thus, in this paper we provide a GSN metamodel which aligns to SACM. 
 In addition, there is also a need to translate from GSN to SACM. 
-The reason behind this is two fold. First of all, the OMG has not defined a concrete syntax (i.e. graphical notation) for SACM elements, which makes creating SACM models a tedious and error-prone process\footnote{The development of graphical notations is in process, which we are aware of as principal contributors of SACM}. 
-Thus, to make the transition from GSN to SACM, it is good practice to use GSN notations to construct arguments and then transform from to SACM using model-to-model transformation. Secondly, since GSN has been widely adopted in industry, practitioners can convert their legacy diagrams into GSN models, and then transform to SACM to enable model-based system assurance. 
+First of all, the OMG has not defined a concrete syntax (i.e. graphical notation) for SACM elements, which makes creating SACM models a tedious and error-prone process. 
+Thus, to make the transition from GSN to SACM, it is good practice to use GSN notations to construct arguments and then transform to SACM using model-to-model transformation. 
+Secondly, since GSN has been widely adopted in industry, practitioners can convert their legacy diagrams into GSN models, and then transform to SACM to enable model-based system assurance. 
 Due to the reasons above, in this paper, we will also provide a mapping (model-to-model transformation) from GSN to SACM.
 
 \subsection{Model-Based System Assurance and Cyber-Physical Systems}
@@ -123,7 +129,7 @@ This is backed by the emergence of concepts such as Cyber-Physical Systems (CPS)
 Openness and adaptivity are core properties of CPS as constituent systems dynamically connect to each other and have to adapt to a changing context at runtime \cite{trapp2013safety}.
 CPS harbours the potential for vast economic and societal impact in domains such as automotive, health care, and home automation due to their open and adaptive nature \cite{wei2017deis}.
 The majority of application domains of CPS are safety-critical, such as car2car scenarios and collaborative autonomous mobile systems.
-If these systems fail, they may cause harm and lead to temporary collapse of important infrastructures, with catastrophic consequences for industry and society.
+If these systems fail, they may cause harm and lead to temporary collapse of important infrastructures, with potential catastrophic consequences for industry and society.
 Therefore, it is imperative to ensure the dependability of CPS in order to realise their full potential. 
 However, the open and adaptive nautre of CPS poses significant challenges to assuring such systems, as it is nearly impossible to anticipate the concrete CPS structure, its capabilities and the environmental context sufficiently at design time.
 
@@ -140,10 +146,19 @@ Therefore, model-based assurance cases are more than `nice diagrams', they are i
 \subsection{Summarised Motivations}
 The motivations of our work can be summarised as follows. 
 \begin{itemize}
-	\item \textbf{Heterogeneous GSN metamodels and misalignment to SACM}. Graphical notations such as GSN and CAE are the most popular means to create system assurance cases.
+	\item \textbf{Heterogeneous GSN metamodels and misalignment to SACM}.
+	Multiple GSN metamodels, where the differences even indicate a different semantical understanding of GSN. 
+	
+	They often fail to correctly capture the differences between abstract and concrete syntax of GSN. (Metamodel often dictated by concrete syntax of GSN rather than the deep understanding of the semantics of the metamodel).
+	
+	\item At present in the assurance community, there are two well established notations GSN and CAE. Sometimes false distinctions are made between these notations. E.g. Wrong-footed by the nomenclature, the equivalence of Claim and Goal is not always acknowledged. 
+	
+	 Graphical notations such as GSN and CAE are the most popular means to create system assurance cases.
 	Although a number of model-based assurance case tools exist, they implement their own version of GSN, their mappings from GSN to SACM version 1.0 are not unanimous due to the fact that SACM version 1.0 was not sufficiently explained. 
 	In addition, due to the release of SACM version 2.0, the claimed supports for SACM of existing model based GSN/CAE tools become out-dated.
 	\item \textbf{Importance of SACM and its application in open adaptive system assurance}. SACM provides more features than GSN/CAE, which makes it more powerful in terms of expressiveness. 
 	SACM is fundamental to runtime system assurance, which is the key for open adaptive systems such as Cyber-Physical Systems.
-	\item \textbf{Insufficient explanation of SACM}. SACM and the relationship between GSN/CAE and SACM are not sufficiently explained, which hinders its adoption. 
+	\item \textbf{Insufficient explanation of SACM}. SACM has been developed over the period of 10 years, and is the result of significant deliberation and consultation. As a consequence, there are many use cases behind the features (known to the authors of this paper as principal authors of the SACM standard) that are present that may not be apparent to users on first inspection.
+	E.g. to support existing concepts such as modularity, patterns, and meta argumentation. 
+	SACM and the relationship between GSN/CAE and SACM are not sufficiently explained, which hinders its adoption. 
 \end{itemize}
