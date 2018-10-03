@@ -1,6 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2016)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: mdere.aux
+This is BibTeX, Version 0.99dThe top-level auxiliary file: mdere.aux
 The style file: unsrt.bst
 Database file #1: references.bib
 Repeated entry---line 223 of file references.bib
@@ -15,45 +13,4 @@ Warning--empty publisher in mod2007
 Warning--empty publisher in caa2007
 Warning--empty publisher in yellowBook2007
 Warning--empty journal in despotou2008investigating
-You've used 37 entries,
-            1791 wiz_defined-function locations,
-            633 strings with 9224 characters,
-and the built_in function-call counts, 9824 in all, are:
-= -- 954
-> -- 327
-< -- 22
-+ -- 124
-- -- 87
-* -- 505
-:= -- 1362
-add.period$ -- 128
-call.type$ -- 37
-change.case$ -- 31
-chr.to.int$ -- 0
-cite$ -- 45
-duplicate$ -- 537
-empty$ -- 1029
-format.name$ -- 87
-if$ -- 2395
-int.to.chr$ -- 0
-int.to.str$ -- 37
-missing$ -- 39
-newline$ -- 187
-num.names$ -- 34
-pop$ -- 217
-preamble$ -- 1
-purify$ -- 0
-quote$ -- 0
-skip$ -- 289
-stack$ -- 0
-substring$ -- 575
-swap$ -- 201
-text.length$ -- 22
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 0
-warning$ -- 8
-while$ -- 101
-width$ -- 39
-write$ -- 404
 (There was 1 error message)

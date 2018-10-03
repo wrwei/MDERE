@@ -23,6 +23,12 @@ Peter Bishop and Robin Bloomfield.
 \newblock In {\em Safety and Reliability}, volume~20, pages 34--42. Taylor \&
   Francis, 2000.
 
+\bibitem{maksimov2018}
+Mike Maksimov, Nick Fung, Sahar Kokaly, and Marsha Chechik.
+\newblock Two decades of assurance case tools: A survey.
+\newblock In {\em Proc. 6th International Workshop on Assurance Cases for
+  Software-Intensive Systems (ASSURE 2018)}, 2018.
+
 \bibitem{denney2017tool}
 Ewen Denney and Ganesh Pai.
 \newblock Tool support for assurance case development.
@@ -50,11 +56,6 @@ Matthew~R Barry.
 \newblock Certware: A workbench for safety case production and analysis.
 \newblock In {\em Aerospace Conference, 2011 IEEE}, pages 1--10. IEEE, 2011.
 
-\bibitem{yorkgsn}
-{University of York Freeware Visio Add-on}.
-\newblock \url{http://www.cs.york.ac.uk/~tpk/gsn/gsnaddoninstaller.zip}.
-\newblock Accessed: 06-04-2018.
-
 \bibitem{hse}
 Health and Safety~Executive (HSE).
 \newblock {\em Safety Assessment Principles for Nuclear Facilities}.
@@ -81,12 +82,6 @@ Paul Chinneck, David Pumfrey, and Tim Kelly.
 \newblock Turning up the heat on safety case construction.
 \newblock In {\em Practical Elements of Safety}, pages 223--240. Springer,
   2004.
-
-\bibitem{maksimov2018}
-Mike Maksimov, Nick Fung, Sahar Kokaly, and Marsha Chechik.
-\newblock Two decades of assurance case tools: A survey.
-\newblock In {\em Proc. 6th International Workshop on Assurance Cases for
-  Software-Intensive Systems (ASSURE 2018)}, 2018.
 
 \bibitem{jaaksi2002developing}
 Ari Jaaksi.
