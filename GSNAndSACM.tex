@@ -1,21 +1,21 @@
-\section{Metamodel for  existing notations and their interoperabilities to SACM}
+\section{Metamodel for  existing notations and the transformations from them to SACM}
 \label{sec:mapping}
 SACM is designed to support existing safety notations such as GSN and CAE. 
-In previous sections, we briefly demonstrated the semantics of SACM elements by comparing them with GSN notations. 
+In previous sections, we briefly demonstrated the usage of SACM elements by comparing them with GSN notations. 
 In this section, we provide a GSN metamodel and a CAE metamodel that are compliant to SACM. 
 We also discuss the transformation from GSN and CAE to SACM.
 
 \subsection{The GSN Metamodel and the inteoperability from GSN to SACM}
+As previously discussed, SACM provides a richer set of features compared to GSN, which includes the ability to standardise evidential and informational artifacts in the models, standardising controlled vocabulary and terminologies, as well as modular organisation and integration of artifacts and terminologies. 
+In general, creating a metamodel for GSN is a simple task, for there are only several concepts that GSN captures. 
+However, it is ideal to create the GSN metamodel by extending SACM elements, so that not only can the GSN metamodel inherit features provided by SACM, but it also makes the interoperability from GSN to SACM easier. 
+
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{GSN.eps}
 	\caption{SACM compliant GSN metamodel.}
 	\label{fig:gsnMetamodel}
 \end{figure}
-
-As previously discussed, SACM provides a richer set of features compared to GSN, which includes the ability to standardise evidential and informational artifacts in the models, standardising controlled grammar and terminologies, as well as modular organisation and integration of artifacts and terminologies. 
-In general, creating a metamodel for GSN is a simple task, for there are only several concepts that GSN captures. 
-However, we think it is more ideal to create the GSN metamodel by extending SACM elements, so that not only can the GSN metamodel inherit features provided by SACM, but it also makes the interoperability from GSN to SACM easier. 
 
 Our version of the GSN metamodel is shown in Figure~\ref{fig:gsnMetamodel}. 
 In GSN, argumentations are organised in \textit{Module}s, which is made as a sub-type of \textit{ArgumentPackage} in SACM; \textit{ContractMoudle} are essentially contracts that bind \textit{Module}s together, thus it is a sub-type of \textit{ArgumentPackageBinding}. 
@@ -31,7 +31,7 @@ Thus, \textit{Context} is made a sub-type of \textit{ArgumentAsset}.
 \textit{SupportedBy} is made a sub-type of \textit{AssertedInference} and \textit{InContextOf} is made a sub-type of \textit{AssertedContext}. 
 \textit{Strategy} is made a sub-type of \textit{ArgumentReasoning} for it explains the intention of an \textit{AssertedRelationship}.
 
-The way that the GSN metamodel is created makes it inherently compatible with SACM, so that it can be used in as an \textit{ArgumentPackage}, organised in an \textit{AssuranceCasePackage}, with its supporting artefacts organised in \textit{ArtifactPackage}s and controlled language organised in \textit{TerminologyPckage}s. 
+The way that the GSN metamodel is created makes it inherently compatible with SACM, so that it can be used in as an \textit{ArgumentPackage}, organised in an \textit{AssuranceCasePackage}, with its supporting artefacts organised in \textit{ArtifactPackage}s and controlled vocabularies organised in \textit{TerminologyPckage}s. 
 
 To enable interoperability from GSN to SACM, we provide a model-to-model transformation\footnote{Available at: \url{https://github.com/wrwei/MDERE/blob/master/technical}} defined using the Epsilon Transformation Language (ETL) \cite{kolovos2008epsilon}. 
 Most of the transformation is straight forward - instances of the GSN elements are transformed into instances of the SACM elements that the GSN elements extend. 
@@ -116,7 +116,12 @@ There has not been an official metamodel defined for CAE. Thus, we provide our o
 	\label{fig:caeMetamodel}
 \end{figure}
 
-In CAE, there is a notion of \textit{Claim}, thus it is not necessary to duplicate \textit{Claim} in SACM. 
+CAE does not support modularity.
+However, SACM is highly modular.
+Therefore, we introduced three new concepts in CAE, \textit{CAEModule}, \textit{CAEModuleInterface} and \textit{CAEModuleBinding}, which extend \textit{ArgumentPackage}, \textit{ArgumentPackageInterface} and \textit{ArgumentPackageBiding} respectively.
+In CAE, there is a notion of \textit{Claim}, which is semantically identical to \textit{Claim} in SACM. 
+We therefore create a \textit{CAEClaim} element that extends \textit{Claim} in SACM. 
+The reason for this redundancy is that we want the CAE metamodel to be non-invasive to SACM. 
 The \textit{Argument} elements in CAE provide a description of the argument approach, which is functionally equivalent to \textit{ArgumentReasoning}, thus it is made a sub-type of \textit{ArgumentReasoning}.
 \textit{Evidence} is made a sub-type of \textit{ArtifactReference} because it is a reference to evidential materials. 
 In CAE, there is a notion of \textit{Assumption}, which is made a sub-type of \textit{Claim}. 

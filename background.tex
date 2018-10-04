@@ -84,6 +84,8 @@ A selection of such features are summarised in Table~\ref{tab:feature} (with an 
 \textbf{Modularity (F1)}. It is important to promote modularity for assurance cases, so that system safety/security can be argued on a component basis (instead of having a huge assurance case diagram) \cite{despotou2008investigating}. 
 Modularity is supported by GSN, however, in SACM modularity is more granular due to the fact that the users of SACM are able to create not only argument packages, but also terminology packages, artifact packages and assurance case package.
 
+\will{Clarify the notion of package interface, been able to clarify the semantics of package binding}
+
 \textbf{Controlled Vocabulary (F2)}. Various studies have identified the importance of controlled vocabulary used in system assurance arguments \cite{luo2015safety, attwood2014use}. 
 In SACM, the users are able to create controlled vocabulary (which can relay to actual model/model elements that define the vocabulary) and refer to them in the assurance argument. 
 
@@ -94,12 +96,12 @@ In SACM, traceability is naturally supported, which will be explained in Section
 \textbf{Automated Assurance Case Instantiation (F4)}. Assurance case templates are useful in capturing good practice in system assurance for re-use.
 GSN provides the notion of \textit{GSN patterns}, which enables the users to create abstract safety cases (templates), and then \textit{instantiate} the patterns based on actual system information to create concrete safety cases. 
 In~\cite{hawkins2015need} and \cite{hawkins2015weaving}, a model based automated pattern instantiation approach is discussed and presented. 
-This approach uses a intermediate \textit{weaving model} to link GSN patterns with system models. 
-In SACM, automated instantiation can be achieved without the introduction of intermediate models.
+This approach uses a intermediate \textit{weaving model} to link GSN patterns with system models, and requires extensions to the GSN metamodel. 
+In SACM, automated instantiation can be achieved without the introduction of these extensions. 
 
-\textbf{Describing the Level of Trust in Arguments (F5)}. It is important to argue the trustworthiness of arguments made in an assurance case, motivated in~\cite{fenn2005putting}. 
-In GSN and CAE, there is no explicit means to express the level of trust in an argument. 
-However, in SACM, there is a facility specifically designed to argue the trustworthiness of an argument.
+\textbf{Describing the Level of Trust in Arguments (F5)}. It is important to argue the trustworthiness of arguments made in an assurance case, motivated in~\cite{hawkins2011new}. 
+In GSN, an extension (Assurance Claim Points) was suggested to allow the association of confidence arguments to a primary argument \cite{hawkins2011new}.  
+However, in SACM, there is a facility specifically designed to enable this.
 
 \textbf{Counter-Arguments in Assurance Cases (F6)}. Sometimes, it is also important to present counter arguments in an assurance case~\cite{armstrong2004deconstruction}.
 However, in GSN and CAE there is no specific means to express counter arguments. 
@@ -125,7 +127,9 @@ Thus, to make the transition from GSN to SACM, it is good practice to use GSN no
 Secondly, since GSN has been widely adopted in industry, practitioners can convert their legacy diagrams into GSN models, and then transform to SACM to enable model-based system assurance. 
 Due to the reasons above, in this paper, we will also provide a mapping (model-to-model transformation) from GSN to SACM.
 
-\subsection{Model-Based System Assurance and Cyber-Physical Systems}
+\subsection{Model-Based System Assurance and Open Adaptive  Systems}
+\will{increasing challenges for assurance are presented by emerging concept such as... Good illustrations of these challenges are... }
+
 The physical and digital worlds are gradually merging into a largely connected globe. 
 This is backed by the emergence of concepts such as Cyber-Physical Systems (CPS).
 Openness and adaptivity are core properties of CPS as constituent systems dynamically connect to each other and have to adapt to a changing context at runtime \cite{trapp2013safety}.
@@ -138,7 +142,12 @@ However, the open and adaptive nature of CPS poses significant challenges to ass
 Therefore, existing design time system assurance activities are inappropriate to enable dynamic system assurance for CPS at runtime. 
 In \cite{trapp2013safety}, the authors identify the importance of system assurance at runtime for CPS and propose the idea of Models@Runtime, in the sense that system assurance information is exchanged when CPSs interconnect with each other to reason about the dependability of the to-be-formed system of systems.
 
-We envision that SACM is the best candidate for AssuranceCase@Runtime in this context, this is backed by the fact that SACM is used in the DEIS project \cite{wei2017deis} as a backbone for its Open Dependability Exchange metamodel (ODE), to ensure the dependability of CPS. 
+SACM provides a model basis that could underpin AssuranceCase@Runtime in this context, this is backed by the fact that SACM is used in the DEIS project \cite{wei2017deis} as a backbone for its Open Dependability Exchange metamodel (ODE), to ensure the dependability of CPS. 
+
+\will{SACM provides an open, universal assurance case model which establishes a framework for reasoning about the assurance of a wide range of system properties, linked to  heterogeneous models and evidence.
+	
+Incrementally formalise elements of assurance case model.}
+
 
 
 %SACM also provides multi-language support, in the sense that argumentations can be expressed using computer languages, which is the premise for automated argument reasoning. This is particularly beneficial for CPSs.

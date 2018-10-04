@@ -165,6 +165,11 @@ Ewen Denney and Ganesh Pai.
 \newblock In {\em International Conference on Computer Safety, Reliability, and
   Security}, pages 21--32. Springer, 2013.
 
+\bibitem{hawkins2011new}
+Richard Hawkins, Tim Kelly, John Knight, and Patrick Graydon.
+\newblock A new approach to creating clear safety arguments.
+\newblock In {\em Advances in systems safety}, pages 3--23. Springer, 2011.
+
 \bibitem{trapp2013safety}
 Mario Trapp, Daniel Schneider, and Peter Liggesmeyer.
 \newblock A safety roadmap to cyber-physical systems.

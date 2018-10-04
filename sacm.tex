@@ -15,7 +15,7 @@ Since OMG has not standardised the concrete syntax of SACM\footnote{We are aware
 \subsection{SACM Overview}
 \begin{figure}
 	\centering
-	\includegraphics[width=0.6\linewidth]{Overview.eps}
+	\includegraphics[width=0.8\linewidth]{Overview.eps}
 	\caption{Packages of SACM}
 	\label{fig:overview}
 \end{figure}
@@ -276,13 +276,13 @@ Since GSN notations are widely accepted and understood, we compare GSN depiction
 
 \subsection{Example: Making Claims and Citations}
 \label{sec:claims}
-
 Figure~\ref{fig:assertedClaim} provides an example on how to construct a \textit{Claim}. 
 A \textit{Claim} can have a name and a description, captured by \textit{LangString} and \textit{Description} respectively. 
 A \textit{Claim} is \textbf{asserted} if it is supported by other \textit{Claim}s. 
 In this example, it is connected by an \textit{AssertedInference} with another \textit{Claim} (details ommitted). 
 The equivalent of \textit{Claim} C1 Figure~\ref{fig:assertedClaim} in GSN is provided in Figure~\ref{fig:goalingsn}, where the \textit{Goal} G1 bears the same semantics with C1 (and how \textit{Goal} G1 is supported by another \textit{Goal}\footnote{Details of subsequent \textit{Goal}s are omitted.}).
-\begin{figure}
+
+\begin{figure}[ht!]
 	\centering
 	\begin{minipage}[b]{0.7\textwidth}
 		\includegraphics[width=\textwidth]{assertedClaim.eps}
@@ -296,8 +296,6 @@ The equivalent of \textit{Claim} C1 Figure~\ref{fig:assertedClaim} in GSN is pro
 		\label{fig:goalingsn}
 	\end{minipage}
 \end{figure}
-
-
 
 Like previously mentioned, a \textit{Claim} can be marked as \textbf{needsSupport}. Figure~\ref{fig:needsSupportClaim} illustrates the use of this declaration. 
 A \textit{Claim} that is not supported by any argument/evidence should be marked as \textbf{needsSupport}. 
