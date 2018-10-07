@@ -17,7 +17,7 @@ However, it is ideal to create the GSN metamodel by extending SACM elements, so 
 	\label{fig:gsnMetamodel}
 \end{figure}
 
-Our version of the GSN metamodel is shown in Figure~\ref{fig:gsnMetamodel}. 
+Our version of the GSN metamodel is shown in Figure~\ref{fig:gsnMetamodel}\footnote{All GSN elements are rendered in blue for readability.}. 
 In GSN, argumentations are organised in \textit{Module}s, which is made as a sub-type of \textit{ArgumentPackage} in SACM; \textit{ContractMoudle} are essentially contracts that bind \textit{Module}s together, thus it is a sub-type of \textit{ArgumentPackageBinding}. 
 
 Elements \textit{Goal}, \textit{Assumption}, \textit{Justification} and \textit{AwayGoal} are made sub-types of \textit{Claim} in SACM. 
@@ -88,6 +88,7 @@ This requires analysis to be performed during the transformation, which is shown
 	\caption{Transforming Rule Strategy2ArgumentReasoning}
 	\label{alg:s2ar}
 \end{algorithm}
+
 Algorithm~\ref{alg:s2ar} defines the transformation rule \textit{Strategy2ArgumentReasong}. 
 Line 1 retrieves the \textit{Strategy} to be transformed;
 Line 2 creates a new \textit{ArgumentReasoning};
@@ -106,7 +107,7 @@ This is one of the reasons why model-based assurance case is desired - automated
 
 \subsection{The CAE metamodel and the interoprability from CAE to SACM}
 Claims-Arguments-Evidence (CAE) \cite{bishop2000methodology} is another widely used notation to construct safety arguments. Concepts in CAE are similar to those in GSN. 
-There has not been an official metamodel defined for CAE. Thus, we provide our own version of CAE that extends SACM, shown in Figure~\ref{fig:caeMetamodel}.
+There has not been an official metamodel defined for CAE. Thus, we provide our own version of CAE that extends SACM, shown in Figure~\ref{fig:caeMetamodel}\footnote{All CAE elements are rendered in blue for readability.}.
 
 
 \begin{figure}

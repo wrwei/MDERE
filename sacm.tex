@@ -77,7 +77,7 @@ The \textit{MultiLangString} can then be associated to other SACM elements to de
 What is more important than multiple natural language support is the support for computer languages. \will{Feature}
 As previously discussed, for open adaptive systems, system assurance needs to be performed at runtime. 
 Hence, automation is needed at runtime to reason about the safety of open adaptive systems. 
-A first step towards that direction is the use of formal languages in assurance cases, so that system assurance can be (semi-) automated. In this case, \textit{MultiLangString} can be used to hold both natural languages and computer languages (e.g. formal languages) to support automated reasoning of argumentations. 
+A first step towards this direction is the use of formal languages in assurance cases, so that system assurance can be (semi-) automated. In this case, \textit{MultiLangString} can be used to hold both natural languages and computer languages (e.g. formal languages) to support automated reasoning of argumentations. 
 
 \begin{figure}
 	\centering
@@ -165,10 +165,12 @@ The \textit{Terminology} package captures concepts that enable the users of SACM
 The structure of the \textit{Terminology} package is shown in Figure~\ref{fig:term}.
 
 The root element of the \textit{Terminology} package is \textit{TerminologyElement} which also extends \textit{ArtifactElement} in the \textit{Base} package. 
-\textit{TerminologyGroup}, \textit{TerminologyAsset} and \textit{TerminologyPackge} are direct children of \textit{TerminologyElement}. 
-\textit{TerminologyAsset}s are organised in \textit{TerminologyPackage}s to promote modularity. System assurance case integration can be done at the level of \textit{TerminologyPackage}. 
+%\textit{TerminologyGroup}, \textit{TerminologyAsset} and \textit{TerminologyPackge} are direct children of \textit{TerminologyElement}. 
+\textit{TerminologyAsset}s are organised in \textit{TerminologyPackage}s to promote modularity. 
+System assurance case integration can be done at the level of \textit{TerminologyPackage}. 
 \textit{TerminologyInterface} and \textit{TerminologyPackageBinding} are used for this purpose. 
-As \textit{TerminologyPackage} can also get large in size, \textit{TerminologyGroup} provides the user with a means to selectively group \textit{TerminologyAsset}s, so that the user of SACM can group/view \textit{TerminologAsset}s as they wish.
+\textit{TerminologyGroup} enables to users to group \textit{TerminologyAsset}s selectively.
+%As \textit{TerminologyPackage} can also get large in size, \textit{TerminologyGroup} provides the user with a means to selectively group \textit{TerminologyAsset}s, so that the user of SACM can group/view \textit{TerminologAsset}s as they wish.
 
 \begin{figure}
 	\centering
@@ -194,11 +196,11 @@ This is completely the decision to make for the users and tool developers of SAC
 \end{figure}
 
 The \textit{Term} element is used to capture a terminology used in the process of system assurance. 
-For example, in Figure~\ref{fig:termExample} (first consider elements rendered in white), a statement is made: \textbf{Hazard \textit{H1} is sufficiently mitigated.} 
-Within the sentence, \textit{H1} in fact may cross-references to an identified hazard in a hazard log. 
-Thus, \textit{H1} can be captured using a \textit{Term}. 
+For example, in Figure~\ref{fig:termExample} (first consider elements rendered in white), a statement is made: \textbf{Hazard \underline {H1} is sufficiently mitigated.} 
+Within the sentence, \underline{H1} in fact may cross-references to an identified hazard in a hazard log. 
+Thus, \underline{H1} can be captured using a \textit{Term}. 
 The location of the hazard log can be captured using a \textit{Resource}\footnote{The details of the \textit{Resource} is omitted.} in the \textit{Artifact} package, where the location of the \textit{Resource} is captured using \textit{Property}. 
-In order to point to a specific model element (in this case, model element \textit{H1} in the hazardLog.model), the user may use OCL in the +externalReference feature of the \textit{Term}. 
+In order to point to a specific model element (in this case, model element \underline{H1} in the hazardLog.model), the user may use OCL in the \textit{+externalReference} feature of the \textit{Term}. 
 This is illustrated in Figure~\ref{fig:termExample}.
 Again, SACM does not restrict how external references should be handled, the description provided above is one way of achieving it. 
 It also depends on tool implementations on how external references are handled. 
@@ -207,7 +209,7 @@ Sometimes, a term may refer to a \textit{ModelElement} within the assurance case
 This will be discussed in Section~\ref{sec:argPack}.
 
 The users of SACM may also organise \textit{ExpressionElement} into \textit{Categories}. 
-For example, the users may create a \textit{Category} of Hazard, and associate the \textit{Term} \textit{H1} to it. 
+For example, the users may create a \textit{Category} of Hazard, and associate the \textit{Term} \underline{H1} to it. 
 
 \subsection{SACM Argumentation Package}
 \label{sec:argPack}
@@ -222,7 +224,7 @@ The structure of the \textit{Argumentation} package is shown in Figure~\ref{fig:
 The root element of the \textit{Argumentation} package is the \textit{ArgumentationElement}, which is a direct child of \textit{ArtifactElement} in the \textit{Base} package. 
 This implies that all elements in the \textit{Argumentation} package are also considered to be artifacts. 
 
-To promote modularity, argumentations are organised in \textit{ArgumentPackage}s. 
+%To promote modularity, argumentations are organised in \textit{ArgumentPackage}s. 
 \textit{ArgumentationPackage} can contain a number of \textit{ArgumentationElement}, which can either be \textit{ArgumentPackage}s (and their children) or \textit{ArgumentAsset}s. 
 \textit{ArgumentAsset} can store a \textit{content}, as discussed in Section~\ref{sec:basePack}, the content can be in any language\footnote{Via the usage of \textit{MultiLangString}}.
 
@@ -242,7 +244,7 @@ The \textit{AssertionDeclaration}s are as follows:
 %Among the declarations, there is no equivalence to \textit{defeated} in GSN and CAE. In GSN, the away elements (\textit{AwayGoal}, \textit{AwayContext} and \textit{AwaySolution}) are similar to \textit{asCited}. 
 The use of \textit{AssertionDeclaration} will be illustrated in Section~\ref{sec:claims}.
 
-Sometimes it is necessary to argue the confidence (level of trust) in the arguments provided in the assurance case. 
+Sometimes it is necessary to argue the confidence (level of trust) in the arguments provided in the assurance case. \will{Feature}
 This can be achieved using the \textit{+metaClaim} feature of the \textit{Assertion} element. 
 \textit{+metaClaim} as its name suggests, is a \textit{Claim} about an \textit{Assertion} to argue the soundness/trustworthiness of the \textit{Assertion}. 
 Within the meta \textit{Claim}, one may write `full confidence in Claim C1 is achieved via...' in its description, within which the \textit{Term} G1 refers to another \textit{Claim} in the same SACM model. 
@@ -261,7 +263,7 @@ This is where the \textit{+origin} feature of the \textit{Term} is used, in the 
 
 \textit{ArtifactReference} is a type of \textit{ArgumentAsset}, which is able to refer to an \textit{ArtifactElement}.
 \textit{ArtifactReference} is typically used to refer to evidence stored in an \textit{Artifact} package. 
-In addition, it can refer to any element that extends \textit{ArtifactElement} (all elements in the \textit{AssuranceCase}, \textit{Argumentation}, \textit{Artifact} and \textit{Terminology} packages are \textit{ArtifactElement}s).
+In addition, it can refer to any element that extends \textit{ArtifactElement} (all elements in the \textit{AssuranceCase}, \textit{Argumentation}, \textit{Artifact} and \textit{Terminology} packages are \textit{ArtifactElement}s). \will{feature}
 
 \textit{ArgumentReasoning} is also a type of \textit{ArgumentAsset}, it is used to provide a explanatory description for an \textit{AssertedRelationship}. 
 A detailed discussion of \textit{ArgumentReasoning} is in Section~\ref{sec:relationships}.
@@ -280,7 +282,7 @@ Figure~\ref{fig:assertedClaim} provides an example on how to construct a \textit
 A \textit{Claim} can have a name and a description, captured by \textit{LangString} and \textit{Description} respectively. 
 A \textit{Claim} is \textbf{asserted} if it is supported by other \textit{Claim}s. 
 In this example, it is connected by an \textit{AssertedInference} with another \textit{Claim} (details ommitted). 
-The equivalent of \textit{Claim} C1 Figure~\ref{fig:assertedClaim} in GSN is provided in Figure~\ref{fig:goalingsn}, where the \textit{Goal} G1 bears the same semantics with C1 (and how \textit{Goal} G1 is supported by another \textit{Goal}\footnote{Details of subsequent \textit{Goal}s are omitted.}).
+The equivalent of \textit{Claim} \underline{C1} in Figure~\ref{fig:assertedClaim} in GSN is provided in Figure~\ref{fig:goalingsn}, where the \textit{Goal} \underline{G1} bears the same semantics with \underline{C1} (and how \textit{Goal} \underline{G1} is supported by another \textit{Goal}\footnote{Details of subsequent \textit{Goal}s are omitted.}).
 
 \begin{figure}[ht!]
 	\centering
@@ -299,7 +301,7 @@ The equivalent of \textit{Claim} C1 Figure~\ref{fig:assertedClaim} in GSN is pro
 
 Like previously mentioned, a \textit{Claim} can be marked as \textbf{needsSupport}. Figure~\ref{fig:needsSupportClaim} illustrates the use of this declaration. 
 A \textit{Claim} that is not supported by any argument/evidence should be marked as \textbf{needsSupport}. 
-The equivalence of this \textit{Claim} in GSN is shown in Figure~\ref{fig:undevGoal}, where \textit{Goal} G1 bears the same semantics of \textit{Claim} C1. 
+The equivalence of this \textit{Claim} in GSN is shown in Figure~\ref{fig:undevGoal}, where \textit{Goal} \underline{G1} bears the same semantics of \textit{Claim} \underline{C1}. 
 When a \textit{Goal} is not supported by argument/evidence, it is marked as \textit{undeveloped}. 
 
 \begin{figure}
@@ -366,7 +368,7 @@ Figure~\ref{fig:axiomaticClaim} and Figure~\ref{fig:example_justification} illus
 	\label{fig:defeatedClaim}
 \end{figure}
 A \textit{Claim} is marked as \textit{defeated} if the truth of the claim is proven to be false by supporting argument/evidence. 
-Figure~\ref{fig:defeatedClaim} provides an example of a \textbf{defeated} \textit{Claim}, the \textit{Claim} C1 is connected with another \textit{Claim} (we do not consider the detail of this \textit{Claim} for this example) by an \textit{AssertedInference}, but with its +isCounter feature to be \textit{true}. 
+Figure~\ref{fig:defeatedClaim} provides an example of a \textbf{defeated} \textit{Claim}, the \textit{Claim} \underline{C1} is connected with another \textit{Claim} (we do not consider the detail of this \textit{Claim} for this example) by an \textit{AssertedInference}, but with its \textit{+isCounter} feature to be \textit{true}. 
 This means that the \textit{AssertedInference} is a counter-argument, which negates the truth of \textit{Claim}, if the \textit{+source} of the \textit{AssertedInference} is \textit{true}.
 There is no equivalence for \textit{defeated} \textit{Claims} in GSN.
 
@@ -379,9 +381,9 @@ There is no equivalence for \textit{defeated} \textit{Claims} in GSN.
 
 As previously discussed, the users of SACM are able to selectively disclose the content of an \textit{ArgumentPackage} via the use of \textit{ArgumentInterface}. 
 Figure~\ref{fig:asCited} illustrates how an \textit{ArgumentPackageInterface} can be used. 
-In this example, a \textit{Claim} C1 is held within an \textit{ArgumentPackage}, which contains an \textit{ArgumentPackageInterface} that in turn contains another \textit{Claim}, which is a citation (its \textit{+isCitation} is true). 
-The \textit{Claim} `\textbf{cites}' C1 in the \textit{ArgumentPackage} via the \textit{+citedElement} feature (which is defined in the \textit{SACMElement} element in the \textit{Base} package). 
-Hence, the \textbf{asCited} declaration on the \textit{Claim} should be used, which means that the truth of the \textit{Claim} as a citation, depends on the \textit{Claim} that it cites (in this case, \textit{Claim} C1).
+In this example, a \textit{Claim} \underline{C1} is held within an \textit{ArgumentPackage}, which contains an \textit{ArgumentPackageInterface} that in turn contains another \textit{Claim}, which is a citation (its \textit{+isCitation} is true). 
+The \textit{Claim} `cites' \underline{C1} in the \textit{ArgumentPackage} via the \textit{+citedElement} feature (which is defined in the \textit{SACMElement} element in the \textit{Base} package). 
+Hence, the \textit{asCited} declaration on the \textit{Claim} should be used, which means that the truth of the \textit{Claim} as a citation, depends on the \textit{Claim} that it cites (in this case, \textit{Claim} \underline{C1}).
 There is no equivalence of \textit{cited} \textit{Claim} in GSN.
 
 The \textit{+isCitation} and \textit{+citedElement} features can be used in the same way in \textit{ArtifactPackageInterface} and \textit{TerminologyInterface}, should the developers of assurance cases wish to disclose information in their corresponding packages.
@@ -407,9 +409,9 @@ Different types of \textit{Claim}s are connected using different \textit{Asserte
 	\end{minipage}
 \end{figure}
 
-The \textit{AssertedInference} denotes the inference between one or more \textit{Assertion}s an another \textit{Assertion}, Figure~\ref{fig:assertedInference} provides an example, where the truth of \textit{Claim} C1\footnote{Description details are omitted to make the model clearer.} is inferred from the truth of Claim C2. 
+The \textit{AssertedInference} denotes the inference between one or more \textit{Assertion}s and another \textit{Assertion}, Figure~\ref{fig:assertedInference} provides an example, where the truth of \textit{Claim} \underline{C1}\footnote{Description details are omitted to make the model clearer.} is inferred from the truth of Claim \underline{C2}. 
 
-The \textit{AssertedContext} connects contextual \textit{Assertion}s to an \textit{Assertion}, Figure~\ref{fig:assertedContext} provides an example, where the \textit{Claim} A1 provides contextual information for \textit{Claim} C1.
+The \textit{AssertedContext} connects contextual \textit{Assertion}s to an \textit{Assertion}, Figure~\ref{fig:assertedContext} provides an example, where the \textit{Claim} \underline{A1} provides contextual information for \textit{Claim} \underline{C1}.
 
 \begin{figure}
 	\centering
@@ -418,7 +420,7 @@ The \textit{AssertedContext} connects contextual \textit{Assertion}s to an \text
 	\label{fig:assertedEvidence}
 \end{figure}
 
-The \textit{AssertedEvidence} connects evidence to an \textit{Assertion}, Figure~\ref{fig:assertedEvidence} provides an example, where the \textit{ArtifactReference} S1 (which refers to an \textit{Artifact} organised in an \textit{ArtifactPackage}, details omitted) provides evidence for the \textit{Claim} C1.
+The \textit{AssertedEvidence} connects evidence to an \textit{Assertion}, Figure~\ref{fig:assertedEvidence} provides an example, where the \textit{ArtifactReference} \underline{S1} (which refers to an \textit{Artifact} organised in an \textit{ArtifactPackage}, details omitted) provides evidence for the \textit{Claim} \underline{C1}.
 
 \begin{figure}
 	\centering
@@ -427,7 +429,7 @@ The \textit{AssertedEvidence} connects evidence to an \textit{Assertion}, Figure
 	\label{fig:assertedArtifactSupport}
 \end{figure}
 
-The \textit{AssertedArtifactSupport} connects supporting artefacts to an artefact, Figure~\ref{fig:assertedArtifactSupport} provides an example, where \textit{ArtifactReference} S2 (which cites an \textit{Artifact} \textit{System test plan}) supports the \textit{ArtifactReference} S1 (which cites the \textit{Artifact} \textit{System test report}), in the sense that the system test plan supports the system text report. 
+The \textit{AssertedArtifactSupport} connects supporting artefacts to an artefact, Figure~\ref{fig:assertedArtifactSupport} provides an example, where \textit{ArtifactReference} S2 (which cites an \textit{Artifact} \textit{System test plan}) supports the \textit{ArtifactReference} S1 (which cites the \textit{Artifact} \textit{System test report}), in the sense that the \underline{system test plan} supports the \underline{system text report}. 
 The \textit{AssertedArtifactContext} is also used on \textit{ArtifactReferences}, except that it connects contextual artefacts to another artefact.
 
 As previously mentioned, all elements that extend \textit{ArtifactElement} can be considered an artifact, this is due to the fact that there are \textit{supporting} and \textit{contextual} relationships between elements rather than those in the \textit{Artefact} package. 
@@ -440,8 +442,8 @@ For example, an assurance case developer may want to express that one \textit{Ar
 	\label{fig:argumentReasoning}
 \end{figure}
 
-Sometimes, a justification of \textit{AssertedRelationship}s can be attached to further clarify the reasons of the \textit{AssertedRelationship}, then \textit{ArgumentReasoning} is used for this purpose. Figure~\ref{fig:argumentReasoning} illustrates the use of \textit{ArgumentReasoning}, where top level \textit{Claim} C1 is backed by its sub-\textit{Claim} C2, which are connected by an \textit{AssertedInference}, the user may choose to give the \textit{AssertedInference} a reason with the use of \textit{ArgumentReasoning}. 
-In this case, an \textit{ArgumentReasoning} S1 is attached to the \textit{AssertedInference}, which states that the argument is made by \textit{Argument over all identified hazards}. 
+Sometimes, a reason of \textit{AssertedRelationship}s can be attached to further clarify the reasons of the \textit{AssertedRelationship}, then \textit{ArgumentReasoning} is used for this purpose. Figure~\ref{fig:argumentReasoning} illustrates the use of \textit{ArgumentReasoning}, where top level \textit{Claim} \underline{C1} is backed by its sub-\textit{Claim} \underline{C2}, which are connected by an \textit{AssertedInference}, the user may choose to give the \textit{AssertedInference} a reason with the use of \textit{ArgumentReasoning}. 
+In this case, an \textit{ArgumentReasoning} \underline{S1} is attached to the \textit{AssertedInference}, which states that the argument is made by \textit{Argument over all identified hazards}. 
 Supportive and contextual information can also be associated to \textit{ArgumentReasoning} via the use of \textit{AssertedSupport} and \textit{AssertedContext}. 
 Since an \textit{ArgumentReasoning} is not an \textit{Assertion}, there is little value in arguing the soundness of the \textit{ArgumentReasoning}. 
 
@@ -450,7 +452,7 @@ Since an \textit{ArgumentReasoning} is not an \textit{Assertion}, there is littl
 \subsection{Example: Argumentation Patterns}
 \label{sec:patterns}
 In GSN, there is a concept of \textit{GSN Pattern}s \cite{kelly1997safety}, which are essentially successful GSN safety case templates that can be re-used. 
-SACM provides similar concepts so that the user can construct templates in SACM, and at a later stage, to \textit{instantiate} the templates by populating actual system information in the templates. 
+SACM provides similar concepts so that the user can construct patterns in SACM, and at a later stage, to \textit{instantiate} the patterns by populating actual system information in the patterns. 
 Figure~\ref{fig:sacmPattern} shows an argumentation pattern in SACM. For comparison, the content of the pattern is identical to the GSN pattern shown in Figure~\ref{fig:dmilsPattern}. 
 Note that some details are omitted due to the complexity of the SACM model.
 \begin{figure}
@@ -461,31 +463,33 @@ Note that some details are omitted due to the complexity of the SACM model.
 \end{figure}
 
 There is a \textit{TerminologyPackage} in the upper part of Figure~\ref{fig:sacmPattern} named \textit{TP1}, within which contains an \textit{Expression} and a \textit{Term}\footnote{The containment is described in this way to improve comprehensibility.}. 
-In the lower part of the figure, there is an \textit{ArgumentPackage} \textit{AP1}, which contains the structured argumentation pattern (N.B. the packages are placed in this way to make the figure more readable and does not denote the priority of the packages).
+In the lower part of the figure, there is an \textit{ArgumentPackage} \underline{AP1}, which contains the structured argumentation pattern (N.B. the packages are placed in this way to make the figure more readable and does not denote the priority of the packages).
 
-The top level \textit{Claim} of this pattern is \textbf{G1}, which maps to the \textit{Goal} \textbf{G1} in Figure~\ref{fig:dmilsPattern}. 
-Note that \textbf{G1}'s \textit{+isAbstract} is set to \textit{true} since this is an abstract \textit{Claim} (a template). Now we focus on the \textit{description} of \textbf{G1}, within which an \textit{ExpressionLangString} is used. 
-The \textit{ExpressionLangString} refers to the \textit{Expression} in \textit{TerminologyPackage} \textit{TP1} (which contains value: \textit{\{System X\} is safe}). 
+The top level \textit{Claim} of this pattern is \underline{G1}, which maps to the \textit{Goal} \underline{G1} in Figure~\ref{fig:dmilsPattern}. 
+Note that \underline{G1}'s \textit{+isAbstract} is set to \textit{true} since this is an abstract \textit{Claim} (a template). 
+Now we focus on the \textit{description} of \underline{G1}, within which an \textit{ExpressionLangString} is used. 
+The \textit{ExpressionLangString} refers to the \textit{Expression} in \textit{TerminologyPackage} \underline{TP1} (which contains value: \textit{\{System X\} is safe}). 
 The curly brackets are a convention in GSN, which are called \textit{role}s in GSN. 
 \textit{Role}s are essentially place holders in the pattern, the contents enclosed in the curly brackets will be replaced by actual system information if the pattern gets instantiated. 
 In this case, when the pattern is instantiated, \{System X\} will be replaced with the name(s) of actual system(s). 
 
-In the \textit{TerminologyPackage} \textit{TP1}, the \textit{Expression} refers to the \textit{Term} \textit{System X}. 
+In the \textit{TerminologyPackage} \underline{TP1}, the \textit{Expression} refers to the \textit{Term} \textit{System X}. 
 This is a typical use of \textit{Term} in structured argumentation. 
 When the pattern is \textit{instantiated}, the \textit{Term} should have its \textit{+externalReference} feature populated to import actual system information. 
 
-The structure of the argumentation in Figure~\ref{fig:sacmPattern} follows that in Figure~\ref{fig:dmilsPattern}, where the \textit{Claim} \textbf{G2} maps to \textit{Goal} \textbf{G2}, and the \textit{ArgumentReasoning} \textbf{S1} maps to \textit{Strategy} \textbf{S1}. 
+The structure of the argumentation in Figure~\ref{fig:sacmPattern} follows that in Figure~\ref{fig:dmilsPattern}, where the \textit{Claim} \underline{G2} maps to \textit{Goal} \underline{G2}, and the \textit{ArgumentReasoning} \underline{S1} maps to \textit{Strategy} \underline{S1}. 
 Note that the \textit{Claim}s in yellow colour are the templates, which have their \textit{+isAbstract} feature set to true. 
 
 GSN pattern instantiation is often a manual procedure as safety case developers need to comprehend the GSN pattern and replace the \textit{role}s in the pattern with actual system information. In \cite{hawkins2015weaving}, a model-based approach is proposed, which makes use of a \textit{weaving model} to link the elements in the GSN with elements in system models. 
 This is typically due to the fact that in GSN there are no means to specify instantiation rules for GSN patterns.
-In SACM, as previously mentioned in Section~\ref{sec:basePack}, the element \textit{ImplementationConstraint} can be used to specify the instantiation rules for patterns. 
+In SACM, as previously mentioned in Section~\ref{sec:basePack}, the element \textit{ImplementationConstraint} can be used to specify the instantiation rules for patterns. \will{feature}
 The users of SACM can associate \textit{ImplementationConstraint} to any element and the use of language is not restricted.
 Evidently, pattern instantiation needs tool support and an model management engine to execute the \textit{ImplementationConstraint}s. 
 The language used in \textit{ImplementationConstraint} are not limited to computer languages.
 \textit{ImplementationConstraint}s described in natural languages can also be used as instantiation rules, except that the instantiation procedure is limited to manual only. 
 
-When a SACM model instantiates a SACM pattern, it can relate to the SACM pattern via the \textit{+abstractForm} feature. For example, if a \textit{Claim} C1 created by instantiating the template \textbf{G1}, it can refer to \textbf{G1} via the \textit{+abstractForm} for future reference. 
+When a SACM model instantiates a SACM pattern, it can relate to the SACM pattern via the \textit{+abstractForm} feature. 
+For example, if a \textit{Claim} \underline{C1} created by instantiating the template \underline{G1}, it can refer to \underline{G1} via the \textit{+abstractForm} for future reference. 
 
 \subsection{Example: A case study on the European Train Control Systems (ETCS)}
 \label{section:etcs}
@@ -508,20 +512,25 @@ In this example, we consider the scenario where the assurance cases of on-board 
 
 The example SACM model for the ETCS case study is shown in Figure~\ref{fig:etcs_example}. 
 For simplicity, we only show the top level \textit{Claim}s of the assurance cases. In Figure~\ref{fig:etcs_example}, there are three \textit{AssuranceCasePackage}s. 
-\textit{On-Board ACP} (at the top of the figure) is the assurance case for the on-board component of ETCS, \textit{Track-Side ACP} (at the bottom of the figure) is the assurance case for the side-track component of ETCS, and \textit{Integration ACP} (in the middle of the figure) is the integration assurance cases which integrates the two component assurance cases together. 
+\underline{On-Board ACP} (at the top of the figure) is the assurance case for the on-board component of ETCS, \underline{Track-Side ACP} (at the bottom of the figure) is the assurance case for the side-track component of ETCS, and \underline{Integration ACP} (in the middle of the figure) is the integration assurance cases which integrates the two component assurance cases together. 
 
-For \textit{On-Board ACP}, \textit{ArgumentPackage} \textit{AP1} contains the argument regarding the safety of the on-board component. 
-As discussed in Section~\ref{sec:acPack}, system engineers may wish only to disclose the top level \textit{Claim} externally, hence \textit{ArgumentPackageInterface} \textit{AP1} is used which contains a citation of \textit{G2} which will be referenced externally. 
-Same principle is applied to \textit{Track-Side ACP}, where the top level \textit{Claim} \textit{G3} is cited in the \textit{ArgumentPackageInterface} \textit{API2}. 
-It is to be noted that both \textit{On-Board ACP} and \textit{Track-Side ACP} contains their \textit{ArtifactPackage}s and \textit{TerminologyPackage}s, which are not shown due to the complexity of the model structure. 
+For \underline{On-Board ACP}, \textit{ArgumentPackage} \underline{AP1} contains the argument regarding the safety of the on-board component. 
+As discussed in Section~\ref{sec:acPack}, system engineers may wish only to disclose the top level \textit{Claim} externally, hence \textit{ArgumentPackageInterface} \underline{AP1} is used which contains a citation of \underline{G2} which will be referenced externally. 
+Same principle is applied to \underline{Track-Side ACP}, where the top level \textit{Claim} \underline{G3} is cited in the \textit{ArgumentPackageInterface} \underline{API2}. 
+It is to be noted that both \underline{On-Board ACP} and \underline{Track-Side ACP} contains their \textit{ArtifactPackage}s and \textit{TerminologyPackage}s, which are not shown due to the complexity of the model structure. 
 
-To integrate \textit{On-Board ACP} and \textit{Track-Side ACP}, \textit{AssuranceCasePackage} named \textit{Integration ACP} is created. 
-\textit{Integration ACP} contains an \textit{AssuranceCasePackageBinding} (\textit{Integration ACPB}) specifically to bind \textit{On-Board ACP} with \textit{Track-Side ACP}. 
-Within \textit{Integration ACPB}, an \textit{ArgumentPackageBinding} (\textit{APB1}) is used to bind \textit{API1} and \textit{API2} via the \textit{+participantPackage} feature. 
-In \textit{APB1}, top level \textit{Claim} \textit{G1} argues the safety of ETCS and two supporting \textit{Claim}s \textit{G2} and \textit{G3} are in place. 
-Note that \textit{G2} and \textit{G3} are citation \textit{Claim}s which cites \textit{G2} in \textit{API1} (which in turn cites \textit{G2} in \textit{AP1}) and \textit{G3} in \textit{API2} (which in turn cites \textit{G3} in \textit{AP2}). 
-It is also to be noted that within the \textit{AssuranceCasePackageBinding} (Integration ACPB), there are also \textit{ArtifactPackageBinding}s and \textit{TerminologyPackageBinding}s which binds the artifacts and expressions used in the on board component and track side component. 
+To integrate \underline{On-Board ACP} and \underline{Track-Side ACP}, \textit{AssuranceCasePackage} named \underline{Integration ACP} is created. 
+\underline{Integration ACP} contains an \textit{AssuranceCasePackageBinding} (\underline{Integration ACPB}) specifically to bind \underline{On-Board ACP} with \underline{Track-Side ACP}. 
+Within \underline{Integration ACPB}, an \textit{ArgumentPackageBinding} (\underline{APB1}) is used to bind \underline{API1} and \underline{API2} via the \textit{+participantPackage} feature. 
+In \underline{APB1}, top level \textit{Claim} \underline{G1} argues the safety of ETCS and two supporting \textit{Claim}s \underline{G2} and \underline{G3} are in place. 
+Note that \underline{G2} and \underline{G3} are citation \textit{Claim}s which cites \underline{G2} in \underline{API1} (which in turn cites \underline{G2} in \underline{AP1}) and \underline{G3} in \underline{API2} (which in turn cites \underline{G3} in \underline{AP2}). 
+It is also to be noted that within the \textit{AssuranceCasePackageBinding} (\underline{Integration ACPB}), there are also \textit{ArtifactPackageBinding}s and \textit{TerminologyPackageBinding}s which binds the artifacts and expressions used in the on board component and track side component. 
 
 The integration of assurance cases in SACM is achieved using various package bindings. 
 It is also possible to include additional arguments in the binding \textit{AssuranceCasePackage} when deemed necessary. 
 Users of SACM may also argue the trustworthiness of the cited \textit{Claim}s in other packages to ensure the confidence in citing argument elements. 
+
+This example is kept simple to illustrate that the users of SACM are able to integrate assurance cases using the facilities provided.
+It is to be noted that assurance case composition is a complex task, for there may be subtle dependencies among the systems. 
+Modular assurance case construction makes no assumption that the safety/security of the whole system is guaranteed by a composition of arguments about the safety/security of the parts. 
+It remains the responsibility of the assurance case developers to ensure that each assurance case module correctly identifies its dependencies on other assurance cases that must be satisfied in order to assure the composed system.

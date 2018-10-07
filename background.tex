@@ -133,34 +133,17 @@ System assurance is typically difficult for Open Adaptive Systems (OAS).
 Increasing challenges for OAS assurance are observed due to the popularity of emerging concepts such as Cyber-Physical Systems (CPS).
 In particular, OAS dynamically connect to each other (openness) and adapt to a changing context at runtime (adaptivity) \cite{trapp2013safety}.
 Industry sees huge economic potential in such systems - particularly because their openness and adaptivity enable new types of promising applications in various domains, such as automotive, health care, and home automation \cite{wei2017deis}.
-The majority of application domains of open adaptive systems are safety-critical, such as car2car scenarios and collaborative autonomous mobile systems.
+The majority of application domains of OAS are safety-critical, such as car2car scenarios and collaborative autonomous mobile systems.
 If these systems fail, they may cause harm and lead to temporary collapse of important infrastructures, with potential catastrophic consequences for industry and society.
-Therefore, it is imperative to ensure the dependability of open adaptive systems in order to realise their full potential. 
-However, open adaptive systems pose significant challenges to their assurance due to their open and adaptive nature, as it is nearly impossible to sufficiently anticipate the concrete system structure, its capabilities and the environmental context at design time.
+Therefore, it is imperative to ensure the dependability of OAS in order to realise their full potential. 
+However, OAS poses significant challenges to their assurance due to their open and adaptive nature, as it is nearly impossible to sufficiently anticipate the concrete system structure, its capabilities and the environmental context at design time.
 
-%The physical and digital worlds are gradually merging into a largely connected globe. 
-%This is backed by the emergence of concepts such as Cyber-Physical Systems (CPS).
-%Openness and adaptivity are core properties of CPS as constituent systems dynamically connect to each other and have to adapt to a changing context at runtime \cite{trapp2013safety}.
-%CPS harbours the potential for vast economic and societal impact in domains such as automotive, health care, and home automation due to their open and adaptive nature \cite{wei2017deis}.
-%The majority of application domains of CPS are safety-critical, such as car2car scenarios and collaborative autonomous mobile systems.
-%If these systems fail, they may cause harm and lead to temporary collapse of important infrastructures, with potential catastrophic consequences for industry and society.
-%Therefore, it is imperative to ensure the dependability of CPS in order to realise their full potential. 
-%However, the open and adaptive nature of CPS poses significant challenges to assuring such systems, as it is nearly impossible to sufficiently anticipate the concrete CPS structure, its capabilities and the environmental context at design time.
+Therefore, existing design time system assurance activities are inappropriate to enable dynamic system assurance for OAS at runtime. 
+In \cite{trapp2013safety}, the authors identify the importance of system assurance at runtime for OAS and propose the idea of Models@Runtime, in the sense that system assurance information is exchanged when OASs interconnect with each other to reason about the dependability of the to-be-formed system of systems.
 
-Therefore, existing design time system assurance activities are inappropriate to enable dynamic system assurance for CPS at runtime. 
-In \cite{trapp2013safety}, the authors identify the importance of system assurance at runtime for CPS and propose the idea of Models@Runtime, in the sense that system assurance information is exchanged when CPSs interconnect with each other to reason about the dependability of the to-be-formed system of systems.
+SACM provides a model basis that could underpin AssuranceCase@Runtime in this context, this is backed by the fact that SACM is used in the DEIS project \cite{wei2017deis} as a backbone for its Open Dependability Exchange metamodel (ODE), to ensure the dependability of CPS. SACM provides an open, universal assurance case model which establishes a framework for reasoning about the assurance of a wide range of system properties, linked to heterogeneous models and evidence. 
 
-SACM provides a model basis that could underpin AssuranceCase@Runtime in this context, this is backed by the fact that SACM is used in the DEIS project \cite{wei2017deis} as a backbone for its Open Dependability Exchange metamodel (ODE), to ensure the dependability of CPS. 
-
-\will{SACM provides an open, universal assurance case model which establishes a framework for reasoning about the assurance of a wide range of system properties, linked to  heterogeneous models and evidence.
-	
-Incrementally formalise elements of assurance case model.}
-
-
-
-%SACM also provides multi-language support, in the sense that argumentations can be expressed using computer languages, which is the premise for automated argument reasoning. This is particularly beneficial for CPSs.
-%
-Therefore, model-based assurance cases are more than `nice diagrams', they are important artefacts which can be used at design time for system integration, as well as at runtime for automated reasoning when runtime assurance is needed for open adaptive systems such as CPS. 
+Therefore, model-based assurance cases are more than `nice diagrams', they are important artefacts which can be used at design time for system integration, as well as at runtime for automated reasoning when runtime assurance is needed for safety/security related Open Adaptive Systems.
 
 \subsection{Summarised Motivations}
 The motivations of our work can be summarised as follows. 
@@ -173,12 +156,12 @@ The motivations of our work can be summarised as follows.
 %	\item At present in the assurance community, there are two well established notations GSN and CAE. Sometimes false distinctions are made between these notations. E.g. Wrong-footed by the nomenclature, the equivalence of Claim and Goal is not always acknowledged. 
 	\item \textbf{The need for model-based approach}. 
 	As previously discussed, MDE is beneficial to system assurance. 
-	High level operations such as model validation, mode-to-model transformation and model merging can be performed on model based assurance cases. In addition, model based assurance cases are the key to assure open adaptive systems such as Cyber-Physical Systems.
+	High level operations such as model validation, mode-to-model transformation and model merging can be performed on model based assurance cases. In addition, model based assurance cases are the key to assure safety/security related Open Adaptive Systems.
 	\item \textbf{Heterogeneous GSN metamodels and misalignment to SACM}.
 	Although a number of model-based assurance case tools exist, they implement their own version of GSN, their mappings from GSN to SACM version 1.0 are not unanimous due to the fact that SACM version 1.0 was not sufficiently explained. 
 	In addition, due to the release of SACM version 2.0, the claimed supports for SACM of existing model based GSN/CAE tools become out-dated.
 	\item \textbf{Importance of SACM and its application in open adaptive system assurance}. SACM provides more features than GSN/CAE, which makes it more powerful in terms of expressiveness. 
-	SACM is fundamental to runtime system assurance, which is the key for open adaptive systems such as Cyber-Physical Systems.
+	SACM is fundamental to runtime system assurance, which is the key for safety/security related Open Adaptive Systems.
 	\item \textbf{Insufficient explanation of SACM}. SACM has been developed over the period of 10 years, and is the result of significant deliberation and consultation. As a consequence, there are many use cases behind the features (known to the authors of this paper as principal authors of the SACM standard) that are present that may not be apparent to users on first inspection.
 	E.g. to support existing concepts such as modularity, patterns, and meta argumentation. 
 	SACM and the relationship between GSN/CAE and SACM are not sufficiently explained, which hinders its adoption. 
