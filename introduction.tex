@@ -9,27 +9,21 @@ Graphical notations have gain popularity due to their abilities to express clear
 A number of tools exist which implement GSN and CAE to produce safety cases \cite{maksimov2018}. 
 Some tools adopt Model-Driven Engineering (MDE) to produce models that conform to their own versions of GSN/CAE metamodels \cite{denney2017tool, matsuno2010dependability, netkachova2014tool, larrucea2017supporting, barry2011certware}.
 
-%A number of tools have been implemented to create GSN and CAE diagrams to ease the creation of graphical safety and/or security argumentations. Amongst the tools, only a few tools provide a model-based solution. In addition, model-based tools often lack the integration with and the traceability to, design artefacts, which pose a significant challenge to the development and acceptance of assurance cases.
-%The creation of assurance cases is often a manual process, there have been some approaches and tools to apply principals of Model Driven Engineering (MDE) in order to benefit from automation provided by MDE. 
-
 To improve standardisation and interoperability, the Object Management Group (OMG) specified and issued a Structured Assurance Case Metamodel (SACM). 
-SACM is developed by the specifiers of existing system assurance approaches (e.g. GSN and CAE), based on the collective knowledge and experiences of safety and/or security practitioners.
+SACM is developed by the specifiers of existing system assurance approaches (e.g. GSN and CAE), based on the collective knowledge and experiences of safety/security practitioners.
 SACM provides additional features such as fine-grained modularity, controlled vocabulary, and argument-evidence traceability. 
 Therefore, SACM is more powerful in terms of expressiveness than existing approaches. 
 However, neither detailed explanation has been provided in the OMG specification to demonstrate how to use SACM, nor the relationships between existing assurance case approaches (i.e. GSN and CAE) and SACM has been discussed. 
 This brings challenges to the adoption of SACM due to the complex structure of SACM and the sophistication of its intended usage. 
 
 Model-based system assurance has attracted significant amount of interests in recent years due to the benefits provided by MDE such as automation, consistency and efficiency. 
-Model based system assurance is particularly important for concepts such as Cyber-Physical Systems (CPS), where open (safety/security critical) systems adapt to each other at runtime to form system of systems. 
+Model based system assurance is particularly important for concepts such as Open Adaptive Systems (OAS), where open (safety/security critical) systems connect to each other, and adapt to changing context at runtime. 
 
-%Broadly speaking, the development and acceptance of assurance cases poses significant challenges for engineers and assessors. This is due to the size and complexity of assurance cases, where explicit and implicit dependencies exist between the argumentation for safety/security in the assurance case and its supporting evidence/artefacts, which may include system test data, system failure and hazard analysis, system architecture, etc. In particular, the lack of integration with, and the limited traceability to these evidence/artefacts undermine confidence in the argumentation presented in the assurance case. 
-
-As the principal contributors in the process of standardising SACM, in this paper, we provide a detailed explanation of SACM and discuss its relationship with existing system assurance approaches. 
-We first discuss the motiva§ion of our work. 
-We then provide detailed discussions about the facilities provided by SACM. 
-We demonstrate how SACM can be used to construct an assurance case using examples, and how to maintain the traceability between the argumentation of assurance cases and their supporting evidence/artefacts. 
-We finally discuss briefly tool support for model-based system assurance.
-
+As the principal contributors of SACM and the originators of GSN, in this paper, we provide a detailed explanation of SACM and discuss its relationship with existing system assurance approaches (i.e. GSN and CAE). 
+%We first discuss the motivaion of our work. 
+%We then provide detailed discussions about the facilities provided by SACM. 
+%We demonstrate how SACM can be used to construct an assurance case using examples, and how to maintain the traceability between the argumentation of assurance cases and their supporting evidence/artefacts. 
+%We finally discuss briefly tool support for model-based system assurance.
 The contributions of this paper are as follows:
 \begin{itemize}
 	\item A definitive exposition of SACM version 2.0;
@@ -40,8 +34,8 @@ The contributions of this paper are as follows:
 
 This paper is organised as follows. 
 In Section~\ref{sec:background} and Section~\ref{sec:gsn}, we provide the background and the motivation of our work. 
-In Section~\ref{sec:sacm} we provide detailed discussions about SACM with examples. 
-%We also provide examples on how to use SACM to construct an assurance case. 
+In Section~\ref{sec:sacm} we provide detailed discussions about the facilities provided by SACM.
+In Section~\ref{sec:examples} we provide examples to illustrate the semantics of the elements provided in SACM, and how to use SACM to construct argumentation patterns, and how to integrate assurance cases.
 In Section~\ref{sec:mapping}, we discuss the relationship between existing notations and SACM. 
 We provide SACM compliant metamodels for GSN and CAE and their mappings to SACM. 
 In Section~\ref{sec:toolsupport}, we briefly discuss tool support for model-based system assurance. 
