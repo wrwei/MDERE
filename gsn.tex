@@ -7,11 +7,10 @@ The core elements of GSN are shown in Figure~\ref{fig:gsnCore}.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=.9\linewidth]{basicGSN.eps}
+	\includegraphics[width=1\linewidth]{basicGSN.eps}
 	\caption{Core GSN elements.}
 	\label{fig:gsnCore}
 \end{figure}
-
 
 A \textit{Goal} represents a safety claim within the argumentation. 
 A \textit{Strategy} is used to describe the nature of the inference that exists between a goal and its supporting goal(s). 
@@ -67,6 +66,7 @@ Pattern instantiation refers to the process of constructing concrete system safe
 	\includegraphics[width=1\linewidth]{gsnPattern.eps}
 	\caption{GSN pattern elements.}
 	\label{fig:gsnPatterns}
+	\vspace{-2em}
 \end{figure}
 
 The \textit{Uninstantiated} indicator marks that an element is abstract and to be instantiated, at some later stage, the abstract element needs to be replaced with a more concrete instance. 
@@ -79,15 +79,16 @@ It can represent 1-of-n and m-of-n selection.
 
 \begin{figure}[ht!]
 	\centering
-	\includegraphics[width=.6\linewidth]{pattern_example.pdf}
+	\includegraphics[width=.7\linewidth]{pattern_example.pdf}
 	\caption{An example of a GSN Pattern \cite{kelly1997safety}}
 	\label{fig:dmilsPattern}
+	\vspace{-2em}
 \end{figure}
 
 Figure~\ref{fig:dmilsPattern} shows an example of a GSN pattern (adopted from \cite{kelly1997safety}). 
 The contents in the curly brackets are \textit{role}s in GSN terms, they are place holders which when the pattern is instantiated, will be replaced by actual system information.  
-\{System X\} in \textit{G1} will be replaced with the actual name of the system when the pattern is instantiated.
-Similarly, the \textit{SupportedBy} connector between \textit{S1} and \textit{G2} specifies that when the pattern is instantiated, there should be $n$ (the number of safety-related functions implemented by the system) \textit{Goal}s and $n$ \textit{SupportedBy} connected to \textit{S1}. 
+\{System X\} in \underline{G1} will be replaced with the actual name of the system when the pattern is instantiated.
+Similarly, the \textit{SupportedBy} connector between \underline{S1} and \underline{G2} specifies that when the pattern is instantiated, there should be $n$ (the number of safety-related functions implemented by the system) \textit{Goal}s and $n$ \textit{SupportedBy} connected to \underline{S1}. 
 Pattern instantiation is often a manual process that involves comprehension of the GSN patterns and replacing the \textit{role}s with actual system information. 
 However, there has been work on automating the pattern instantiation process using MDE with the use of a \textit{weaving model} \cite{hawkins2015weaving}. 
 

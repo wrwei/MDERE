@@ -6,7 +6,7 @@ In this section, we provide a GSN metamodel and a CAE metamodel that are complia
 We also discuss the transformation from GSN and CAE to SACM.
 
 \subsection{The GSN Metamodel and the inteoperability from GSN to SACM}
-As previously discussed, SACM provides a richer set of features compared to GSN, which includes the ability to standardise evidential and informational artifacts in the models, standardising controlled vocabulary and terminologies, as well as modular organisation and integration of artifacts and terminologies. 
+As previously discussed, SACM provides a richer set of features compared to GSN, which includes the ability to standardise evidential and informational artifacts in the models, the ability to standardise controlled vocabularies (expressions and terminologies), as well as modular organisation and integration of artifacts and terminologies. 
 In general, creating a metamodel for GSN is a simple task, for there are only several concepts that GSN captures. 
 However, it is ideal to create the GSN metamodel by extending SACM elements, so that not only can the GSN metamodel inherit features provided by SACM, but it also makes the interoperability from GSN to SACM easier. 
 
@@ -31,7 +31,7 @@ Thus, \textit{Context} is made a sub-type of \textit{ArgumentAsset}.
 \textit{SupportedBy} is made a sub-type of \textit{AssertedInference} and \textit{InContextOf} is made a sub-type of \textit{AssertedContext}. 
 \textit{Strategy} is made a sub-type of \textit{ArgumentReasoning} for it explains the intention of an \textit{AssertedRelationship}.
 
-The way that the GSN metamodel is created makes it inherently compatible with SACM, so that it can be used in as an \textit{ArgumentPackage}, organised in an \textit{AssuranceCasePackage}, with its supporting artefacts organised in \textit{ArtifactPackage}s and controlled vocabularies organised in \textit{TerminologyPckage}s. 
+The way that the GSN metamodel is created makes it inherently compatible with SACM, so that it can be used as an \textit{ArgumentPackage}, organised in an \textit{AssuranceCasePackage}, with its supporting artefacts organised in \textit{ArtifactPackage}s and controlled vocabularies organised in \textit{TerminologyPckage}s. 
 
 To enable interoperability from GSN to SACM, we provide a model-to-model transformation\footnote{Available at: \url{https://github.com/wrwei/MDERE/blob/master/technical}} defined using the Epsilon Transformation Language (ETL) \cite{kolovos2008epsilon}. 
 Most of the transformation is straight forward - instances of the GSN elements are transformed into instances of the SACM elements that the GSN elements extend. 
