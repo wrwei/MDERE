@@ -35,7 +35,8 @@ The way that the GSN metamodel is created makes it inherently compatible with SA
 
 To enable interoperability from GSN to SACM, we provide a model-to-model transformation\footnote{Available at: \url{https://github.com/wrwei/MDERE/blob/master/technical}} defined using the Epsilon Transformation Language (ETL) \cite{kolovos2008epsilon}. 
 Most of the transformation is straight forward - instances of the GSN elements are transformed into instances of the SACM elements that the GSN elements extend. 
-There is one exception: the transformation from \textit{Strategy} to \textit{ArgumentReasoning}. As discussed in Section~\ref{sec:relationships}, an \textit{ArgumentReasoning} is associated to an \textit{AssertedRelationship}, but in GSN, a \textit{Strategy} acts as a node in a goal structure. 
+There is one exception: the transformation from \textit{Strategy} to \textit{ArgumentReasoning}. 
+\textit{Strategy} in GSN is a node in the structured argumentation, where \textit{ArgumentReasoning} is a node associated to an \textit{AssertedRelationship} (which is an edge). Hence, additional analysis is needed to perform the GSN2SACM transformation.
 This requires analysis to be performed during the transformation, which is shown in Algorithm~\ref{alg:s2ar}.
 \begin{algorithm}[ht!]
 	{
@@ -63,15 +64,6 @@ This requires analysis to be performed during the transformation, which is shown
 		\If {strategy.uninstantiated == true} {
 			argumentReasoning.isAbstract = true;
 		}
-		%		\Let supportedByToSolution = all \textit{SupportedBy}s from \textit{outgoingSupportedBy} \\
-		%		that connects to a \textit{Solution};\\
-		%		\If{supportedByToSolution is not empty}{
-		%			\Let assertedEvidence = new \textit{AssertedEvidence};\\
-		%			assertedEvidence.target = incomingSupportedBy.source;\\
-		%			\For{supportedBy in supportedByToSolution}{
-		%				assertedEvidence.source.add(supportedBy.target);\\
-		%			}
-		%		}
 		\Let incomingSupportedBy = the incoming \textit{SupportedBy} to \textit{strategy};\\
 		\Let outgoingSupportedBys = all outgoing \textit{SupportedBy}s from \textit{strategy};\\
 		\Let supportedByFromGoal = \textit{Goal} from \textit{incomingSupportedBy}\\
@@ -106,7 +98,8 @@ This is forbidden in the GSN standard (permitted SupportedBy connections are: \t
 This is one of the reasons why model-based assurance case is desired - automated model validation can be performed to check the well-formedness of assurance cases.
 
 \subsection{The CAE metamodel and the interoprability from CAE to SACM}
-Claims-Arguments-Evidence (CAE) \cite{bishop2000methodology} is another widely used notation to construct safety arguments. Concepts in CAE are similar to those in GSN. 
+Claims-Arguments-Evidence (CAE) \cite{bishop2000methodology} is another widely used graphical notation for assurance case construction. 
+Concepts in CAE are similar to those in GSN. 
 There has not been an official metamodel defined for CAE. Thus, we provide our own version of CAE that extends SACM, shown in Figure~\ref{fig:caeMetamodel}\footnote{All CAE elements are rendered in blue for readability.}.
 
 
@@ -117,8 +110,7 @@ There has not been an official metamodel defined for CAE. Thus, we provide our o
 	\label{fig:caeMetamodel}
 \end{figure}
 
-CAE does not support modularity.
-However, SACM is highly modular.
+Unlike GSN and SACM, CAE does not support modularity.
 Therefore, we introduced three new concepts in CAE, \textit{CAEModule}, \textit{CAEModuleInterface} and \textit{CAEModuleBinding}, which extend \textit{ArgumentPackage}, \textit{ArgumentPackageInterface} and \textit{ArgumentPackageBiding} respectively.
 In CAE, there is a notion of \textit{Claim}, which is semantically identical to \textit{Claim} in SACM. 
 We therefore create a \textit{CAEClaim} element that extends \textit{Claim} in SACM. 
@@ -130,7 +122,7 @@ In CAE, there is a notion of \textit{Assumption}, which is made a sub-type of \t
 In CAE, there are three types of relationships, the \textit{IsEvidenceFor} connects \textit{Evidence} with \textit{Claim}s, thus is made a sub-type of \textit{AssertedEvidence}; the \textit{IsSubClaimOf} relationship connects sub-\textit{Claim}s to \textit{Claim} and is made a sub-type of \textit{AssertedInference}; the \textit{Supports} relationship connects \textit{Argument}s to \textit{Claim} and is also made a sub-type of \textit{AssertedInference}. 
 Since there is no notion of modules in CAE, the argumentation is contained in \textit{ArgumentPackage}s inherited from SACM.
 
-The transformation from CAE to SACM is similar to the transformation from GSN to SACM (which is also implemented in Epsilon Transformation Language), with the same issue that \textit{Argument} needs to be \textit{ArgumentReasoning}. 
+The transformation from CAE to SACM is similar to the transformation from GSN to SACM (which is also implemented in Epsilon Transformation Language), with the same issue that \textit{Argument} (which is a node in the structured argumentation) needs to be mapped to \textit{ArgumentReasoning} (a node associated to an edge).
 The detailed transformation is made publicly available\footnote{Available at: \url{https://github.com/wrwei/MDERE/blob/master/technical}}.
 
 
