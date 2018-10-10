@@ -1,9 +1,9 @@
 \section{Tool Support and Future Work}
 \label{sec:toolsupport}
 \subsection{Assurance Case Modelling Environment - ACME}
-With all its power in model-based system assurance, there is one drawback of SACM, which is the lack of concrete syntax, i.e. graphical representations of SACM. 
+With all its power in model-based system assurance, there is one drawback for SACM at the moment, which is the lack of concrete syntax, i.e. graphical representations of SACM\footnote{Graphical syntax for SACM is being developed by us}. 
 Without graphical representations, it is typically difficult for engineers to construct SACM. 
-Hence, in order to exploit the benefits provided by SACM, we implement a tool (Assurance Case Modelling Environment, ACME\footnote{Available upon request.}) based on the GSN metamodel we discussed in Section~\ref{sec:mapping}. 
+Hence, in order to exploit the benefits provided by SACM whilst provide support for existing assurance case approaches, we started developing a tool (Assurance Case Modelling Environment, ACME\footnote{Available upon request.}) based on SACM and the GSN metamodel we discussed in Section~\ref{sec:mapping}. 
 
 \begin{figure}
 	\centering
@@ -20,12 +20,23 @@ Hence, in order to exploit the benefits provided by SACM, we implement a tool (A
 	\end{minipage}
 \end{figure}
 
+ACME is implemented using the Graphical Modelling Framework (GMF) \cite{gmf}, which supports the creation of editors based on metamodels defined using the Ecore metamodel provided by the Eclipse Modelling Framework (EMF) \cite{steinberg2008emf}. 
+As previously discussed, we created metamodels for GSN and CAE, the approach we take for ACME is to support GSN for the argumentation part of the assurance case (since there is no graphical syntax for the \textit{Argumentation} component of SACM).
+In this sense, the users of ACME are able to create an assurance case using SACM, use GSN for the arguments, and then use SACM's \textit{Artifact} and \textit{Terminology} components for evidence-artefact traceability and controlled vocabulary. 
+In this way, system assurance case practitioners are able to make the transition from GSN/CAE to SACM, from (mostly) non-model-based approach to uniformed model-based approach.
+
+Figure~\ref{fig:ac_view} shows the Assurance Case Package View, within which the users are able to create Modules and Contract Modules of GSN, as well as elements defined in the \textit{AssuranceCase} component of SACM. 
+Figure~\ref{fig:module_view} shows the Module view of ACME, where the users are able to create GSN elements. 
+
 \begin{figure}
 	\centering
-	\includegraphics[width=1\linewidth]{artifact_view.pdf}
+	\includegraphics[width=.9\linewidth]{artifact_view.pdf}
 	\caption{Creation of Artifact.}
 	\label{fig:artifact_view}
 \end{figure}
+
+The users are also able to create elements in the \textit{Artifact} component of SACM (i.e. \textit{Artifact}, \textit{Activity}, \textit{Event}, \textit{Participant}, \textit{Technique}, \textit{Resource}, \textit{Property}, and \textit{ArtifactAssetRelationship}), Figure~\ref{fig:artifact_view} demonstrates how an \textit{Artifact} element can be created/edited. 
+Creation tools are also provided for the elements in the \textit{Terminology} component, where a \textit{TerminologyPackage} is represented as a table in ACME, Figure~\ref{fig:terminology_view} demonstrates how a \textit{TerminologyPackage} and its contents can be created/edited.
 
 \begin{figure}
 	\centering
@@ -34,24 +45,20 @@ Hence, in order to exploit the benefits provided by SACM, we implement a tool (A
 	\label{fig:terminology_view}
 \end{figure}
 
-ACME is implemented using the Graphical Modelling Framework (GMF) \cite{gmf}, which supports the creation of editors based on metamodels defined using the Ecore metamodel provided by the Eclipse Modelling Framework (EMF) \cite{steinberg2008emf}. 
-As previously discussed, the GSN metamodel inhertis all elements in the SACM metamodel, which means that the users of ACME are able to create GSN elements as well as elements inherited from SACM.
-
-Figure~\ref{fig:ac_view} shows the Assurance Case Package View, within which the users are able to create Modules and Contract Modules of GSN, as well as elements defined in the \textit{AssuranceCase} package of SACM. 
-Figure~\ref{fig:module_view} shows the Module view of ACME, where the users are able to create GSN elements. 
-
-The users are also able to create elements in the \textit{Artifact} package (i.e. \textit{Artifact}, \textit{Activity}, \textit{Event}, \textit{Participant}, \textit{Technique}, \textit{Resource}, \textit{Property}, and \textit{ArtifactAssetRelationship}), Figure~\ref{fig:artifact_view} demonstrates how an \textit{Artifact} can be created/edited. 
-Creation tools are also provided for the elements in the \textit{Terminology} package, where a \textit{TerminologyPackage} is represented as a table in ACME, Figure~\ref{fig:terminology_view} demonstrates how a \textit{TerminologyPackage} and its contents can be created/edited.
-
-ACME eases the creation of assurance cases in the sense that the argumentation made in the assurance case can be modelled using GSN which system assurance engineers are more familiar with (in the sense that the models produced by ACME conform to the GSN metamodel described in Section~\ref{sec:mapping}). 
-In addition, based on the transformation from GSN to SACM, ACME provides a conversion mechanism, where the created GSN model using ACME can be transformed into a SACM model, with the help of model-to-model transformation (implemented in Epsilon Transformation Language \cite{kolovos2008epsilon}), as shown in Figure~\ref{fig:transformation_view}.
-
+The idea behind ACME is to provide a transition for practitioners from GSN (and/or CAE\footnote{CAE editor for ACME is under development}) to SACM, before the OMG standardises the graphical syntax of SACM.
+In this way, assurance case practitioners can continue use GSN, whilst exploiting the features provided by SACM (explained in Section~\ref{sec:ac_sacm}). 
 \begin{figure}
 	\centering
-	\includegraphics[width=1\linewidth]{gsn2sacm_view.pdf}
-	\caption{M2M function provided by ACME to transform a GSN model to a SACM model.}
+	\includegraphics[width=.6\linewidth]{gsn2sacm_view.pdf}
+	\caption{M2M function to transform a GSN model to a SACM model.}
 	\label{fig:transformation_view}
 \end{figure}
+
+The users of ACME are also able to transform their GSN models to SACM, based on the model-to-model transformation from GSN to ACME. 
+ACME integrates with the Epsilon platform, so that model management operations are supported on GSN/SACM models. 
+A first step towards this direction is the support for GSN2SACM transformation, as shown in Figure~\ref{fig:transformation_view}.
+
+ACME is still under development, as it is the first integrated modelling environment for SACM. The support for GSN and CAE is beneficial for model-based system assurance. 
 
 ACME provides a transitional solution to model-based system assurance in the sense that it enables GSN users to fully exploit the potentials of SACM whilst being able to adopt the tool with their existing knowledge in using GSN. 
 
