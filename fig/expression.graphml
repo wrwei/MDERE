@@ -53,7 +53,7 @@ mitigated.</y:AttributeLabel>
           </y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="false">
             <y:AttributeLabel>value:
-have been sufficnetly mitigated</y:AttributeLabel>
+have been sufficiently mitigated</y:AttributeLabel>
             <y:MethodLabel/>
           </y:UML>
         </y:UMLClassNode>
