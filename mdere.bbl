@@ -124,6 +124,12 @@ George Despotou and T~Kelly.
   system safety assurance.
 \newblock 2008.
 
+\bibitem{denney2013formal}
+Ewen Denney and Ganesh Pai.
+\newblock A formal basis for safety case patterns.
+\newblock In {\em International Conference on Computer Safety, Reliability, and
+  Security}, pages 21--32. Springer, 2013.
+
 \bibitem{luo2015safety}
 Yaping Luo, Mark van~den Brand, and Alexandre Kiburse.
 \newblock Safety case development with sbvr-based controlled language.
@@ -135,23 +141,6 @@ Katrina~Claire Attwood, Tim Kelly, and Philippa Conmy.
 \newblock The use of controlled vocabularies and structured expressions in the
   assurance of cps.
 \newblock {\em Ada User Journal}, pages 251--258, 2014.
-
-\bibitem{taguchi2014linking}
-Kenji Taguchi, Souma Daisuke, Hideaki Nishihara, and Toshinori Takai.
-\newblock Linking traceability with gsn.
-\newblock In {\em Software Reliability Engineering Workshops (ISSREW), 2014
-  IEEE International Symposium on}, pages 192--197. IEEE, 2014.
-
-\bibitem{hawkins2015need}
-Richard~David Hawkins, Ibrahim Habli, and Tim Kelly.
-\newblock The need for a weaving model in assurance case automation.
-\newblock {\em Ada User Journal}, pages 187--191, 2015.
-
-\bibitem{hawkins2015weaving}
-Richard Hawkins, Ibrahim Habli, Dimitris Kolovos, Richard Paige, and Tim Kelly.
-\newblock Weaving an assurance case from design: a model-based approach.
-\newblock In {\em High Assurance Systems Engineering (HASE), 2015 IEEE 16th
-  International Symposium on}, pages 110--117. IEEE, 2015.
 
 \bibitem{hawkins2011new}
 Richard Hawkins, Tim Kelly, John Knight, and Patrick Graydon.
@@ -171,11 +160,22 @@ James~M Armstrong and Stephen~E Paynter.
 \newblock In {\em International Conference on Computer Safety, Reliability, and
   Security}, pages 3--16. Springer, 2004.
 
-\bibitem{denney2013formal}
-Ewen Denney and Ganesh Pai.
-\newblock A formal basis for safety case patterns.
-\newblock In {\em International Conference on Computer Safety, Reliability, and
-  Security}, pages 21--32. Springer, 2013.
+\bibitem{taguchi2014linking}
+Kenji Taguchi, Souma Daisuke, Hideaki Nishihara, and Toshinori Takai.
+\newblock Linking traceability with gsn.
+\newblock In {\em Software Reliability Engineering Workshops (ISSREW), 2014
+  IEEE International Symposium on}, pages 192--197. IEEE, 2014.
+
+\bibitem{hawkins2015need}
+Richard~David Hawkins, Ibrahim Habli, and Tim Kelly.
+\newblock The need for a weaving model in assurance case automation.
+\newblock {\em Ada User Journal}, pages 187--191, 2015.
+
+\bibitem{hawkins2015weaving}
+Richard Hawkins, Ibrahim Habli, Dimitris Kolovos, Richard Paige, and Tim Kelly.
+\newblock Weaving an assurance case from design: a model-based approach.
+\newblock In {\em High Assurance Systems Engineering (HASE), 2015 IEEE 16th
+  International Symposium on}, pages 110--117. IEEE, 2015.
 
 \bibitem{trapp2013safety}
 Mario Trapp, Daniel Schneider, and Peter Liggesmeyer.

@@ -58,14 +58,19 @@ The users of ACME are also able to transform their GSN models to SACM, based on 
 ACME integrates with the Epsilon platform, so that model management operations are supported on GSN/SACM models. 
 A first step towards this direction is the support for GSN2SACM transformation, as shown in Figure~\ref{fig:transformation_view}.
 
-ACME is still under development, as it is the first integrated modelling environment for SACM. The support for GSN and CAE is beneficial for model-based system assurance. In the future
-
-ACME provides a transitional solution to model-based system assurance in the sense that it enables GSN users to fully exploit the potentials of SACM whilst being able to adopt the tool with their existing knowledge in using GSN. 
+ACME is the first step towards an integrated modelling environment for SACM.
+ACME provides a transitional solution to model-based system assurance, in the sense that it enables existing assurance case approaches to be used in conjunction with SACM, in order to exploit the features provided by SACM such as evidence-artefact traceability, controlled vocabularies and multiple language support.
+ACME as it is at the moment, illustrates what can be done with SACM and model-based assurance cases created with SACM.
+However, it does not guarantee that assurance cases provided by ACME are compelling ones. 
+It is still the responsibility of assurance case developers to develop accurate and correct assurance cases.
 
 \subsection{Future Work}
-With regard to future work, our priority will focus on the support of importing legacy GSN/CAE models created by other drawing tools, typically those that can be consumed by computers but are not model-based. 
-ACME integrated the Epsilon platform\footnote{\url{https://www.eclipse.org/epsilon/}} with it, which provides a set of extensible model management languages, as well as extensible support for models defined in various formats.
-Thus, as long as legacy GSN/CAE models can be consumed by computers, corresponding \textit{driver}s can be created for the Epsilon platform to process such artefacts and transform them into GSN/SACM models via chaining transformations.
+With regard to future work for ACME, we aim at achieving the following;
 
-To the best of our knowledge, OMG is attempting to standardise the concrete syntax for SACM, we will provide support to the concrete syntax in ACME by creating Argumentation editors for SACM's \textit{Argumentation} package. 
-We will also investigate automated model validation to validate GSN/SACM models which has not been investigated before. We have not provided support for instantiating argumentation patterns, we will investigate the use of \textit{ImplementationConstraint}s for pattern instantiation.
+\begin{itemize}
+	\item Support for CAE. We aim to create the editor for CAE and integrate to ACME
+	\item Support for legacy assurance cases. We aim to develop a set of model extraction mechanisms to extract information from assurance cases provided by existing tools and convert them to models that conform to our GSN/CAE metamodels.
+	\item Model management programs. We aim to develop a set of model validation rules to check the well-formedness of GSN/CAE/SACM models. We also aim to develop a set of model-to-text transformation rules for assurance case report generation. Finally, 
+	\item Support for automated pattern instantiation. We integrate the Epsilon platform runtime\footnote{\url{https://www.eclipse.org/epsilon/}} in ACME for various model management operations. We aim to explore how \textit{ImplementationConstraint}s can be utilised to hold Epsilon programs for pattern instantiation.
+	\item Concrete syntax for SACM. We are contributing to the development of graphical notations for SACM at the moment, and will add the support for the notations in ACME once they are developed and evaluated.
+\end{itemize}
