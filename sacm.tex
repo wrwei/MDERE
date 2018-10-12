@@ -4,10 +4,6 @@ The \textit{Structured Assurance Case Metamodel} (SACM) is standardised by the O
 The intention of the metamodel is to promote a model-based approach in the process of \textit{System Assurance}, which is currently a manual approach that produces artefacts (i.e. Assurance Cases) that are (mostly) not model-based, where higher level operations (such as model query) on these artefacts are not enabled. 
 SACM is created to support existing well established graphical argumentation notations, the \textit{Goal Structuring Notation} (GSN) and \textit{Claims-Arguments-Evidence} (CAE). 
 
-%SACM captures not only fundamental concepts in the process of \textit{System Assurance} such as \textit{Claim}s and the relationships between \textit{Claim}s, but also concepts such as \textit{Artifact}s and \textit{Terminologi}es, in the sense that supporting evidence and information involved in the argument can be modelled in greater precision. 
-%In addition, SACM promotes \textit{modularity}, in the sense that assurance cases are organised in packages, which in turn organise argumentations, evidence and terminologies in corresponding packages. 
-%SACM also promotes \textit{openness} in the sense that external information (such as external models and/or documents) can be linked via the facilities provided. 
-
 In this section, we discuss the packages in SACM and explain their intended usage. 
 We provide two types of examples to demonstrate how SACM can be used: for simple concepts to explain without further context we will use in-place examples; and for complex concepts which requires the context of understanding the entirety of SACM we will use concrete examples, provided at the end of this section.
 Since OMG has not standardised the concrete syntax of SACM\footnote{We are aware that concrete syntax for SACM is in development.}, we will use object diagrams in the examples. 
@@ -381,13 +377,6 @@ The \textit{+isCitation} and \textit{+citedElement} features can be used in the 
 The intent of \textit{Claim}s are distinguished using \textit{AssertionDeclaration}s. 
 Different types of \textit{Claim}s are connected using different \textit{AssertedRelationship}s to form a structured argumentation. 
 
-%\begin{figure}[ht!]
-%	\centering
-%	\includegraphics[width=.6\linewidth]{assertedInference.eps}
-%	\caption{An example of \textbf{AssertedInference}.}
-%	\label{fig:assertedInference}
-%\end{figure}
-
 \begin{figure}
 	\centering
 	\begin{minipage}[b]{0.49\textwidth}
@@ -404,13 +393,6 @@ Different types of \textit{Claim}s are connected using different \textit{Asserte
 \end{figure}
 
 The \textit{AssertedInference} denotes the inference between one or more \textit{Assertion}s and another \textit{Assertion}, Figure~\ref{fig:assertedInference} provides an example, where the truth of \textit{Claim} \underline{C1}\footnote{Description details are omitted to make the model clearer.} is inferred from the truth of Claim \underline{C2}. 
-
-%\begin{figure}[ht]
-%	\centering
-%	\includegraphics[width=.6\linewidth]{assertedContext.eps}
-%	\caption{An example of \textbf{AssertedContext}.}
-%	\label{fig:assertedContext}
-%\end{figure}
 
 The \textit{AssertedContext} connects contextual \textit{Assertion}s to an \textit{Assertion}, Figure~\ref{fig:assertedContext} provides an example, where the \textit{Claim} \underline{A1} provides contextual information for \textit{Claim} \underline{C1}.
 
